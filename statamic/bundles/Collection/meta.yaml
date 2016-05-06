@@ -1,0 +1,7 @@
+fieldtype_fields:
+  max_items:
+    type: text
+  sort:
+    type: text
+  label:
+    type: text

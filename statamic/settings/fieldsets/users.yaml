@@ -1,0 +1,6 @@
+fields:
+  login_type:
+    type: select
+    options:
+      username: Username
+      email: Email Address

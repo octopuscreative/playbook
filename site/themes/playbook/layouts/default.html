@@ -1,0 +1,76 @@
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="designer" content="Octopus">
+  <meta name="developer" content="Octopus">
+  <meta name="description" content="{{ site_description }}">
+
+  <meta property="og:url" content="{{ path src='/' }}" />
+  <meta property="og:url" content="{{ path src='/' }}" />
+  <meta property="og:title" content="{{ site_name }}" />
+  <meta property="og:description" content="{{ site_description }}" />
+  <meta property="og:image" content="{{ path src='{ og_image|url }' }}" />
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:url" content="{{ path src='/' }}">
+  <meta name="twitter:title" content="{{ site_name }}">
+  <meta name="twitter:description" content="{{ site_description }}">
+  <meta name="twitter:image" content="{{ path src='{ twitter_image|url }' }}">
+
+
+  <title>{{ if segment_1 }} {{ if response_code == 404 }}Page Not Found{{ else }}{{ title }}{{ /if }} | {{ site_name }} {{ else }} {{ site_name }} {{ endif }}</title>
+
+  <link rel="shortcut icon" href="{{ path src='assets/favicon.ico' }}">
+  <link rel="stylesheet" href="{{ theme:css }}">
+
+</head>
+
+<body>
+
+  <aside class="fixed-top-left h-100 w-25 p-1">
+    <div class="h-100 relative">
+      <div class="brand px-4 py-7">
+        <h1 class="caps tn-3 cg-3 mb-1">Development at <span class="hidden">Octopus</span></h1>
+        <img src="/assets/octopus-brand.svg" />
+      </div>
+
+      <nav class="px-4 py-7">
+        {{ nav include_home="true" }}
+          <a href="{{ url }}" class="d-block cg-2 mb-4">{{ title }}</a>
+        {{ /nav }}
+      </nav>
+
+      <nav class="absolute-bottom-left w-100 px-4 py-7">
+        <a href="https://github.com/octopuscreative" class="caps tn-2 cg-3 pb-1 bb">Github</a>
+      </nav>
+    </div>
+  </aside>
+
+  <main class="w-75 py-14" style="float: right;">
+    {{ template_content }}
+  </main>
+
+
+  <script src="{{ theme:js }}"></script>
+
+  {{ if google_analytics_id }}
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+      ga('create', '{{ google_analytics_id }}', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+  {{ /if }}
+
+  {{ if typekit_id }}
+    <script src="https://use.typekit.net/{{ typekit_id }}.js"></script>
+    <script>try{Typekit.load({ async: true });}catch(e){}</script>
+  {{ /if }}
+
+</body>
+</html>

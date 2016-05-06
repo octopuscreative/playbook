@@ -1,0 +1,5 @@
+collections: [ ]
+taxonomies:
+  languages: '/languages/{{ slug }}'
+  frameworks: frameworks
+routes: [ ]

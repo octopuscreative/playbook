@@ -5,3 +5,5 @@ bower_components/
 local/cache/*
 local/storage/*
 local/temp/*
+
+site/themes/bare

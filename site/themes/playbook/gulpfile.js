@@ -1,5 +1,5 @@
 var elixir = require('laravel-elixir');
-var theme = 'ink';
+var theme = 'playbook';
 elixir.config.assetsPath = './';
 
 /*

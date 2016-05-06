@@ -1,0 +1,6 @@
+title: Site Globals
+hide: true
+fields:
+  name:
+    type: text
+    display: Name

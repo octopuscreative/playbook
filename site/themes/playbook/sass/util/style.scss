@@ -1,5 +1,6 @@
 // Default border weight.
 $default-border-weight: 1px !default;
+$default-border-radius: 2px !default;
 $thick-border-weight: $default-border-weight*2 !default;
 
 $color-primary: #0bf !default;
@@ -70,7 +71,7 @@ $greys: #313233 #595a5c #646566 #87888a #bec0c2 #d7d8da #e8e9eb #f2f4f5 !default
   .bl-thick-#{$i} { border-left: $thick-border-weight solid $grey; }
 }
 
-// Shadoes.
+// Shadows.
 .shadow { box-shadow: $default-box-shadow; }
 
 // [class^='shadow-'],
@@ -78,3 +79,5 @@ $greys: #313233 #595a5c #646566 #87888a #bec0c2 #d7d8da #e8e9eb #f2f4f5 !default
 // 	[class*='sharp'] {}
 // 	[class*='diffused'] {}
 // }
+
+.rounded { border-radius: $default-border-radius; }

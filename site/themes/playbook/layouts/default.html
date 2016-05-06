@@ -8,18 +8,18 @@
 
   <meta property="og:url" content="{{ path src='/' }}" />
   <meta property="og:url" content="{{ path src='/' }}" />
-  <meta property="og:title" content="{{ site_name }}" />
+  <meta property="og:title" content="{{ site:name }}" />
   <meta property="og:description" content="{{ site_description }}" />
   <meta property="og:image" content="{{ path src='{ og_image|url }' }}" />
 
   <meta name="twitter:card" content="summary">
   <meta name="twitter:url" content="{{ path src='/' }}">
-  <meta name="twitter:title" content="{{ site_name }}">
+  <meta name="twitter:title" content="{{ site:name }}">
   <meta name="twitter:description" content="{{ site_description }}">
   <meta name="twitter:image" content="{{ path src='{ twitter_image|url }' }}">
 
 
-  <title>{{ if segment_1 }} {{ if response_code == 404 }}Page Not Found{{ else }}{{ title }}{{ /if }} | {{ site_name }} {{ else }} {{ site_name }} {{ endif }}</title>
+  <title>{{ if segment_1 }} {{ if response_code == 404 }}Page Not Found{{ else }}{{ title }}{{ /if }} | {{ site:name }} {{ else }} {{ site:name }} {{ endif }}</title>
 
   <link rel="shortcut icon" href="{{ path src='assets/favicon.ico' }}">
   <link rel="stylesheet" href="{{ theme:css }}">
@@ -31,18 +31,18 @@
   <aside class="fixed-top-left h-100 w-25 p-1">
     <div class="h-100 relative">
       <div class="brand px-4 py-7">
-        <h1 class="caps tn-3 cg-3 mb-1">Development at <span class="hidden">Octopus</span></h1>
+        <h1 class="display tn-3 cg-3 mb-1">Development at <span class="hidden">Octopus</span></h1>
         <img src="/assets/octopus-brand.svg" />
       </div>
 
       <nav class="px-4 py-7">
-        {{ nav include_home="true" }}
-          <a href="{{ url }}" class="d-block cg-2 mb-4">{{ title }}</a>
+        {{ nav from="/" include_home="true" }}
+          <a href="{{ url }}" class="d-block display tn-1 tw-medium cg-2 mb-4">{{ title }}</a>
         {{ /nav }}
       </nav>
 
       <nav class="absolute-bottom-left w-100 px-4 py-7">
-        <a href="https://github.com/octopuscreative" class="caps tn-2 cg-3 pb-1 bb">Github</a>
+        <a href="https://github.com/octopuscreative" class="display tn-2 cg-3 pb-1 bb">Github</a>
       </nav>
     </div>
   </aside>

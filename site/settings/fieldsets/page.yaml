@@ -1,0 +1,20 @@
+title: Page
+fields:
+  punch_line:
+    type: textarea
+    display: Punch Line
+  content_builder:
+    type: replicator
+    display: Content Builder
+    sets:
+      markdown:
+        display: Markdown Block
+        instructions:
+        fields:
+          content:
+            type: markdown
+            display: ' '
+            instructions: null
+            cheatsheet: true
+            container: null
+            folder: null

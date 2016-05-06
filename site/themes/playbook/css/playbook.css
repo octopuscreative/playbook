@@ -70,7 +70,8 @@
   background-color: #595a5c;
 }
 
-.cg-3 {
+.cg-3,
+.markdown ol li::before {
   color: #646566;
 }
 
@@ -114,7 +115,8 @@
   color: #eff1f5;
 }
 
-.cbgg-8 {
+.cbgg-8,
+.markdown code {
   background-color: #eff1f5;
 }
 
@@ -149,7 +151,8 @@
   }
 }
 
-.d-inline-block {
+.d-inline-block,
+.markdown ol li::before {
   display: inline-block;
   vertical-align: middle;
 }
@@ -314,7 +317,9 @@
   height: 100%;
 }
 
-.w-100 {
+.w-100,
+.markdown pre,
+.markdown pre code {
   width: 100%;
 }
 
@@ -1790,7 +1795,9 @@
   background: rgba(0, 0, 0, 0.9);
 }
 
-.relative {
+.relative,
+.markdown ul li,
+.markdown ol li {
   position: relative;
 }
 
@@ -3614,6 +3621,11 @@ table {
   box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
 }
 
+.rounded,
+.markdown code {
+  border-radius: 2px;
+}
+
 .table {
   display: table;
 }
@@ -3779,7 +3791,8 @@ code {
   }
 }
 
-.t-3 {
+.t-3,
+.markdown h2 {
   font-size: 1.728rem;
 }
 
@@ -4087,7 +4100,8 @@ code {
   }
 }
 
-.tw-bold {
+.tw-bold,
+.markdown h2 {
   font-weight: 600;
 }
 
@@ -4128,10 +4142,10 @@ code {
 }
 
 .display {
-  font-family: "League Gothic", Helvetica, sans-serif;
+  font-family: "Euclid Flex";
   line-height: 1.5;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.075em;
 }
 
 .caps {
@@ -4159,6 +4173,7 @@ ol {
 
 p {
   font-weight: 200;
+  line-height: 1.5;
 }
 
 a {
@@ -4365,7 +4380,8 @@ code {
   padding: 0;
 }
 
-.p-2 {
+.p-2,
+.markdown pre code {
   padding: 1.2rem;
 }
 
@@ -4411,7 +4427,8 @@ code {
   margin-top: -1.2rem;
 }
 
-.mr-2 {
+.mr-2,
+.markdown ol li::before {
   margin-right: 1.2rem;
 }
 
@@ -4419,7 +4436,9 @@ code {
   margin-right: -1.2rem;
 }
 
-.mb-2 {
+.mb-2,
+.markdown ul li,
+.markdown ol li {
   margin-bottom: 1.2rem;
 }
 
@@ -4569,11 +4588,20 @@ code {
   padding-bottom: 1.728rem;
 }
 
-.pl-4 {
+.pl-4,
+.markdown ul li,
+.markdown ol li {
   padding-left: 1.728rem;
 }
 
-.px-4 {
+.px-4,
+.markdown p,
+.markdown h1,
+.markdown h2,
+.markdown h3,
+.markdown h4,
+.markdown ul,
+.markdown ol {
   padding-left: 1.728rem;
   padding-right: 1.728rem;
 }
@@ -4607,7 +4635,9 @@ code {
   margin-right: -1.728rem;
 }
 
-.mb-4 {
+.mb-4,
+.markdown p,
+.markdown h2 {
   margin-bottom: 1.728rem;
 }
 
@@ -4795,7 +4825,9 @@ code {
   margin-right: -2.48832rem;
 }
 
-.mb-6 {
+.mb-6,
+.markdown ul,
+.markdown ol {
   margin-bottom: 2.48832rem;
 }
 
@@ -4803,7 +4835,9 @@ code {
   margin-bottom: -2.48832rem;
 }
 
-.ml-6 {
+.ml-6,
+.markdown ul li,
+.markdown ol li {
   margin-left: 2.48832rem;
 }
 
@@ -12886,4 +12920,30 @@ code {
     margin-left: auto;
     margin-right: auto;
   }
+}
+
+body,
+html {
+  background: #fefefe;
+}
+
+.markdown ul,
+.markdown ol {
+  list-style-type: none;
+}
+
+.markdown ol {
+  counter-reset: list;
+}
+
+.markdown ol li::before {
+  counter-increment: list;
+  content: counter(list) ".";
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.markdown code {
+  padding: 0.25rem 0.5rem;
 }

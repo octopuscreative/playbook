@@ -1,0 +1,77 @@
+// This file defines how content from markdown blocks
+// appear (since we don't have control of that
+// markup).
+// 
+// We'll use extends from the utility classes so scaling
+// and styles remain consistent.
+.markdown {
+
+  p {
+    @extend .mb-4;
+    @extend .px-4;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @extend .px-4;
+  }
+
+  h2 {
+    @extend .tw-bold;
+    @extend .t-3;
+    @extend .mb-4;
+  }
+
+  ul,
+  ol {
+    @extend .px-4;
+    @extend .mb-6;
+
+    list-style-type: none;
+
+    li {
+      @extend .pl-4;
+      @extend .ml-6;
+      @extend .mb-2;
+      @extend .relative;
+    }
+    
+  }
+
+  ol {
+    counter-reset: list;
+
+    li {
+      &::before {
+        @extend .d-inline-block;
+        @extend .mr-2;
+        @extend .cg-3;
+        
+        counter-increment: list;
+        content: counter(list) '.';
+
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+    }
+  }
+
+  pre {
+    @extend .w-100;
+
+    code {
+      @extend .w-100;
+      @extend .p-2;
+    }
+  }
+
+  code {
+    @extend .rounded;
+    @extend .cbgg-8;
+
+    padding: 0.25rem 0.5rem;
+  }
+}

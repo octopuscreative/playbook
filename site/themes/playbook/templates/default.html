@@ -1,27 +1,27 @@
 <article class="px-4">
   <div class="container">
-    <header class="row px-4 mb-10">
+    <header class="row px-4 mb-14">
       <div class="row">
-        <div class="col-10">
+        <div class="col-8 push-1">
           <h1 class="display d-inline-block t-6 tw-bold mb-10">{{ title }}</h1>
           <h2 class="t-2 mb-4">{{ punch_line }}</h2>
         </div>
       </div>
 
       <div class="row">
-        <div class="col-2 bb-thick"></div>
+        <div class="col-2 push-1 bb-thick"></div>
       </div>
     </header>
 
     {{ content_builder }}
       {{ if type == 'markdown' }}
         <section class="row markdown">
-          <div class="col-10">
+          <div class="col-8 push-1">
             {{ content | markdown }}
           </div>
         </section>
       {{ /if }}
-    {{ /content_builder }}  
+    {{ /content_builder }}
 
   </div>
 

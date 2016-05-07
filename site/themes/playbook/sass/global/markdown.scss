@@ -19,8 +19,18 @@
   }
 
   h2 {
+    @extend .d-block;
     @extend .tw-bold;
     @extend .t-3;
+    @extend .mt-10;
+    @extend .mb-4;
+  }
+
+  h3 {
+    @extend .d-block;
+    @extend .tw-bold;
+    @extend .t-1;
+    @extend .mt-10;
     @extend .mb-4;
   }
 
@@ -34,7 +44,7 @@
     li {
       @extend .pl-4;
       @extend .ml-6;
-      @extend .mb-2;
+      @extend .mb-1;
       @extend .relative;
     }
     
@@ -61,6 +71,7 @@
 
   pre {
     @extend .w-100;
+    @extend .mb-8;
 
     code {
       @extend .w-100;
@@ -72,6 +83,6 @@
     @extend .rounded;
     @extend .cbgg-8;
 
-    padding: 0.25rem 0.5rem;
+    padding: 0.15rem 0.5rem 0.1rem;
   }
 }

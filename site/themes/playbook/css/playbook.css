@@ -157,7 +157,9 @@
   vertical-align: middle;
 }
 
-.d-block {
+.d-block,
+.markdown h2,
+.markdown h3 {
   display: block;
 }
 
@@ -1686,6 +1688,28 @@
 [class*=' hover-'][class*='slideInUp']:hover [class*='slideInUp-target'] {
   -webkit-transform: translate3d(0, 0, 0);
   transform: translate3d(0, 0, 0);
+}
+
+[class^='hover-'][class*='outline'][class*='target'],
+[class^='hover-'][class*='outline'] [class*='outline-target'],
+[class*=' hover-'][class*='outline'][class*='target'],
+[class*=' hover-'][class*='outline'] [class*='outline-target'] {
+  transition: background 0.18s ease-in, border 0.18s ease-in;
+}
+
+[class^='hover-'][class*='outline'][class*='target']:hover,
+[class^='hover-'][class*='outline']:hover [class*='outline-target'],
+[class*=' hover-'][class*='outline'][class*='target']:hover,
+[class*=' hover-'][class*='outline']:hover [class*='outline-target'] {
+  background: transparent;
+  border-color: #010101;
+}
+
+[class^='hover-'][class*='outline'][class*='target']:hover.cg-white,
+[class^='hover-'][class*='outline']:hover [class*='outline-target'].cg-white,
+[class*=' hover-'][class*='outline'][class*='target']:hover.cg-white,
+[class*=' hover-'][class*='outline']:hover [class*='outline-target'].cg-white {
+  color: #010101;
 }
 
 @-webkit-keyframes flip {
@@ -3735,7 +3759,8 @@ code {
   font-size: 1rem;
 }
 
-.t-1 {
+.t-1,
+.markdown h3 {
   font-size: 1.2rem;
 }
 
@@ -4101,7 +4126,8 @@ code {
 }
 
 .tw-bold,
-.markdown h2 {
+.markdown h2,
+.markdown h3 {
   font-weight: 600;
 }
 
@@ -4164,7 +4190,7 @@ h4 {
 ol,
 li,
 blockquote {
-  line-height: 1.5;
+  line-height: 1.7;
 }
 
 ol {
@@ -4173,7 +4199,7 @@ ol {
 
 p {
   font-weight: 200;
-  line-height: 1.5;
+  line-height: 1.7;
 }
 
 a {
@@ -4185,7 +4211,7 @@ pre,
 code {
   display: inline-block;
   font-family: 'Courier New', monospace;
-  line-height: 1.5;
+  line-height: 1.7;
 }
 
 .pm {
@@ -4340,7 +4366,9 @@ code {
   margin-right: -0.8333333333rem;
 }
 
-.mb-1 {
+.mb-1,
+.markdown ul li,
+.markdown ol li {
   margin-bottom: 0.8333333333rem;
 }
 
@@ -4436,9 +4464,7 @@ code {
   margin-right: -1.2rem;
 }
 
-.mb-2,
-.markdown ul li,
-.markdown ol li {
+.mb-2 {
   margin-bottom: 1.2rem;
 }
 
@@ -4637,7 +4663,8 @@ code {
 
 .mb-4,
 .markdown p,
-.markdown h2 {
+.markdown h2,
+.markdown h3 {
   margin-bottom: 1.728rem;
 }
 
@@ -5017,7 +5044,8 @@ code {
   margin-right: -3.5831808rem;
 }
 
-.mb-8 {
+.mb-8,
+.markdown pre {
   margin-bottom: 3.5831808rem;
 }
 
@@ -5189,7 +5217,9 @@ code {
   margin: -5.159780352rem;
 }
 
-.mt-10 {
+.mt-10,
+.markdown h2,
+.markdown h3 {
   margin-top: 5.159780352rem;
 }
 
@@ -12945,5 +12975,5 @@ html {
 }
 
 .markdown code {
-  padding: 0.25rem 0.5rem;
+  padding: 0.15rem 0.5rem 0.1rem;
 }

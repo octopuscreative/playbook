@@ -148,6 +148,26 @@
     }
   }
 
+
+  &[class*='outline'] {
+
+    &[class*='target'],
+    [class*='outline-target'] {
+      transition: background 0.18s ease-in,
+        border 0.18s ease-in;
+    }
+
+    &[class*='target']:hover,
+    &:hover [class*='outline-target'] {
+
+      &.cg-white {
+        color: $black;
+      }
+
+      background: transparent;
+      border-color: $black;
+    }
+  }
 }
 
 @keyframes flip {

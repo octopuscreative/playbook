@@ -74,6 +74,7 @@
     @extend .mb-8;
 
     code {
+      @extend .d-block;
       @extend .w-100;
       @extend .p-2;
     }

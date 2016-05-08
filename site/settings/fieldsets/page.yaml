@@ -11,10 +11,18 @@ fields:
         display: Markdown Block
         instructions:
         fields:
-          content:
+          md_content:
             type: markdown
             display: ' '
             instructions: null
             cheatsheet: true
             container: null
             folder: null
+      html:
+        display: HTML
+        instructions:
+        fields:
+          html:
+            type: textarea
+            display: HTML
+            instructions: null

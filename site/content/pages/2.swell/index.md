@@ -3,7 +3,7 @@ punch_line: " Don't miss another <em>swell</em> or powder day because of CSS inh
 content_builder:
   - 
     type: markdown
-    content: |
+    md_content: |
       Swell is a barebones utility CSS framework that is agnostic of design, allowing you – the developer – to build websites and application interfaces efficiently from project to project.
       
       ## Why utility classes?

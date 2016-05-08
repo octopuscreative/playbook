@@ -37,7 +37,16 @@
 
       <nav class="px-4 py-7">
         {{ nav from="/" include_home="true" }}
-          <a href="{{ url }}" class="d-block display tn-1 tw-medium cg-2 mb-4">{{ title }}</a>
+          <a href="{{ url }}" class="d-block display tn-1 tw-medium mb-4 {{ if !is_current }}cg-4{{ else }}cg-black{{ /if }}">{{ title }}</a>
+          {{ if is_current || is_parent }}
+            {{ if children }}
+               <ul>
+                <li>
+                  <a href="#{{ slug }}">{{ title }}</a>
+                </li>
+               </ul>
+            {{ /if }}
+          {{ /if }}
         {{ /nav }}
       </nav>
 

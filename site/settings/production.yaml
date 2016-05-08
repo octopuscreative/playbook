@@ -1,0 +1,10 @@
+settings:
+  debug:
+    debug: false
+  system:
+    license_key: 6cc08b79-f62e-4a29-8d9d-2a9a14fa4057
+    locales:
+      en:
+        full: en_US
+        name: English
+        url: http://playbook.octop.us

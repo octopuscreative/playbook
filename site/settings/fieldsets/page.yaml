@@ -1,5 +1,9 @@
 title: Page
 fields:
+  contributors:
+    type: users
+    display: Contributors
+    label: '{{ first_name }} {{ last_name }}'
   punch_line:
     type: textarea
     display: Punch Line
@@ -26,6 +30,3 @@ fields:
             type: textarea
             display: HTML
             instructions: null
-  field_3:
-    type: time
-    display: Field 3

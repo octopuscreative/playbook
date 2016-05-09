@@ -51,8 +51,14 @@
 {{ /if }}
 
 <footer class="container">
-  <div class="col-8 push-2 px-1">
+  <div class="col-2 push-2 px-1">
     <p class="display tn-3 cg-4 mb-1">Updated</p>
     <p class="tn-1 cg-1">{{ last_modified format="F j, Y" }}</p>
+  </div>
+  <div class="col-4 px-1">
+    <p class="display tn-3 cg-4 mb-1">Contributers</p>
+    {{ relate:contributors }}
+      <p class="tn-1 cg-1">{{ first_name }} {{ last_name }}</p>
+    {{ /relate:contributors }}
   </div>
 </footer>

@@ -2,3 +2,23 @@ admin:
   title: Admin
   permissions:
     - super
+fc8fe2fd-8366-4731-ba42-4cbc8efaf678:
+  title: Contributor
+  slug: contributor
+  permissions:
+    - cp:access
+    - content:view_drafts_on_frontend
+    - pages:edit
+    - pages:create
+    - pages:delete
+    - pages:reorder
+    - taxonomies:languages:edit
+    - taxonomies:languages:create
+    - taxonomies:languages:delete
+    - taxonomies:frameworks:edit
+    - taxonomies:frameworks:create
+    - taxonomies:frameworks:delete
+    - globals:site:edit
+    - forms
+    - updater
+    - importer

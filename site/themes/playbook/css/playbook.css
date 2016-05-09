@@ -159,7 +159,8 @@
 
 .d-block,
 .markdown h2,
-.markdown h3 {
+.markdown h3,
+.markdown pre code {
   display: block;
 }
 
@@ -12972,6 +12973,10 @@ html {
   position: absolute;
   top: 0;
   left: 0;
+}
+
+.markdown pre code {
+  overflow: auto;
 }
 
 .markdown code {

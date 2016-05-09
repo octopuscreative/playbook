@@ -77,6 +77,8 @@
       @extend .d-block;
       @extend .w-100;
       @extend .p-2;
+
+      overflow: auto;
     }
   }
 

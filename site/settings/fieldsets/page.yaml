@@ -26,3 +26,6 @@ fields:
             type: textarea
             display: HTML
             instructions: null
+  field_3:
+    type: time
+    display: Field 3

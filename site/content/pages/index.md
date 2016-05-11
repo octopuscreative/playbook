@@ -1,5 +1,5 @@
 ---
-punch_line: Our guide for writing the best code possible for the best companies in the world.
+punch_line: Our guide to writing the best code for the best companies in the world.
 title: The Playbook
 template: home
 list:

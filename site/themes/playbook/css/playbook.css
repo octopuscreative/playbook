@@ -1,3 +1,4 @@
+@import url(https://fonts.googleapis.com/css?family=Muli:400,300italic,300,400italic|Oswald:400,300,700);
 .c-primary {
   color: #0bf;
 }
@@ -152,7 +153,8 @@
 }
 
 .d-inline-block,
-.markdown ol li::before {
+.markdown ol li::before,
+.markdown code {
   display: inline-block;
   vertical-align: middle;
 }
@@ -3562,7 +3564,8 @@ table {
   border-left: 2px solid #d7d8da;
 }
 
-.b-7 {
+.b-7,
+.markdown code {
   border: 1px solid #e6e9f0;
 }
 
@@ -3666,7 +3669,7 @@ table {
 body,
 html {
   font-size: 16px;
-  font-family: "Gotham Narrow SSm", "Helvetica", sans-serif;
+  font-family: "Muli", "Arial", sans-serif;
   font-weight: 200;
 }
 
@@ -4169,7 +4172,7 @@ code {
 }
 
 .display {
-  font-family: "Euclid Flex";
+  font-family: "Oswald", "Helvetica", sans-serif;
   line-height: 1.5;
   text-transform: uppercase;
   letter-spacing: 0.075em;
@@ -12980,5 +12983,6 @@ html {
 }
 
 .markdown code {
-  padding: 0.15rem 0.5rem 0.1rem;
+  line-height: 1.5;
+  padding: 0.1rem 0.5rem 0.05rem;
 }

@@ -1,7 +1,7 @@
 contributors:
   - fcf94a4c-04ad-4243-b455-59dda1f2d016
   - c7782849-8a3f-4979-a8db-c1831b8962f2
-punch_line: "Because you shouldn't"
+punch_line: Because we care about our clients and their experience months down the road after the project ships
 content_builder:
   - 
     type: markdown

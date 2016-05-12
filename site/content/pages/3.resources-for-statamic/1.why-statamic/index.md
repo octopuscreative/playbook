@@ -7,7 +7,9 @@ content_builder:
     md_content: |
       ## Flexability
       
-      ## Extensibility 
+      For starters, Statamic is incredibly flexible. Where other CMS's might make assumptions about the type of content you'll be working with, Statamic does not. This means that from the start we can hit the ground running without having to trudge through pre-written code for a content type we don't even want. With Statamic 2 there's now an included field type editor. This means that while the site is being designed we devs can be busy scaffoling out the backend. Opps, need a section renamed? No problem, easy fix. Need a whole new collection that was never discussed before? Again, no problem at all. Because our CMS is flexible, it means that we too can be flexible and produce for the client exactly what they need.
+      
+      ## Extensibility
       
       ## Speed
       

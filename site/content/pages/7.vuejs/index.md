@@ -7,6 +7,7 @@ content_builder:
     md_content: |
       What follows is just an inital list of things I've found useful in the past:
       
+      * [https://vuejs.org/guide/](https://vuejs.org/guide/)
       * [https://laracasts.com/series/learning-vue-step-by-step](https://laracasts.com/series/learning-vue-step-by-step)
       * [http://forum.vuejs.org/](http://forum.vuejs.org/)
       * [https://github.com/vuejs/awesome-vue](https://github.com/vuejs/awesome-vue)

@@ -1,0 +1,6 @@
+environments:
+  - production
+commands:
+  - "git add -A"
+  - "git commit -m '[Spock] {{ url }} updated by {{ committer:username }}'"
+  - "git push origin master"

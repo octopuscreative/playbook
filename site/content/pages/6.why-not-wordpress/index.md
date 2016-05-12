@@ -14,7 +14,7 @@ content_builder:
       
       ## Performance
       
-      So now that we've talked about how much work it takes to even give clients a UI to update their site, we should talk about performance. For ever WordPress plugin that's added to the mix, there are all that more php process that need to run and sql queries that need to be processed which could lead to performance issues.
+      So now that we've talked about how much work it takes to even give clients a UI to update their site, we should talk about performance. For every WordPress plugin that's added to the mix, there are all that more php process that need to run and sql queries that need to be processed which could lead to performance issues.
       
       ##  Security
       

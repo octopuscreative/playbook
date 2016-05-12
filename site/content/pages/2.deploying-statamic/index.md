@@ -65,5 +65,8 @@ content_builder:
       ```
       
       This updates the `location` rule with Statamic's and tells PHP to use `php7.0-fpm`. Without this, you'll get the `php5-fpm: Unrecognized service` error.
+      
+      
+      Note: if your nginx configuration specifies a specific domain (ie. `octop.us`). You have to access the site from that url. Pointing via the IP address will output a 404 error.
 title: Deploying Statamic
 id: 4a2ccd96-d903-44ee-9ffc-0b70e83e1e28

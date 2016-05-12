@@ -33,29 +33,29 @@ content_builder:
       <div class="row mln-1 mb-2">
       
         <div class="col-6  pl-1">
-          <div class="p-2 b-7 cbgg-8">
+          <div class="p-2 b-6 cbgg-8">
             <div class="row mln-1">
               <div class="col-6 pl-1">
-                <div class="py-2 b-7 cbgg-7"></div>
+                <div class="py-2 b-6 cbgg-7"></div>
                </div>
               <div class="col-6 pl-1">
-                <div class="py-2 b-7 cbgg-7"></div>
+                <div class="py-2 b-6 cbgg-7"></div>
                </div>
             </div>
           </div>
         </div>
       
         <div class="col-6  pl-1">
-          <div class="p-2 b-7 cbgg-8">
+          <div class="p-2 b-6 cbgg-8">
             <div class="row mln-1">
               <div class="col-4 pl-1">
-                <div class="py-2 b-7 cbgg-7"></div>
+                <div class="py-2 b-6 cbgg-7"></div>
                </div>
               <div class="col-4 pl-1">
-                <div class="py-2 b-7 cbgg-7"></div>
+                <div class="py-2 b-6 cbgg-7"></div>
                </div>
               <div class="col-4 pl-1">
-                <div class="py-2 b-7 cbgg-7"></div>
+                <div class="py-2 b-6 cbgg-7"></div>
                </div>
           </div>
         </div>

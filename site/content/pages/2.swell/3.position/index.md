@@ -7,46 +7,46 @@ content_builder:
     html: |
       <div class="row">
         <div class="col-3 p-1">
-          <div class="b-5 ratio-1_1 cbgg-8 relative">
-            <div class="w-50 h-50 b-5 m-1 cbgg-7 absolute-top-left"></div>
+          <div class="b-6 ratio-1_1 cbgg-8 relative">
+            <div class="w-50 h-50 b-6 m-1 cbgg-7 absolute-top-left"></div>
           </div>
         </div>
         <div class="col-3 p-1">
-          <div class="b-5 ratio-1_1 cbgg-8 relative">
-            <div class="w-50 h-50 b-5 m-1 cbgg-7 absolute-top-right"></div>
+          <div class="b-6 ratio-1_1 cbgg-8 relative">
+            <div class="w-50 h-50 b-6 m-1 cbgg-7 absolute-top-right"></div>
           </div>
         </div>
         <div class="col-3 p-1">
-          <div class="b-5 ratio-1_1 cbgg-8 relative">
-            <div class="w-50 h-50 b-5 m-1 cbgg-7 absolute-bottom-left"></div>
+          <div class="b-6 ratio-1_1 cbgg-8 relative">
+            <div class="w-50 h-50 b-6 m-1 cbgg-7 absolute-bottom-left"></div>
           </div>
         </div>
         <div class="col-3 p-1">
-          <div class="b-5 ratio-1_1 cbgg-8 relative">
-            <div class="w-50 h-50 b-5 m-1 cbgg-7 absolute-bottom-right"></div>
+          <div class="b-6 ratio-1_1 cbgg-8 relative">
+            <div class="w-50 h-50 b-6 m-1 cbgg-7 absolute-bottom-right"></div>
           </div>
         </div>
       </div>
       
       <div class="row">
         <div class="col-3 p-1">
-          <div class="b-5 ratio-1_1 cbgg-8 relative">
-            <div class="w-50 h-50 b-5 cbgg-7 absolute-center-middle"></div>
+          <div class="b-6 ratio-1_1 cbgg-8 relative">
+            <div class="w-50 h-50 b-6 cbgg-7 absolute-center-middle"></div>
           </div>
         </div>
         <div class="col-3 p-1">
-          <div class="b-5 ratio-1_1 cbgg-8 relative">
-            <div class="w-50 h-50 b-5 my-1 cbgg-7 absolute-center-top"></div>
+          <div class="b-6 ratio-1_1 cbgg-8 relative">
+            <div class="w-50 h-50 b-6 my-1 cbgg-7 absolute-center-top"></div>
           </div>
         </div>
         <div class="col-3 p-1">
-          <div class="b-5 ratio-1_1 cbgg-8 relative">
-            <div class="w-50 h-50 b-5 my-1 cbgg-7 absolute-center-bottom"></div>
+          <div class="b-6 ratio-1_1 cbgg-8 relative">
+            <div class="w-50 h-50 b-6 my-1 cbgg-7 absolute-center-bottom"></div>
           </div>
         </div>
         <div class="col-3 p-1">
-          <div class="b-5 ratio-1_1 cbgg-8 relative">
-            <div class="w-50 h-50 b-5 m-1 cbgg-7 absolute-top-right"></div>
+          <div class="b-6 ratio-1_1 cbgg-8 relative">
+            <div class="w-50 h-50 b-6 m-1 cbgg-7 absolute-top-right"></div>
           </div>
         </div>
       </div>

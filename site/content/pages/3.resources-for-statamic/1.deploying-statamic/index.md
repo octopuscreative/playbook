@@ -1,7 +1,3 @@
-contributors:
-  - d4bc4529-83ce-43a4-861c-d5d60247445e
-title: Deploying Statamic
-id: 0af07679-9be6-480b-95f1-e5d9c7e5609e
 content_builder:
   - 
     type: markdown
@@ -65,7 +61,7 @@ content_builder:
           deny all;
       }
       ```
-
+      
       This updates the `location` rule with Statamic's and tells PHP to use `php7.0-fpm`. Without this, you'll get the `php5-fpm: Unrecognized service` error.
       
       

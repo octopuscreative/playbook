@@ -17,7 +17,7 @@ content_builder:
       
       ## Documentation
       
-      Seriously, the [Statamic Docs](https://docs.statamic.com/reference) are really good. What does that mean for our clients? It means that they get a well built and maintainable site faster.
+      Seriously, the [Statamic Docs](https://docs.statamic.com/reference) are really good. What does that mean for our clients? It means that they get a well built and maintainable site faster. What does that mean for us devs? It means that we're not _as_ frustrated _as_ often. 👌
       
       ## Speed
       

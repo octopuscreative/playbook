@@ -1,7 +1,7 @@
 contributors:
   - fcf94a4c-04ad-4243-b455-59dda1f2d016
   - c7782849-8a3f-4979-a8db-c1831b8962f2
-punch_line: Because we care both about our clients and our own sanity
+punch_line: Because you get what you pay for
 content_builder:
   - 
     type: markdown

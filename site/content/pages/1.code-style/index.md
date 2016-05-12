@@ -1,3 +1,5 @@
+contributors:
+  - fcf94a4c-04ad-4243-b455-59dda1f2d016
 content_builder:
   - 
     type: markdown
@@ -5,5 +7,5 @@ content_builder:
       Having a code styleguide helps enforce consistency across our code bases. Try your best to follow the rules found there, but bear in mind that these are not to be blindly followed; strive to understand them and ask when in doubt.
       
       Check out the [Octopus Code Styleguide](https://github.com/octopuscreative/octopus-style)
-title: Code Styleguide
+title: Code Style
 id: 1d16ace4-6b19-49f1-a4f6-f04ee9f3d656

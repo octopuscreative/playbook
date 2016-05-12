@@ -1,5 +1,8 @@
 contributors:
   - fcf94a4c-04ad-4243-b455-59dda1f2d016
+punch_line: >
+  A good architecture is consistent in the sense that, given a partial knowledge of the system, one
+  can predict the remainder. – Fred Brooks, The Design of Design
 content_builder:
   - 
     type: markdown

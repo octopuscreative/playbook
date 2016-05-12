@@ -14,7 +14,7 @@ content_builder:
       
       ## Performance
       
-      So now that we've talked about how much work it takes to even give clients a UI to update their site, we should talk about performance. For every WordPress plugin that's added to the mix, there are all that more php process that need to run and sql queries that need to be processed which could lead to performance issues.
+      So now that we've talked about how much work it takes to even give clients a (usable) UI to update their site, we should talk about performance. For every WordPress plugin that's added to the mix, there are all the more php processes that need to run and sql queries that need to be processed. If you find yourself saying something like "So what? Computers are fast!", then you need to look a little deeper. [This company](http://www.yottaa.com/company/blog/application-optimization/benchmarking-performance-of-8-cms-platforms-who-is-slowest/) benchmarked 15,000 sites and compared the results across the different CMS's that they used and WordPress was very consistently the slowest performer. What makes things even worse is that these tests were run on desktop machines - can you imagine what performance would be like for the growing number of mobile users out there? In an age where your users expect things to be fast and won't wait more than a few seconds for your site to load, it's a pretty big deal.
       
       ##  Security
       
@@ -22,6 +22,6 @@ content_builder:
       
       ## The Bottom Line
       
-      Really, the bottom line is that there are people out there that can do cool things with WordPress, but that's not where we excell at. We're good at building things from scratch quickly and not repurposing/bending a setup to do something it wasn't meant to do from its conception. The reason why things like [Statamic 😍](https://statamic.com/) and [Craft  👀](https://craftcms.com/) work so much better is because from the start they dont make any assumptions about the content you'll be working with - they get out of the way and let you build what the client needs.
+      Really, the bottom line is that there are people out there that can do cool thing s with WordPress, but that's not where we excell at. We're good at building things from scratch quickly and not repurposing/bending a setup to do something it wasn't meant to do from its conception. The reason why things like [Statamic 😍](https://statamic.com/) and [Craft  👀](https://craftcms.com/) work so much better is because from the start they dont make any assumptions about the content you'll be working with - they get out of the way and let you build what the client needs.
 title: Why not WordPress?
 id: 6669ca9f-c060-4f32-a29f-bf9e97d21ba6

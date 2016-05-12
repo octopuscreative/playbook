@@ -10,5 +10,5 @@ content_builder:
       * [https://laracasts.com/series/learning-vue-step-by-step](https://laracasts.com/series/learning-vue-step-by-step)
       * [http://forum.vuejs.org/](http://forum.vuejs.org/)
       * [https://github.com/vuejs/awesome-vue](https://github.com/vuejs/awesome-vue)
-title: Vue.js Resources
+title: Vue.js
 id: 83dd882e-042e-4eac-bfc9-f8c83b6eed55

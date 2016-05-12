@@ -12,8 +12,16 @@ content_builder:
       
       Aside from the above out of the box you get two content types (blog and page), and between them there's one textarea for adding content. Typically in our projects clients expect to be able to edit most content on a page, for example hero text or client testimonials. This isn't possible without adding at least two plugins, and even after that you get a cluttered mess of a UI to work with, and you can't even check those customizations into source control.
       
+      # Performance
+      
+      So now that we've talked about how much work it takes to even give clients a UI to update their site, we should talk about performance. For ever WordPress plugin that's added to the mix, there are all that more php process that need to run and sql queries that need to be processed which could lead to performance issues.
+      
       #  Security
       
       Every CMS and framework suffers the occasional security flaw. However, WordPress has a “richer” history of security bugs and choices in the system that lead to vulnerabilities, including various [exploits](http://readwrite.com/2011/01/13/the-hidden-dangers-of-free-wor/) and [vulnerabilities](http://markmaunder.com/2011/08/01/zero-day-vulnerability-in-many-wordpress-themes/) in downloadable themes and plugins. For a comprehensive list of WordPress exploits, [check this out](http://www.wordpressexploit.com/).
+      
+      # The Bottom Line
+      
+      Really, the bottom line is that there are people out there that can do cool things with WordPress, but that's not where we excell at. We're good at building things from scratch quickly and not repurposing/bending a setup to do something it wasn't meant to do from its conception. The reason why things like [Statamic (😍)](https://statamic.com/) and [Craft](https://craftcms.com/) work so much better is because from the start they dont make any assumptions about the conte you'll be working with so from the start we're not working against the grain.
 title: Why not WordPress?
 id: 6669ca9f-c060-4f32-a29f-bf9e97d21ba6

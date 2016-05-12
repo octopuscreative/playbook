@@ -1,4 +1,7 @@
 ---
+contributors:
+  - d4bc4529-83ce-43a4-861c-d5d60247445e
+  - fcf94a4c-04ad-4243-b455-59dda1f2d016
 punch_line: " Don't miss another <em>swell</em> or powder day because of CSS inheritance issues and start pushing out websites like a hen on Easter. It's so easy, a designer could do it."
 content_builder:
   - 

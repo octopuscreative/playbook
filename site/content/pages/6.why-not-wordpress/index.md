@@ -12,6 +12,6 @@ content_builder:
       
       #  Security
       
-      Every CMS and framework suffers the occasional security flaw. However, WordPress has a “richer” history of security bugs and choices in the system that lead to vulnerabilities, including various [exploits](http://www.readwriteweb.com/biz/2011/01/the-hidden-dangers-of-free-wor.php) and [vulnerabilities](http://markmaunder.com/2011/08/01/zero-day-vulnerability-in-many-wordpress-themes/) in downloadable themes and plugins. For a comprehensive list of WordPress exploits, [check this out](http://www.wordpressexploit.com/).
+      Every CMS and framework suffers the occasional security flaw. However, WordPress has a “richer” history of security bugs and choices in the system that lead to vulnerabilities, including various [exploits](http://readwrite.com/2011/01/13/the-hidden-dangers-of-free-wor/) and [vulnerabilities](http://markmaunder.com/2011/08/01/zero-day-vulnerability-in-many-wordpress-themes/) in downloadable themes and plugins. For a comprehensive list of WordPress exploits, [check this out](http://www.wordpressexploit.com/).
 title: Why not WordPress?
 id: 6669ca9f-c060-4f32-a29f-bf9e97d21ba6

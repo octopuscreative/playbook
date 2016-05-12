@@ -11,10 +11,20 @@ content_builder:
       
       ## Extensibility
       
+      Statamic is built on top of Laravel, a cutting edge modern web app framework. If there's something we need to do that Statamic can't do out of the box, Laravel can handle it. Even better yet Statamic [provides tools](https://docs.statamic.com/addons/getting-started) for us devs that make creating and sharing addons too easy. We're not a PHP shop, but we've been able to some pretty cool things with minimal effort because of the docs and tools provided to us by Statamic/Laravel.
+      
+      ## Documentation
+      
+      Seriously, the [Statamic Docs](https://docs.statamic.com/reference) are really good. What does that mean for our clients? It means that they get a well built and maintainable site faster.
+      
       ## Speed
       
       ## Truly Customized Content Editing
       
+      ## Searching & Forms Baked In
+      
       ## Support
+      
+      The Statamic community has a very vibrant support community. There hasn't been anything we've needed to but couldn't because there's always someone in their Slack to lend a hand.
 title: Why Statamic?
 id: 5db50acd-5294-43a3-ba0e-472b2d362f77

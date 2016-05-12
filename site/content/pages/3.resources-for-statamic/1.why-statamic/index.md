@@ -5,7 +5,7 @@ content_builder:
   - 
     type: markdown
     md_content: |
-      [Statamic's Feature Page](https://statamic.com/features)
+      [Statamic's Features](https://statamic.com/features)
       
       ## Flexibility
       
@@ -21,13 +21,15 @@ content_builder:
       
       ## Speed
       
-      It's really really fast. Out of the box, Statamic ships with a caching layer that makes not only page response times quick, but it also reduces the load that your servers take from multiple concurent users. In a nutshell, when content is updated it's saved into the cache and then next time a user requests that content, there's not any processing that needs to happen - it's immediately available. Also since Statamic is a flat file system and doesn't rely on a database 
+      It's really really fast. Out of the box, Statamic ships with a caching layer that makes not only page response times quick, but it also reduces the load that your servers take from multiple concurent users. In a nutshell, when content is updated it's saved into the cache and then next time a user requests that content, there's not any processing that needs to happen - it's immediately available. Also since Statamic is a flat file system and doesn't rely on a database
       
       ## Truly Customized Content
       
+      By far one of the biggest advantages about Statamic is that we can tailor the control panel to the types of content they client will be creating. No square pegs and round holes.
+      
       ## Searching & Forms Baked In
       
-      The two most common things client ask for are being able to search the site and being able to accept contact request emails. Guess what? Statamic rolls with that out of the box. The search just works, and the forms are all manageable from the control panel.
+      Two of the most common things clients ask for are being able to search the site and being able to accept contact request emails. Guess what? Statamic rolls with that out of the box. The search just works, and the forms are all manageable from the control panel.
       
       ## Support
       

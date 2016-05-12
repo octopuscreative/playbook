@@ -22,6 +22,6 @@ content_builder:
       
       ## The Bottom Line
       
-      Really, the bottom line is that there are people out there that can do cool thing s with WordPress, but that's not where we excell at. We're good at building things from scratch quickly and not repurposing/bending a setup to do something it wasn't meant to do from its conception. The reason why things like [Statamic 😍](https://statamic.com/) and [Craft  👀](https://craftcms.com/) work so much better is because from the start they dont make any assumptions about the content you'll be working with - they get out of the way and let you build what the client needs.
+      Really, the bottom line is that there are people out there that can do cool things with WordPress, but that's not where we excell. We're good at building things from scratch quickly and not repurposing/bending a setup to do something it wasn't meant to do from its conception. The reason why things like [Statamic 😍](https://statamic.com/) and [Craft  👀](https://craftcms.com/) work so much better is because from the start they dont make any assumptions about the content you'll be working with - they get out of the way and let you build what the client needs.
 title: Why not WordPress?
 id: 6669ca9f-c060-4f32-a29f-bf9e97d21ba6

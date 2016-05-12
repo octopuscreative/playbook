@@ -15,7 +15,7 @@ $breakpoint-lg: '(min-width: 1280px)'; // 1280
 $breakpoint-xl: '(min-width: 1440px)'; // 1440
 
 // Colors.
-$color-primary: #0bf;
+$color-primary: #2c3e50;
 $color-secondary: #f00;
 $color-success: #60aa53;
 $color-error: #f00;
@@ -23,7 +23,7 @@ $color-warning: #e89414;
 
 // Greyscale.
 $black: #010101;
-$greys: #313233 #595a5c #646566 #87888a #bec0c2 #d7d8da #e6e9f0 #eff1f5;
+$greys: #313233 #595a5c #646566 #87888a #bec0c2 #d7d8da #eef0f5 #fbfcff;
 $white: #fefefe;
 
 // Debug Settings.
@@ -39,7 +39,7 @@ $fw-bold: 600;
 // Defaults.
 
 // Tyopgraphy.
-$default-type-family: 'Muli', 'Arial', sans-serif;
+$default-type-family: 'Roboto', 'Arial', sans-serif;
 $default-type-weight: $fw-light;
 $default-type-color: #313233;
 $default-line-height: 1.7;
@@ -47,7 +47,7 @@ $default-line-height: 1.7;
 $display-type-family: 'Oswald', 'Helvetica', sans-serif;
 $display-text-transform: uppercase;
 $display-letter-spacing: 0.075em;
-$caps-letter-spacing: 0.15em;
+$caps-letter-spacing: 0.25em;
 
 // Borders.
 $default-border-radius: 2px;

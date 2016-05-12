@@ -1,7 +1,7 @@
 ---
 punch_line: Our guide to writing the best code for the best companies in the world.
 title: The Playbook
-template: home
+template: default
 list:
   - of
   - things

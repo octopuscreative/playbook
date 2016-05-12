@@ -3,8 +3,8 @@
     <header class="mb-12">
       <div class="row">
         <div class="col-8 push-2 px-4">
-          <h1 class="display d-inline-block t-6 tw-bold mb-10">{{ title }}</h1>
-          <h2 class="t-2 mb-4">{{ punch_line }}</h2>
+          <h1 class="d-inline-block t-6 tw-medium mb-10">{{ title }}</h1>
+          <h2 class="t-2 mb-4 cg-4">{{ punch_line }}</h2>
 
           <div class="col-2 bb-thick"></div>
         </div>
@@ -19,12 +19,12 @@
 
 
 <!-- Table of Contents -->
-{{ nav url='{ url }' }}
+<!-- {{ nav url='{ url }' }}
   {{ if index == 1}}
   <section class="container pr-10 mb-10">
     <div class="row mb-6">
       <div class="push-2 px-4">
-        <h2 class="t-4 tw-bold">Table of Contents</h2>
+        <h2 class="t-4 tw-medium">Table of Contents</h2>
       </div>
     </div>
     <div class="row">
@@ -36,15 +36,15 @@
     </div>
   </section>
   {{ /if }}
-{{ /nav }}
+{{ /nav }} -->
 
 {{ pages url='{ url }' }}
-  {{ if url != current_uri }}
+  {{ if url != current_uri && segment_1 }}
   <article id="{{ slug }}" class="pr-10 mb-8">
     <div class="container">
-      <header class="row mb-8">
+      <header class="row mb-4">
         <div class="col-8 push-2">
-          <h3 class="t-3 px-4 tw-bold">{{ title }}</h3>
+          <h3 class="t-4 px-4 tw-medium">{{ title }}</h3>
         </div>
       </header>
       {{ partial:content-builder }}

@@ -28,29 +28,33 @@
 
 <body>
 
-  <aside class="fixed-top-left h-100 p-1">
+  <aside class="fixed-top-left h-100 cbgg-8 br-7">
     <div class="h-100 relative">
-      <div class="brand px-4 py-7">
-        <h1 class="display tn-3 cg-3 mb-1">Development at <span class="hidden">Octopus</span></h1>
+      <div class="brand px-5 py-7">
+        <h1 class="display tn-3 cg-4 mb-1">Development at <span class="hidden">Octopus</span></h1>
         <img src="/assets/octopus-brand.svg" />
       </div>
 
-      <nav class="px-4 py-7">
+      <nav class="pl-5 py-7">
         {{ nav from="/" include_home="true" }}
-          <a href="{{ url }}" class="d-block display tn-1 tw-medium mb-4 {{ if !is_current }}cg-4{{ else }}cg-black{{ /if }}">{{ title }}</a>
-          {{ if is_current || is_parent }}
-            {{ if children }}
-               <ul>
+          <a href="{{ url }}" class="d-block tn-1 tw-medium py-1 pr-10 {{ if !is_current }}cg-5{{ else }}cg-black br-thick-primary{{ /if }}">{{ title }}</a>
+
+          {{ if is_current && segment_1 }}
+            <ul class="pl-1">
+              {{ pages }}
+                {{ if url != current_uri }}
                 <li>
-                  <a href="#{{ slug }}">{{ title }}</a>
+                  <a href="#{{ slug }}" class="cg-1 tn-1">{{ title }}</a>
                 </li>
-               </ul>
-            {{ /if }}
+                {{ /if }}
+              {{ /pages }}
+            </ul>
           {{ /if }}
+
         {{ /nav }}
       </nav>
 
-      <nav class="absolute-bottom-left w-100 px-4 py-7">
+      <nav class="absolute-bottom-left w-100 px-5 py-7">
         <a href="https://github.com/octopuscreative" class="display tn-2 cg-3 pb-1 bb hover-outline-target">Github</a>
       </nav>
     </div>

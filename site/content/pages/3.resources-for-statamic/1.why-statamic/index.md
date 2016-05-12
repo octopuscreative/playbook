@@ -5,7 +5,9 @@ content_builder:
   - 
     type: markdown
     md_content: |
-      ## Flexability
+      [Statamic's Feature Page](https://statamic.com/features)
+      
+      ## Flexibility
       
       For starters, Statamic is incredibly flexible. Where other CMS's might make assumptions about the type of content you'll be working with, Statamic does not. This means that from the start we can hit the ground running without having to trudge through pre-written code for a content type we don't even want. With Statamic 2 there's now an included field type editor. This means that while the site is being designed we devs can be busy scaffoling out the backend. Opps, need a section renamed? No problem, easy fix. Need a whole new collection that was never discussed before? Again, no problem at all. Because our CMS is flexible, it means that we too can be flexible and produce for the client exactly what they need.
       
@@ -19,12 +21,16 @@ content_builder:
       
       ## Speed
       
-      ## Truly Customized Content Editing
+      It's really really fast. Out of the box, Statamic ships with a caching layer that makes not only page response times quick, but it also reduces the load that your servers take from multiple concurent users. In a nutshell, when content is updated it's saved into the cache and then next time a user requests that content, there's not any processing that needs to happen - it's immediately available. Also since Statamic is a flat file system and doesn't rely on a database 
+      
+      ## Truly Customized Content
       
       ## Searching & Forms Baked In
       
+      The two most common things client ask for are being able to search the site and being able to accept contact request emails. Guess what? Statamic rolls with that out of the box. The search just works, and the forms are all manageable from the control panel.
+      
       ## Support
       
-      The Statamic community has a very vibrant support community. There hasn't been anything we've needed to but couldn't because there's always someone in their Slack to lend a hand.
+      The Statamic community has a very vibrant support community. There hasn't been anything we've needed to do  but couldn't because there's always someone in their Slack to lend a hand.
 title: Why Statamic?
 id: 5db50acd-5294-43a3-ba0e-472b2d362f77

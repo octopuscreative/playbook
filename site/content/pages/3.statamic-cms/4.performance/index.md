@@ -4,7 +4,6 @@ content_builder:
   - 
     type: markdown
     md_content: |
-      |
       ## GZIP
       
       ```

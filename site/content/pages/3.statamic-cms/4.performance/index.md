@@ -36,36 +36,36 @@ content_builder:
       
       [Source](https://mattstauffer.co/blog/enabling-gzip-on-nginx-servers-including-laravel-forge)
       
-        ## Browser Caching
-        ```
-        # cache.appcache, your document html and data
-        location ~* \.(?:manifest|appcache|html?|xml|json)$ {
-          expires -1;
-          # access_log logs/static.log; # I don't usually include a static log
-        }
+      ## Browser Caching
+      ```
+      # cache.appcache, your document html and data
+      location ~* \.(?:manifest|appcache|html?|xml|json)$ {
+      	expires -1;
+      	# access_log logs/static.log; # I don't usually include a static log
+      }
       
-        # Feed
-        location ~* \.(?:rss|atom)$ {
-          expires 1h;
-          add_header Cache-Control "public";
-        }
+      # Feed
+      location ~* \.(?:rss|atom)$ {
+      	expires 1h;
+      	add_header Cache-Control "public";
+      }
       
-        # Media: images, icons, video, audio, HTC
-        location ~* \.(?:jpg|jpeg|gif|png|ico|cur|gz|svg|svgz|mp4|ogg|ogv|webm|htc)$ {
-          expires 1M;
-          access_log off;
-          add_header Cache-Control "public";
-        }
+      # Media: images, icons, video, audio, HTC
+      location ~* \.(?:jpg|jpeg|gif|png|ico|cur|gz|svg|svgz|mp4|ogg|ogv|webm|htc)$ {
+      	expires 1M;
+      	access_log off;
+      	add_header Cache-Control "public";
+      }
       
-        # CSS and Javascript
-        location ~* \.(?:css|js)$ {
-          expires 1y;
-          access_log off;
-          add_header Cache-Control "public";
-        }
-        ```
+      # CSS and Javascript
+      location ~* \.(?:css|js)$ {
+      	expires 1y;
+      	access_log off;
+      	add_header Cache-Control "public";
+      }
+      ```
       
-        [Source](https://serversforhackers.com/nginx-caching)
+      [Source](https://serversforhackers.com/nginx-caching)
       
       
       ## Imgix FTW

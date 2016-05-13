@@ -16,6 +16,15 @@ content_builder:
       	protect_from_forgery with: :null_session
       end
       ```
+      
+      This will fix the problem but it makes the application vulerable to request forgery. Instead of using a chainsaw here is a scalpel:
+      ```ruby
+      class ApiController < ActionController::Base
+      	skip_before_action :verify_authenticity_token
+      end
+      ```
+      This is better because it will still require the token on all of the non-api controller actions.
+      
       ## Recomended Tooling
       ### Authentication
       *Devise* - Platformatic

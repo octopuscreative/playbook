@@ -60,5 +60,7 @@ content_builder:
       `.absolute` `-` `left` `center` `right` `-` `top` `middle` `bottom`
       
       `.fixed` `-` `left` `center` `right` `-` `top` `middle` `bottom`
+      
+      `.z-` `1 - 10` and `.zn-1`
 title: Position
 id: 64214483-b307-464b-a4b8-c04c8bacc317

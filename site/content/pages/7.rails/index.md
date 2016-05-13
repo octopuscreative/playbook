@@ -6,8 +6,14 @@ content_builder:
       ## Why Rails?
       
       ## Common Problems
-      ### XSRF Token Missing 
-      Requests to an API generally will not include the rails XSRF token in the header and so they will fail with a `401` 
+      ### XSRF Token Missing
+      Requests to an API generally will not include the rails XSRF token in the header and so they will fail with a `401`.
+      
+      A posible solution would be to tell `ActionController` not to throw an exception when the header is missing:
+      application_controller.rb
+      ```ruby
+      protect_from_forgery with: :null_session
+      ```
       ## Recomended Tooling
       ### Authentication
       *Devise* - Platformatic

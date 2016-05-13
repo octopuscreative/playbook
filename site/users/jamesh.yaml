@@ -4,3 +4,4 @@ email: james@octop.us
 roles:
   - fc8fe2fd-8366-4731-ba42-4cbc8efaf678
 id: 04cc7329-ca01-4491-9dfb-9c7f6ca98a3d
+password_hash: $2y$10$QiujukHBkgTu/MoTyhOhK.LdlYsm4yorrhXMhkAGAIn4V9HH9keBq

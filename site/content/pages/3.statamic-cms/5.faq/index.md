@@ -21,6 +21,6 @@ content_builder:
       
       > Where are these files we upload using the asset manager hosted (I am assuming on the Statamic web server)?
       
-      Yes, most of the time they will be stored on the same server that's hosting your site, however Statamic is able to upload those assets to Amazon S3 instead if you'd prefer to have your assets backed by a CDN of sorts. This would probably be a good idea if you're planning to upload larger files (multiple hundreds of megabytes). Even better though, is that we can mix and match theses. Host things like images, team photos, etc on the same server and larger files on S3.
+      Yes, most of the time they will be stored on the same server that's hosting your site, however Statamic is able to upload those assets to Amazon S3 instead if you'd prefer to have your assets backed by a [CDN](https://en.wikipedia.org/wiki/Content_delivery_network) of sorts. This would probably be a good idea if you're planning to upload larger files (multiple hundreds of megabytes). Even better though, is that we can mix and match theses. Host things like images, team photos, etc on the same server and larger files on S3.
 title: FAQ
 id: f6534952-b0d5-4307-a337-6f1fd434f8f9

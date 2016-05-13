@@ -35,6 +35,11 @@
         <img src="/assets/octopus-brand.svg" />
       </div>
 
+      <form class="pl-5" action="/search-results" method="GET">
+        <input type="text" name="q" />
+        <button>Search</button>
+      </form>
+
       <nav class="pl-5 py-7">
         {{ nav from="/" include_home="true" }}
           <a href="{{ url }}" class="d-block tn-1 tw-medium py-1 pr-10 {{ if !is_current }}cg-5{{ else }}cg-black br-thick-primary{{ /if }}">{{ title }}</a>

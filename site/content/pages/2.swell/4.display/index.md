@@ -14,6 +14,7 @@ content_builder:
       `.va-` `text-bottom`
       
       `.h-` `auto` `10` `20` `25` `30` `40` `50` `60` `75` `80` `90` `100`
+      
       `.w-` `auto` `10` `20` `25` `30` `40` `50` `60` `75` `80` `90` `100`
       
       `.brand`
@@ -21,6 +22,11 @@ content_builder:
       `.left`, `.right`, `.clear`
       
       `.ratio-` `1_1` `1_2` `4_3` `16_9` `21_9` `36_9` `iphone6` `circle`
+      
+      The ratio class can be really clutch when it comes to handling how images and other elements are display. If you just need a `div` to display as a box, you can add `.ratio-1_1` to keep the aspect ratio true for any screen size. 
+      
+      If you're displaying designs or mockups in mobile screens, you can add `.ratio-iphone6` to hold a div at the iPhone aspect ratio.
+      
       
       `.crop` `-` `fit`
 title: Display

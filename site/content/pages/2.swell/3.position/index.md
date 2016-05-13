@@ -52,5 +52,13 @@ content_builder:
           </div>
         </div>
       </div>
+  - 
+    type: markdown
+    md_content: |
+      `.relative`
+      
+      `.absolute` `-` `left` `center` `right` `-` `top` `middle` `bottom`
+      
+      `.fixed` `-` `left` `center` `right` `-` `top` `middle` `bottom`
 title: Position
 id: 64214483-b307-464b-a4b8-c04c8bacc317

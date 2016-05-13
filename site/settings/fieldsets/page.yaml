@@ -1,5 +1,9 @@
 title: Page
 fields:
+  discipline:
+    type: taxonomy
+    display: Discipline
+    validate: required
   contributors:
     type: users
     display: Contributors

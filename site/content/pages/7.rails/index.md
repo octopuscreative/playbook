@@ -5,6 +5,9 @@ content_builder:
     md_content: |
       ## Why Rails?
       
+      ## Common Problems
+      ### XSRF Token Missing 
+      Requests to an API generally will not include the rails XSRF token in the header and so they will fail with a `401` 
       ## Recomended Tooling
       ### Authentication
       *Devise* - Platformatic

@@ -70,7 +70,7 @@ content_builder:
       ## Imgix FTW
       
       ```
-      <img src="http://domain.imgix.net`{{ url }}`?dpr=1" srcset="http://domain.imgix.net{{ url }}?dpr=1 1x, http://domain.imgix.net{{ url }}?dpr=2 2x" alt="{{ alt }}" />
+      <img src="http://domain.imgix.net\{{ url }}?dpr=1" srcset="http://domain.imgix.net{{ url }}?dpr=1 1x, http://domain.imgix.net{{ url }}?dpr=2 2x" alt="{{ alt }}" />
       ```
 title: Performance
 id: 191ab9b6-24b6-48ec-a33d-75aee787b04c

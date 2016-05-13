@@ -17,9 +17,9 @@ content_builder:
       
       > What are the scalability limits?
       
+      There aren't any additional concerns that you wouldn't have with any other site! Better yet, since Statamic is a flat file system and doesn't need a database, I'd say it will scale better than other options since a whole step in reteiving data is eliminated. On top of that, Statamic has built in caching to make the site blazing fast and performant at the same time. If you'd like to take it one step farther, they even allow you to use a feature called HTML Page Caching. Basically, when you update content in the control panel, Satamic will actually create an html page out of it and server that. That way when a user hits your site the PHP processes aren't even hit. Basically, plain HTML is as performant as you can get.
       
-      
-      > Where are these files we upload using the asset manager hosted (I am assuming on the Statamic web server)? 
+      > Where are these files we upload using the asset manager hosted (I am assuming on the Statamic web server)?
       
       Yes, most of the time they will be stored on the same server that's hosting your site, however Statamic is able to upload those assets to Amazon S3 instead if you'd prefer to have your assets backed by a CDN of sorts. This would probably be a good idea if you're planning to upload larger files (multiple hundreds of megabytes). Even better though, is that we can mix and match theses. Host things like images, team photos, etc on the same server and larger files on S3.
 title: FAQ

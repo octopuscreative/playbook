@@ -71,9 +71,14 @@ class CollectionTags extends Tags
      *
      * @param string $collection
      * @return string
+     * @throws \Exception
      */
     private function collect($collection)
     {
+        if (! Content::collectionExists($collection)) {
+            throw new \Exception("Collection [$collection] doesn't exist.");
+        }
+
         $this->collection = Content::entries($collection, null, true);
 
         $this->filter();
@@ -422,5 +427,21 @@ class CollectionTags extends Tags
         }
 
         return $this->output();
+    }
+
+    /**
+     * Maps to `{{ collection:count }}`
+     *
+     * @return integer
+     */
+    public function count()
+    {
+        $collection = $this->get(['from', 'folder', 'use', 'in', 'collection']);
+
+        $this->collection = Content::entries($collection, null, true);
+
+        $this->filter();
+
+        return $this->collection->count();
     }
 }

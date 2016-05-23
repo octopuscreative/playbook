@@ -132,7 +132,7 @@ class Formset implements FormsetContract
      */
     public function editUrl()
     {
-        return route('form.edit', $this->name());
+        return cp_route('form.edit', $this->name());
     }
 
     /**

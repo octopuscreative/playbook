@@ -332,6 +332,26 @@ class Asset extends Data implements AssetContract
     }
 
     /**
+     * Get the asset's width
+     *
+     * @return int|null
+     */
+    public function width()
+    {
+        return array_get($this->dimensions(), 0);
+    }
+
+    /**
+     * Get the asset's height
+     *
+     * @return int|null
+     */
+    public function height()
+    {
+        return array_get($this->dimensions(), 1);
+    }
+
+    /**
      * Convert to an array
      *
      * @return array
@@ -346,8 +366,6 @@ class Asset extends Data implements AssetContract
         $kb = number_format($size / 1024, 2);
         $mb = number_format($size / 1048576, 2);
         $gb = number_format($size / 1073741824, 2);
-
-        list($width, $height) = $this->dimensions();
 
         $extra = [
             'uuid'      => $this->id(), // @todo remove
@@ -370,8 +388,8 @@ class Asset extends Data implements AssetContract
             'size_kb'        => $kb,
             'size_mb'        => $mb,
             'size_gb'        => $gb,
-            'width'          => $width,
-            'height'          => $height,
+            'width'          => $this->width(),
+            'height'          => $this->height(),
             'last_modified'  => (string) $this->lastModified(),
             'last_modified_timestamp' => $this->lastModified()->timestamp,
             'last_modified_instance'  => $this->lastModified(),
@@ -469,6 +487,6 @@ class Asset extends Data implements AssetContract
      */
     public function editUrl()
     {
-        return route('asset.edit', $this->id());
+        return cp_route('asset.edit', $this->id());
     }
 }

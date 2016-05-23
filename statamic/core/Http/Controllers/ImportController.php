@@ -2,7 +2,10 @@
 
 namespace Statamic\Http\Controllers;
 
+use Exception;
 use Statamic\API\Str;
+use GuzzleHttp\Client;
+use Statamic\API\Cache;
 
 class ImportController extends CpController
 {
@@ -10,25 +13,65 @@ class ImportController extends CpController
     {
         $this->access('importer');
 
-        return view('import.index');
+        return view('import.index', ['title' => t('nav_import')]);
     }
 
-    public function import($name)
+    public function ui($name)
     {
         $this->access('importer');
 
         $importer = $this->importer($name);
 
-        return view('import.import', compact('importer'));
+        $title = t('nav_import');
+
+        return view('import.import', compact('importer', 'title'));
     }
 
-    public function upload($name)
+    public function details($name)
     {
         $this->access('importer');
 
-        $json = json_decode($this->request->input('json'), true);
+        $importer = $this->importer($name);
 
-        $this->importer($name)->import($json);
+        $instructions = markdown($importer->instructions());
+
+        $json = Cache::get("importer.$name.json");
+
+        return compact('instructions', 'json');
+    }
+
+    public function export($name)
+    {
+        $this->access('importer');
+
+        $importer = $this->importer($name);
+
+        $export_url = $importer->exportUrl($this->request->input('url'));
+
+        try {
+            $client = new Client;
+            $response = $client->get($export_url);
+            $json = $response->getBody()->getContents();
+        } catch (\Exception $e) {
+            return response(['success' => false, 'error' => $e->getMessage()], 500);
+        }
+
+        Cache::put("importer.$name.json", $json);
+
+        try {
+            $importer->prepare($json);
+        } catch (Exception $e) {
+            return response(['success' => false, 'error' => $e->getMessage()], 500);
+        }
+
+        return ['success' => true, 'summary' => $importer->summary()];
+    }
+
+    public function import($name)
+    {
+        $importer = $this->importer($name);
+
+        $importer->import($this->request->input('summary'));
 
         return ['success' => true];
     }

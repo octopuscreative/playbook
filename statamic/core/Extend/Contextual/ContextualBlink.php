@@ -65,4 +65,14 @@ class ContextualBlink extends ContextualObject
     {
         self::$data = [];
     }
+
+    /**
+     * Get all blink data
+     *
+     * @return array
+     */
+    public function all()
+    {
+        return self::$data;
+    }
 }

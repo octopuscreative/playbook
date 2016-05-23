@@ -105,6 +105,15 @@ function default_locale()
     return Config::getDefaultLocale();
 }
 
+function cp_route($route, $params = [])
+{
+    if (! CP_ROUTE) {
+        return null;
+    }
+
+    return route($route, $params);
+}
+
 function cp_resource_url($url)
 {
     return URL::assemble(SITE_ROOT, pathinfo(request()->getScriptName())['basename'], RESOURCES_ROUTE, 'cp', $url);
@@ -271,6 +280,15 @@ function resource_loader()
 
 /**
  * @param array $value
+ * @return \Statamic\Assets\AssetCollection
+ */
+function collect_assets($value = [])
+{
+    return new \Statamic\Assets\AssetCollection($value);
+}
+
+/**
+ * @param array $value
  * @return \Statamic\FileCollection;
  */
 function collect_files($value = [])
@@ -419,6 +437,8 @@ function active_for($url)
 function nav_is($url)
 {
     $url = ltrim(URL::makeRelative($url), '/');
+
+    $url = preg_replace('/^index\.php\//', '', $url);
 
     return request()->is($url . '*');
 }

@@ -134,4 +134,11 @@ class SettingsController extends CpController
 
         return $data;
     }
+
+    public function licenseKey()
+    {
+        Config::set('system.license_key', $this->request->input('key'));
+
+        return back();
+    }
 }

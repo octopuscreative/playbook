@@ -37,6 +37,7 @@ class Kernel extends ConsoleKernel
        'Statamic\Console\Commands\Generators\Addon\ControllerMakeCommand',
        'Statamic\Console\Commands\Generators\UserMakeCommand',
        'Statamic\Console\Commands\RefreshAddonsCommand',
+       'Statamic\Console\Commands\SetCommand',
     ];
 
     /**

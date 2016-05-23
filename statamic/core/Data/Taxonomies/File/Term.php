@@ -397,7 +397,7 @@ class Term extends Content implements TermContract
      */
     public function editUrl()
     {
-        return route('term.edit', [$this->taxonomyName(), $this->slug()]);
+        return cp_route('term.edit', [$this->taxonomyName(), $this->slug()]);
     }
 
     /**

@@ -278,7 +278,7 @@ abstract class AssetContainer implements AssetContainerContract
      */
     public function editUrl()
     {
-        return route('assets.container.edit', $this->uuid());
+        return cp_route('assets.container.edit', $this->uuid());
     }
 
     /**

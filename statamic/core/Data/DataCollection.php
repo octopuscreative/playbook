@@ -2,6 +2,9 @@
 
 namespace Statamic\Data;
 
+use Carbon\Carbon;
+use Statamic\API\Str;
+use Statamic\API\Helper;
 use Statamic\Exceptions\MethodNotFoundException;
 use Illuminate\Support\Collection as IlluminateCollection;
 
@@ -19,6 +22,80 @@ abstract class DataCollection extends IlluminateCollection
     public function limit($limit)
     {
         return $this->take($limit);
+    }
+
+    /**
+     * Sort a collection by multiple fields
+     *
+     * Accepts a string like "title:desc|foo:asc"
+     * The keys are optional. "title:desc|foo" is fine.
+     *
+     * @param string $sort
+     * @return static
+     */
+    public function multisort($sort)
+    {
+        // Short circuit here with support for a random sort order.
+        if ($sort === 'random') {
+            return new static($this->shuffle()->all());
+        }
+
+        $sorts = explode('|', $sort);
+
+        $arr = $this->all();
+
+        usort($arr, function ($a, $b) use ($sorts) {
+            foreach ($sorts as $sort) {
+                $bits = explode(':', $sort);
+                $sort_by = $bits[0];
+                $sort_dir = array_get($bits, 1);
+
+                list($one, $two) = $this->getSortableValues($sort_by, $a, $b);
+
+                $result = Helper::compareValues($one, $two);
+
+                if ($result !== 0) {
+                    return ($sort_dir === 'desc') ? $result * -1 : $result;
+                }
+            }
+
+            return 0;
+        });
+
+        return new static($arr);
+    }
+
+    /**
+     * Get the values from two content objects to be sorted against each other
+     *
+     * @param string                        $sort The field to be searched
+     * @param \Statamic\Contracts\Data\Data $a    The first data object
+     * @param \Statamic\Contracts\Data\Data $b    The second data object
+     * @return array
+     */
+    protected function getSortableValues($sort, $a, $b)
+    {
+        $method = Str::camel($sort);
+
+        $one = (method_exists($a, $method)) ? call_user_func([$a, $method]) : $a->get($sort);
+        $two = (method_exists($b, $method)) ? call_user_func([$b, $method]) : $b->get($sort);
+
+        return [$this->normalizeSortableValue($one), $this->normalizeSortableValue($two)];
+    }
+
+    /**
+     * Make sure the sortable value is in a format suitable for sorting
+     *
+     * @param mixed $value
+     * @return mixed
+     */
+    protected function normalizeSortableValue($value)
+    {
+        if ($value instanceof Carbon) {
+            $value = $value->timestamp;
+        }
+
+        return $value;
     }
 
     /**

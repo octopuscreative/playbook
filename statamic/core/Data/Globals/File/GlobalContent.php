@@ -235,7 +235,7 @@ class GlobalContent extends Content implements GlobalContentContract
      */
     public function editUrl()
     {
-        return route('globals.edit', $this->slug());
+        return cp_route('globals.edit', $this->slug());
     }
 
     /**

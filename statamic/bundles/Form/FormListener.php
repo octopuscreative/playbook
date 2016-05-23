@@ -37,10 +37,17 @@ class FormListener extends Listener
 
         $submission = $form->createSubmission();
 
+        // Set up where to be taken in the event of an error.
+        if ($error_redirect = array_get($params, 'error_redirect')) {
+            $error_redirect = redirect($error_redirect);
+        } else {
+            $error_redirect = back();
+        }
+
         try {
             $submission->data($fields);
         } catch (PublishException $e) {
-            return back()->withInput()->withErrors($e->getErrors(), 'form.'.$formset);
+            return $error_redirect->withInput()->withErrors($e->getErrors(), 'form.'.$formset);
         } catch (HoneypotException $e) {
             return $this->formSuccess($params, $submission);
         }
@@ -50,7 +57,7 @@ class FormListener extends Listener
         list($errors, $submission) = $this->runCreatingEvent($submission);
 
         if ($errors) {
-            return back()->withInput()->withErrors($errors, 'form.'.$formset);
+            return $error_redirect->withInput()->withErrors($errors, 'form.'.$formset);
         }
 
         $submission->save();
@@ -149,7 +156,7 @@ class FormListener extends Listener
     }
 
     /**
-     * Run the `submission.creating` event.
+     * Run the `submission:creating` event.
      *
      * This allows the submission to be short-circuited before it gets saved and show errors.
      * Or, a the submission may be modified. Lastly, an addon could just 'do something'

@@ -69,8 +69,6 @@ class Cache
      */
     public static function clear()
     {
-        self::cache()->flush();
-
-        event('cache.cleared');
+        \Artisan::call('cache:clear');
     }
 }

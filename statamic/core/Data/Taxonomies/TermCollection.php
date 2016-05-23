@@ -16,11 +16,13 @@ class TermCollection extends ContentCollection
     {
         $collection = new self;
 
-        // Go through each taxonomy and apply the appropriate filter to its collection of content.
-        $this->each(function($taxonomy, $name) use ($collection, $filter) {
-            /** @var \Statamic\Contracts\Data\Taxonomies\Taxonomy $taxonomy */
+        // Go through each term and apply the appropriate filter to its collection of content.
+        $this->each(function($term, $id) use ($collection, $filter) {
+            // Make a clone of the term so we don't affect the original instance.
+            /** @var \Statamic\Contracts\Data\Taxonomies\Term $term */
+            $term = clone $term;
 
-            $content = $taxonomy->collection();
+            $content = $term->collection();
 
             // Perform the requested filter, passing in the ContentCollection as an argument
             $content = call_user_func($filter, $content);
@@ -28,8 +30,8 @@ class TermCollection extends ContentCollection
             // Once the filter has been completed, it's possible that a taxonomy may have no content.
             // If that's the case, we'll just leave it off (ie. remove it) from the collection.
             if ($content->count()) {
-                $taxonomy->collection($content);
-                $collection->put($name, $taxonomy);
+                $term->collection($content);
+                $collection->put($id, $term);
             }
         });
 

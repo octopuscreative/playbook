@@ -61,6 +61,10 @@ class FormTags extends CollectionTags
             $params['redirect'] = $redirect;
         }
 
+        if ($error_redirect = $this->get('error_redirect')) {
+            $params['error_redirect'] = $error_redirect;
+        }
+
         $html .= '<input type="hidden" name="_params" value="'. Crypt::encrypt($params) .'" />';
 
         $html .= $this->parse($data);

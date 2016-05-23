@@ -453,5 +453,7 @@ abstract class Content extends Data implements ContentContract
         if ($this->getPath() !== $this->original_path) {
             $this->rename();
         }
+
+        event('content.saved', $this);
     }
 }

@@ -16,6 +16,7 @@ use Statamic\Extend\Contextual\ContextualBlink;
 use Statamic\Extend\Contextual\ContextualCache;
 use Statamic\Extend\Contextual\ContextualFlash;
 use Statamic\Extend\Contextual\ContextualImage;
+use Statamic\Extend\Contextual\ContextualCookie;
 use Statamic\Extend\Contextual\ContextualStorage;
 use Statamic\Extend\Contextual\ContextualSession;
 use Statamic\Extend\Contextual\ContextualResource;
@@ -53,6 +54,11 @@ trait Extensible
      * @var  \Statamic\Extend\Contextual\ContextualSession
      */
     protected $session;
+
+    /**
+     * @var  \Statamic\Extend\Contextual\ContextualCookie
+     */
+    protected $cookie;
 
     /**
      * @var  \Statamic\Extend\Contextual\ContextualFlash
@@ -96,6 +102,7 @@ trait Extensible
         $this->cache = new ContextualCache($addon);
         $this->storage = new ContextualStorage($addon);
         $this->session = new ContextualSession($addon);
+        $this->cookie = new ContextualCookie($addon);
         $this->flash = new ContextualFlash($addon);
         $this->resource = new ContextualResource($addon);
         $this->css = new ContextualCss($addon);

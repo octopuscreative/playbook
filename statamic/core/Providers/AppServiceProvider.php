@@ -7,24 +7,24 @@ use Statamic\API\File;
 use Statamic\DataStore;
 use Statamic\CP\Router;
 use Statamic\API\Config;
-use Statamic\Configuration;
+use Statamic\Config\ConfigManager;
 use Statamic\Extensions\FileStore;
 use Illuminate\Support\Facades\Cache;
 use Statamic\Extend\Management\Loader;
 use Illuminate\Support\ServiceProvider;
+use Statamic\Config\File\Config as ConfigObject;
 
 class AppServiceProvider extends ServiceProvider
 {
     /**
      * Bootstrap any application services.
      *
-     * @param \Statamic\Configuration $config
+     * @param ConfigManager $config
      */
-    public function boot(Configuration $config)
+    public function boot(ConfigManager $config)
     {
         // Set the site's locale
         site_locale(LOCALE);
-
 
         // Load all the Statamic config data ASAP. We'll need that almost everywhere.
         $config->loadAllConfigs();
@@ -89,6 +89,10 @@ class AppServiceProvider extends ServiceProvider
     {
         $this->app->singleton('Statamic\DataStore', function() {
             return new DataStore;
+        });
+
+        $this->app->singleton('Statamic\Contracts\Config\Config', function() {
+            return new ConfigObject;
         });
 
         $this->app->singleton('Statamic\Extend\Management\Loader', function() {

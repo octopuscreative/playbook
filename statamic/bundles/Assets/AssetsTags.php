@@ -6,9 +6,15 @@ use Statamic\API\Asset;
 use Statamic\API\Assets;
 use Statamic\API\Helper;
 use Statamic\Extend\Tags;
+use Statamic\Assets\AssetCollection;
 
 class AssetsTags extends Tags
 {
+    /**
+     * @var AssetCollection
+     */
+    private $assets;
+
     /**
      * Iterate over multiple Assets' data from a value
      *
@@ -27,7 +33,7 @@ class AssetsTags extends Tags
 
         return $this->assets($value);
     }
-    
+
     /**
      * Iterate over all assets in a container and optionally by folder
      *
@@ -35,30 +41,30 @@ class AssetsTags extends Tags
      * {{ assets path="assets" }}
      *   {{ url }}, etc
      * {{ /assets }}
-     * 
+     *
      * @return string
      */
     public function index()
     {
         $id = $this->get(['container', 'id']);
         $path = $this->get('path');
-        
+
         if (!$id && !$path) {
             \Log::debug('No asset container ID or path was specified.');
             return;
         }
-        
+
         // Get the assets (container) by either ID or path.
-        $assets = ($id) ? Assets::getContainer($id) : Assets::getContainerByPath($path);
+        $container = ($id) ? Assets::getContainer($id) : Assets::getContainerByPath($path);
 
         // Optionally target a folder
         if ($folder = $this->get('folder')) {
-            $assets = $assets->folder($folder);
+            $container = $container->folder($folder);
         }
 
-        $assets = $assets->assets()->toArray();
+        $this->assets = $container->assets();
 
-        return $this->parseLoop($assets);
+        return $this->output();
     }
 
     /**
@@ -75,14 +81,43 @@ class AssetsTags extends Tags
 
         $ids = Helper::ensureArray($ids);
 
-        $assets = [];
+        $this->assets = collect_assets();
 
         foreach ($ids as $id) {
             if ($asset = Asset::uuidRaw($id)) {
-                $assets[] = $asset->toArray();
+                $this->assets->put($asset->id(), $asset);
             }
         }
 
-        return $this->parseLoop($assets);
+        return $this->output();
+    }
+
+    private function output()
+    {
+        $this->sort();
+        $this->limit();
+
+        return $this->parseLoop($this->assets);
+    }
+
+    private function sort()
+    {
+        if ($sort = $this->get('sort')) {
+            $this->assets = $this->assets->multisort($sort);
+        }
+    }
+
+    /**
+     * Limit and offset the asset collection
+     *
+     * @return array
+     */
+    private function limit()
+    {
+        $limit = $this->getInt('limit');
+        $limit = ($limit == 0) ? $this->assets->count() : $limit;
+        $offset = $this->getInt('offset');
+
+        $this->assets = $this->assets->splice($offset, $limit);
     }
 }

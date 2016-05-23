@@ -121,6 +121,11 @@ class DataStore
         array_set($this->env, $scope, $variables);
     }
 
+    public function removeScope($scope)
+    {
+        unset($this->data[$scope]);
+    }
+
     /**
      * Get all variables in the DataStore
      *

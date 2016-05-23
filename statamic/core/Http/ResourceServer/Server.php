@@ -48,7 +48,7 @@ class Server
     private $resource_uri;
 
     /**
-     * Full path to the resouce file
+     * Full path to the resource file
      *
      * @var string
      */
@@ -124,20 +124,19 @@ class Server
      */
     private function setResourceUri()
     {
-        // Ensure index.php is in the URI.
-        $uri = Str::ensureLeft($_SERVER['REQUEST_URI'], pathinfo($_SERVER['SCRIPT_NAME'])['basename']);
+        // Get the URI, which would be everything after index.php. This might be
+        // after /index.php for a regular install, or after /subdir/index.php,
+        // or even /sub/subdir/subsubdir/index.php for a bonkers install.
+        $uri = Str::removeLeft($_SERVER['REQUEST_URI'], $_SERVER['SCRIPT_NAME']);
 
         $uri = explode('?', $uri)[0];
 
         $parts = explode('/', $uri);
 
-        // Account for a variable length site root (assuming it starts/ends with a slash)
-        $root_parts = count(explode('/', SITE_ROOT))-2;
-
         if ($this->resource_type === self::RESOURCE_CP) {
-            $parts = array_slice($parts, 4 + $root_parts);
+            $parts = array_slice($parts, 3);
         } elseif ($this->resource_type === self::RESOURCE_ADDON) {
-            $parts = array_slice($parts, 5 + $root_parts);
+            $parts = array_slice($parts, 5);
         }
 
         $this->resource_uri = join('/', $parts);

@@ -5,12 +5,20 @@ namespace Statamic\Contracts\Assets\Manipulation;
 interface UrlBuilder
 {
     /**
-     * Set the UUID of the asset
+     * Set the ID of the asset
      *
-     * @param string $uuid
+     * @param string $id
      * @return mixed
      */
-    public function uuid($uuid);
+    public function id($id);
+
+    /**
+     * Set the path of the asset
+     *
+     * @param string $path
+     * @return mixed
+     */
+    public function path($path);
 
     /**
      * Return the complete URL

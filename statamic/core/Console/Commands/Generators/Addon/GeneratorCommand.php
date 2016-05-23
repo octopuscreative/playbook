@@ -29,7 +29,13 @@ class GeneratorCommand extends Command
 
         $initial_path = join('/', [$addon, $subnamespace, $addon]);
 
-        $type = ($this->type === 'api') ? 'API' : ucfirst($this->type);
+        if ($this->type === 'api') {
+            $type = 'API';
+        } elseif ($this->type === 'provider') {
+            $type = 'ServiceProvider';
+        } else {
+            $type = ucfirst($this->type);
+        }
 
         $path = addons_path($initial_path . $type . '.php');
 

@@ -33,6 +33,7 @@ abstract class Controller extends BaseController
         datastore()->merge(array_merge(
             [
                 'site_url'     => Config::getSiteUrl(),
+                'homepage'     => Config::getSiteUrl(),
                 'current_url'  => $this->request->url(),
                 'current_uri'  => format_url($this->request->path()),
                 'current_date' => $now,
@@ -46,7 +47,8 @@ abstract class Controller extends BaseController
                 'logged_in'    => \Auth::check(),
                 'logged_out'   => !\Auth::check(),
                 'environment'  => app()->environment(),
-                'xml_header'   => '<?xml version="1.0" encoding="utf-8" ?>'
+                'xml_header'   => '<?xml version="1.0" encoding="utf-8" ?>',
+                'settings'     => Config::all()
             ],
             $this->segments()
         ));

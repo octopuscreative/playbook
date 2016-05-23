@@ -6,5 +6,5 @@ use Illuminate\Support\ServiceProvider as LaravelServiceProvider;
 
 abstract class ServiceProvider extends LaravelServiceProvider
 {
-
+    use Extensible;
 }

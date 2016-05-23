@@ -18,7 +18,7 @@ class FieldtypeJsComposer
     private function fieldtypeJs()
     {
         // Don't bother doing anything on the login screen.
-        if (\Route::current()->getName() === 'login') {
+        if (\Route::current() && \Route::current()->getName() === 'login') {
             return '';
         }
 

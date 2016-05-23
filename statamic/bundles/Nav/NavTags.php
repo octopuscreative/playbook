@@ -37,7 +37,7 @@ class NavTags extends Tags
     /**
      * The {{ nav:exists }} tag
      *
-     * @return  bool
+     * @return  string|null
      */
     public function exists()
     {
@@ -45,7 +45,11 @@ class NavTags extends Tags
 
         $tree = $this->factory->create();
 
-        return (bool) $tree;
+        if (! $tree) {
+            return null;
+        }
+
+        return $this->parse([]);
     }
 
     /**

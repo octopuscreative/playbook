@@ -23,11 +23,18 @@ class GlideUrlBuilder implements UrlBuilder
     ];
 
     /**
-     * UUID of the asset
+     * ID of the asset
      *
      * @var string
      */
-    private $uuid;
+    private $id;
+
+    /**
+     * Path to the file
+     *
+     * @var string
+     */
+    private $path;
 
     /**
      * The vanity filename
@@ -88,14 +95,39 @@ class GlideUrlBuilder implements UrlBuilder
     }
 
     /**
+     * Set the asset ID
+     *
+     * @param string $id
+     * @return $this
+     */
+    public function id($id)
+    {
+        $this->id = $id;
+
+        return $this;
+    }
+
+    /**
      * Set the asset UUID
      *
      * @param string $uuid
      * @return $this
+     * @deprecated
      */
     public function uuid($uuid)
     {
-        $this->uuid = $uuid;
+        return $this->id($uuid);
+    }
+
+    /**
+     * Set the path of the asset
+     *
+     * @param string $path
+     * @return mixed
+     */
+    public function path($path)
+    {
+        $this->path = $path;
 
         return $this;
     }
@@ -143,7 +175,7 @@ class GlideUrlBuilder implements UrlBuilder
     {
         if ($value == 'crop_focal') {
             $value = 'crop';
-            if ($asset = Asset::uuidRaw($this->uuid)) {
+            if ($asset = Asset::uuidRaw($this->id)) {
                 if ($focus = $asset->get('focus')) {
                     $value .= '-' . $focus;
                 }
@@ -281,14 +313,21 @@ class GlideUrlBuilder implements UrlBuilder
      * Return the complete URL
      *
      * @return string
+     * @throws \Exception
      */
     public function build()
     {
+        if ($this->id) {
+            $path = 'id/'.$this->id;
+        } elseif ($this->path) {
+            $path = $this->path;
+        } else {
+            throw new \Exception("Cannot build a Glide URL without a path or asset ID.");
+        }
+
         $key = (Config::get('assets.image_manipulation_secure')) ? Config::getAppKey() : null;
 
         $builder = UrlBuilderFactory::create(Config::get('assets.image_manipulation_route'), $key);
-
-        $path = $this->uuid;
 
         if ($this->filename) {
             $path .= Str::ensureLeft($this->filename, '/');

@@ -118,19 +118,9 @@ class CollectionFolder extends DataFolder implements CollectionFolderContract
 
         // If the route was modified, update routes.yaml
         if ($this->route && ($this->original_route !== $this->route)) {
-            $this->saveRoutes();
+            Config::set('routes.collections.'.$this->path(), $this->route());
+            Config::save();
         }
-    }
-
-    private function saveRoutes()
-    {
-        $routes = Config::getRoutes();
-
-        array_set($routes, 'collections.'.$this->path(), $this->route());
-
-        $yaml = YAML::dump($routes);
-
-        File::put('site/settings/routes.yaml', $yaml);
     }
 
     /**
@@ -162,7 +152,7 @@ class CollectionFolder extends DataFolder implements CollectionFolderContract
      */
     public function editUrl()
     {
-        return route('collection.edit', $this->path());
+        return cp_route('collection.edit', $this->path());
     }
 
     /**

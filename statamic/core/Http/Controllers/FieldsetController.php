@@ -253,7 +253,9 @@ class FieldsetController extends CpController
     {
         $contents = $this->request->input('fieldset');
 
-        $slug = $this->request->input('slug', Str::slug(array_get($contents, 'title'), '_'));
+        $slug = $this->request->has('slug')
+            ? $this->request->input('slug')
+            : Str::slug(array_get($contents, 'title'), '_');
 
         $fieldset = $this->prepareFieldset($slug, $contents);
 

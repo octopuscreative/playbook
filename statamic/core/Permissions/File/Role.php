@@ -198,6 +198,6 @@ class Role implements RoleContract
      */
     public function editUrl()
     {
-        return route('user.role', $this->uuid());
+        return cp_route('user.role', $this->uuid());
     }
 }

@@ -1,21 +1,17 @@
 <?php
 
-namespace Statamic;
+namespace Statamic\Config;
 
-use Carbon\Carbon;
 use Statamic\API\Arr;
+use Statamic\API\Str;
 use Statamic\API\File;
-use Statamic\API\Path;
 use Statamic\API\YAML;
-use Statamic\API\Parse;
+use Statamic\DataStore;
 use Statamic\API\Config;
 use Statamic\API\Folder;
-use Statamic\API\Str;
+use Statamic\Contracts\Config\Config as ConfigContract;
 
-/**
- * Site configuration
- */
-class Configuration
+class ConfigManager
 {
     /**
      * @var array
@@ -28,13 +24,20 @@ class Configuration
     private $store;
 
     /**
+     * @var \Statamic\Config\Config
+     */
+    private $config;
+
+    /**
      * Create a new Configuration instance
      *
-     * @param \Statamic\DataStore $store
+     * @param \Statamic\DataStore               $store
+     * @param \Statamic\Contracts\Config\Config $config
      */
-    public function __construct(DataStore $store)
+    public function __construct(DataStore $store, ConfigContract $config)
     {
         $this->store = $store;
+        $this->config = $config;
     }
 
     /**
@@ -46,6 +49,14 @@ class Configuration
         $this->loadDefaults();
         $this->loadSiteConfig();
         $this->loadAddonConfig();
+
+        $this->config->hydrate(datastore()->getScope('settings'));
+
+        // @todo Instead of adding everything to datastore up front, just add it to
+        // the config class. Right now this was simpler than reinventing all the
+        // merge/environment handling that the datastore class uses.
+        datastore()->removeScope('settings');
+        datastore()->createScope('settings', $this->config);
 
         $this->mergeIntoLaravel();
     }
@@ -143,6 +154,7 @@ class Configuration
     private function mergeIntoLaravel()
     {
         config([
+            'app.url' => Config::getSiteUrl(),
             'app.debug' => env('APP_DEBUG', Config::get('debug.debug')),
 
             'mail.driver' => Config::get('email.driver'),

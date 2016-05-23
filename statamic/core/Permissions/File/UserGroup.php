@@ -285,7 +285,7 @@ class UserGroup implements UserGroupContract
      */
     public function editUrl()
     {
-        return route('user.group', $this->uuid());
+        return cp_route('user.group', $this->uuid());
     }
 
     /**

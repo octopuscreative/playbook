@@ -94,7 +94,7 @@ class UserTags extends Tags
 
         $html = $this->formOpen('login');
 
-        if ($redirect = $this->get('redirect')) {
+        if ($redirect = $this->getRedirectUrl()) {
             $html .= '<input type="hidden" name="redirect" value="'.$redirect.'" />';
         }
 
@@ -122,7 +122,7 @@ class UserTags extends Tags
 
         $html = $this->formOpen('register');
 
-        if ($redirect = $this->get('redirect')) {
+        if ($redirect = $this->getRedirectUrl()) {
             $html .= '<input type="hidden" name="redirect" value="'.$redirect.'" />';
         }
 
@@ -201,7 +201,7 @@ class UserTags extends Tags
 
         $html = $this->formOpen('forgot');
 
-        if ($redirect = $this->get('redirect')) {
+        if ($redirect = $this->getRedirectUrl()) {
             $html .= '<input type="hidden" name="redirect" value="'.$redirect.'" />';
         }
 
@@ -380,5 +380,21 @@ class UserTags extends Tags
         $url = parent::eventUrl($url, $relative);
 
         return str_replace('/Member', '/User', $url);
+    }
+
+    /**
+     * Get the redirect URL
+     *
+     * @return string
+     */
+    private function getRedirectUrl()
+    {
+        $return = $this->get('redirect');
+
+        if ($this->getBool('allow_request_redirect')) {
+            $return = Request::input('redirect', $return);
+        }
+
+        return $return;
     }
 }

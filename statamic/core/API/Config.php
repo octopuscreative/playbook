@@ -8,6 +8,14 @@ namespace Statamic\API;
 class Config
 {
     /**
+     * @return \Statamic\Config\Config
+     */
+    private static function config()
+    {
+        return app('Statamic\Contracts\Config\Config');
+    }
+
+    /**
      * Get a config variable
      *
      * @param string      $key      The name of the key
@@ -16,7 +24,38 @@ class Config
      */
     public static function get($key, $default = false)
     {
-        return array_get(datastore()->getScope('settings'), $key, $default);
+        return self::config()->get($key, $default);
+    }
+
+    /**
+     * Set a config variable
+     *
+     * @param string $key  The name of the key
+     * @param mixed $value The value to set
+     */
+    public static function set($key, $value)
+    {
+        self::config()->set($key, $value);
+    }
+
+    /**
+     * Get all config values
+     *
+     * @return array
+     */
+    public static function all()
+    {
+        return self::config()->all();
+    }
+
+    /**
+     * Save the config
+     *
+     * @return void
+     */
+    public static function save()
+    {
+        self::config()->save();
     }
 
     /**

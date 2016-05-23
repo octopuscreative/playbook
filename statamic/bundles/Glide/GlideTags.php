@@ -30,29 +30,31 @@ class GlideTags extends Tags
     /**
      * Maps to {{ glide }}
      *
-     * Alternate syntax, where you pass the ID directly as a parameter
+     * Alternate syntax, where you pass the ID or path directly as a parameter or tag pair content
      *
      * @return string
      */
     public function index()
     {
-        $id = $this->get(['src', 'id']);
+        $item = ($this->content)
+            ? $this->parse([])
+            : $this->get(['src', 'id', 'path']);
 
-        return $this->glide($id);
+        return $this->glide($item);
     }
 
     /**
      * The URL generation
      *
-     * @param  string $id ID of the image
+     * @param  string $item  Either the ID or path of the image.
      * @return string
      */
-    private function glide($id)
+    private function glide($item)
     {
-        $builder = Image::manipulate($id);
+        $builder = Image::manipulate($item);
 
         foreach ($this->parameters as $param => $value) {
-            if ($param === 'src') {
+            if (in_array($param, ['src', 'path'])) {
                 continue;
             }
 

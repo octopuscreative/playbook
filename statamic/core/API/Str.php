@@ -38,4 +38,9 @@ class Str extends \Illuminate\Support\Str
     {
         return Str::slug(Str::snake($string));
     }
+
+    public static function isUrl($string)
+    {
+        return self::startsWith($string, ['http://', 'https://', '/']);
+    }
 }

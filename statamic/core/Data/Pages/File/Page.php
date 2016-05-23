@@ -96,7 +96,7 @@ class Page extends Content implements PageContract
      */
     public function editUrl()
     {
-        return route('page.edit', $this->slug());
+        return cp_route('page.edit', $this->slug());
     }
 
     /**

@@ -8,7 +8,11 @@ use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvi
 
 class EventServiceProvider extends ServiceProvider
 {
-    protected $listen = [];
+    protected $listen = [
+        'content.saved' => [
+            'Statamic\Stache\Listeners\UpdateContent',
+        ],
+    ];
 
     public function register()
     {

@@ -48,7 +48,7 @@
 		<div class="version" v-cloak>Statamic @{{ version }}</div>
 
 		@if ($is_trial)
-			<div class="trial">TRIAL</div>
+			<div class="trial">DEV MODE</div>
 		@endif
 	</div>
 </nav>

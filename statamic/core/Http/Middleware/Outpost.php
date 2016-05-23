@@ -53,7 +53,7 @@ class Outpost
     }
 
     /**
-     * Prevent the site from being usable if it's incorrectly licensed.
+     * Prevent the CP from being usable if it's incorrectly licensed.
      * Obviously it's very simple to circumvent, but hey. Gotta try.
      *
      * If you're reading this in the hopes of bypassing licensing, you should
@@ -64,6 +64,16 @@ class Outpost
      */
     private function protect()
     {
+        // If it's not a request for the CP, let people through.
+        if (! Str::startsWith($this->request->path(), CP_ROUTE)) {
+            return;
+        }
+
+        // Allow users to enter their license key from the 503 page.
+        if ($this->request->path() === CP_ROUTE.'/license-key') {
+            return;
+        }
+
         // It's not public, you're ok.
         if (! $this->outpost->isOnPublicDomain()) {
             return;
@@ -77,12 +87,6 @@ class Outpost
         // Valid license but it's the wrong domain? We'll let you continue, but
         // provide a message in the CP prompting you to update the domain.
         if ($this->outpost->isLicenseValid() && !$this->outpost->isOnCorrectDomain()) {
-            return;
-        }
-
-        // You've made it this far - technically you're breaking the rules,
-        // but we'll let you into the CP/installer so you can add your license key.
-        if (Str::startsWith($this->request->path(), [CP_ROUTE, 'installer'])) {
             return;
         }
 

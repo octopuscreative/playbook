@@ -163,6 +163,10 @@ class Loader
             case '404':
                 return 'NotFound';
 
+            // temporary until we add aliasing for addons
+            case 'var':
+                return 'Variables';
+
             default:
                 return $original_tag;
         }

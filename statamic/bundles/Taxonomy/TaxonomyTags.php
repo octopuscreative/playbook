@@ -12,21 +12,38 @@ class TaxonomyTags extends Tags
     /**
      * @var \Statamic\Data\Taxonomies\TermCollection
      */
-    protected $taxonomies;
+    protected $terms;
+
+    public function index()
+    {
+        return $this->listing();
+    }
+
+    public function listing()
+    {
+        $taxonomy = $this->get(['taxonomy', 'is', 'use', 'from', 'folder']);
+
+        return $this->taxonomy($taxonomy);
+    }
 
     public function __call($method, $args)
     {
-        $group = explode(':', $this->tag)[1];
+        $taxonomy = explode(':', $this->tag)[1];
 
-        $this->taxonomies = Content::taxonomyTerms($group, null, true);
+        return $this->taxonomy($taxonomy);
+    }
+
+    protected function taxonomy($taxonomy)
+    {
+        $this->terms = Content::taxonomyTerms($taxonomy, null, true);
 
         $this->filter();
 
-        if ($this->taxonomies->isEmpty()) {
+        if ($this->terms->isEmpty()) {
             return $this->parse(['no_results' => true]);
         }
 
-        $data = $this->taxonomies->toArray();
+        $data = $this->terms->toArray();
 
         return $this->parseLoop($data);
     }
@@ -56,7 +73,7 @@ class TaxonomyTags extends Tags
         $min = $this->getInt('min_count', 0);
 
         if ($min > 0) {
-            $this->taxonomies = $this->taxonomies->filter(function($taxonomy) use ($min) {
+            $this->terms = $this->terms->filter(function($taxonomy) use ($min) {
                 return $taxonomy->count() > $min;
             });
         }
@@ -70,7 +87,7 @@ class TaxonomyTags extends Tags
 
         $collections = Helper::explodeOptions($collections);
 
-        $this->taxonomies = $this->taxonomies->filterContent(function($content) use ($collections) {
+        $this->terms = $this->terms->filterContent(function($content) use ($collections) {
             return $content->filter(function($item) use ($collections) {
                 return in_array($item->collectionName(), $collections);
             });
@@ -94,7 +111,7 @@ class TaxonomyTags extends Tags
             }
         }
 
-        $this->taxonomies = $this->taxonomies->filterContent(function($content) use ($collections) {
+        $this->terms = $this->terms->filterContent(function($content) use ($collections) {
             return $content->filter(function($item) use ($collections) {
                 return in_array($item->collectionName(), $collections);
             });
@@ -104,7 +121,7 @@ class TaxonomyTags extends Tags
     private function filterUnpublished()
     {
         if (! $this->getBool('show_unpublished', false)) {
-            $this->taxonomies = $this->taxonomies->filterContent(function($content) {
+            $this->terms = $this->terms->filterContent(function($content) {
                 return $content->removeUnpublished();
             });
         }
@@ -113,7 +130,7 @@ class TaxonomyTags extends Tags
     private function filterFuture()
     {
         if (! $this->getBool('show_future', false)) {
-            $this->taxonomies = $this->taxonomies->filterContent(function($content) {
+            $this->terms = $this->terms->filterContent(function($content) {
                 return $content->removeFuture();
             });
         }
@@ -122,7 +139,7 @@ class TaxonomyTags extends Tags
     private function filterPast()
     {
         if (! $this->getBool('show_past', true)) {
-            $this->taxonomies = $this->taxonomies->filterContent(function($content) {
+            $this->terms = $this->terms->filterContent(function($content) {
                 return $content->removePast();
             });
         }
@@ -131,7 +148,7 @@ class TaxonomyTags extends Tags
     private function filterSince()
     {
         if ($since = $this->get('since')) {
-            $this->taxonomies = $this->taxonomies->filterContent(function($content) use ($since) {
+            $this->terms = $this->terms->filterContent(function($content) use ($since) {
                 return $content->removeBefore($since);
             });
         }
@@ -140,7 +157,7 @@ class TaxonomyTags extends Tags
     private function filterUntil()
     {
         if ($until = $this->get('until')) {
-            $this->taxonomies = $this->taxonomies->filterContent(function($content) use ($until) {
+            $this->terms = $this->terms->filterContent(function($content) use ($until) {
                 return $content->removeAfter($until);
             });
         }
@@ -149,10 +166,10 @@ class TaxonomyTags extends Tags
     private function limit()
     {
         $limit = $this->getInt('limit');
-        $limit = ($limit == 0) ? $this->taxonomies->count() : $limit;
+        $limit = ($limit == 0) ? $this->terms->count() : $limit;
         $offset = $this->getInt('offset');
 
-        $this->taxonomies = $this->taxonomies->splice($offset, $limit);
+        $this->terms = $this->terms->splice($offset, $limit);
     }
 
     private function filterConditions()
@@ -161,14 +178,14 @@ class TaxonomyTags extends Tags
             // If a "filter" parameter has been specified, we want to use a custom filter class
             // to filter *the taxonomy collection*. If they want to use a custom filter to
             // filter the actual content collection, they can do it from the filter.
-            $this->taxonomies = collection_filter($filter, $this->taxonomies)->filter();
+            $this->terms = collection_filter($filter, $this->terms)->filter();
         } else {
             // No filter parameter has been specified, so we should filter the content by condition parameters
             $conditions = array_filter_key($this->parameters, function ($key) {
                 return Str::contains($key, ':');
             });
 
-            $this->taxonomies = $this->taxonomies->filterContent(function($content) use ($conditions) {
+            $this->terms = $this->terms->filterContent(function($content) use ($conditions) {
                 return $content->conditions($conditions);
             });
         }
@@ -177,10 +194,10 @@ class TaxonomyTags extends Tags
     private function sort()
     {
         if ($sort = $this->get('sort')) {
-            $this->taxonomies = $this->taxonomies->multisort($sort);
+            $this->terms = $this->terms->multisort($sort);
         } else {
             // No sort specified? We want to sort by count.
-            $this->taxonomies = $this->taxonomies->sortByCount();
+            $this->terms = $this->terms->sortByCount();
         }
     }
 }

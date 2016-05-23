@@ -40,16 +40,32 @@ content_builder:
       
       ## Tweens and Timelines
       
+      ```
+      fadeOut = TweenMax.to('#element', 1, {opacity: 0})
+      fadeOut = TweenMax.to('#element', 1, {opacity: 0, delay: 0.5})
+      fadeOut = TweenMax.staggerTo('#element', 1, {opacity: 0}, 0.1)
+      fadeIn = TweenMax.fromTo('#element', 1, {opacity: 0}, {opacity: 1, delay: 0.5})
+      fadeIn = TweenMax.staggerFromTo('#element', 1, {opacity: 0}, {opacity: 1}, 0.1)
+      ```
+      
+      ```
+      sceneTimeline = new TimelineMax()
+      .add([
+        TweenMax.to('#element', 1, {y: -50})
+          TweenMax.to('#another', 1, {backgroundColor: '#000'})
+      ])
+      ```
+      
       ## Scenes
       
       ```
       introScene = new ScrollMagic.Scene({
-          triggerElement: '#intro',
-          triggerHook: 0.75,
-          duration: $('#intro').outerHeight()*2
-        })
-        .setTween(introTimeline)
-        .addTo(controller)
+        triggerElement: '#scene',
+        triggerHook: 0.75,
+        duration: $('#scene').outerHeight()*2
+      })
+      .setTween(sceneTimeline)
+      .addTo(controller)
       ```
 title: Scrollmagic
 id: 6d2581d4-c034-4fed-b8a7-c1204abce5c2

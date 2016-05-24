@@ -8,8 +8,6 @@ content_builder:
   - 
     type: markdown
     md_content: |
-      ## Set Up
-      
       Scrollmagic needs the basic gsap files (animation, TweenMax, TimelineMax, etc) to work.
       
       ### Required Dependencies
@@ -71,5 +69,5 @@ content_builder:
       .setTween(sceneTimeline)
       .addTo(controller)
       ```
-title: Scrollmagic
+title: ScrollMagic
 id: 6d2581d4-c034-4fed-b8a7-c1204abce5c2

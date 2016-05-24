@@ -3751,7 +3751,8 @@ html {
 
 .tn-1,
 pre,
-code {
+code,
+.markdown h3 {
   font-size: 0.8333333333rem;
 }
 
@@ -3783,8 +3784,7 @@ code {
   font-size: 1rem;
 }
 
-.t-1,
-.markdown h3 {
+.t-1 {
   font-size: 1.2rem;
 }
 
@@ -3812,7 +3812,8 @@ code {
   }
 }
 
-.t-2 {
+.t-2,
+.markdown h2 {
   font-size: 1.44rem;
 }
 
@@ -3840,8 +3841,7 @@ code {
   }
 }
 
-.t-3,
-.markdown h2 {
+.t-3 {
   font-size: 1.728rem;
 }
 

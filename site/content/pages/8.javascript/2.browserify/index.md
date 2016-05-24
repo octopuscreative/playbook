@@ -11,7 +11,7 @@ content_builder:
       
       ## Handing Browserify with Gulp
       
-      <script src="https://gist.github.com/chrsgrffth/4492b545f108968fe97a5bf39a49cebd.js"></script>
+      <script src="https://gist.github.com/chrsgrffth/4492b545f108968fe97a5bf39a49cebd.js"></script><br>
       
       [http://www.uberbrady.com/2015/05/how-to-do-gulp-browserify-coffeescript.html](http://www.uberbrady.com/2015/05/how-to-do-gulp-browserify-coffeescript.html)
 title: Browserify

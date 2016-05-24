@@ -47,12 +47,13 @@ content_builder:
       fadeIn = TweenMax.fromTo('#element', 1, {opacity: 0}, {opacity: 1, delay: 0.5})
       fadeIn = TweenMax.staggerFromTo('#element', 1, {opacity: 0}, {opacity: 1}, 0.1)
       ```
+      Tweens define a single group of animations for one or more elements. Meaning you can tell one or a group of elements to animate a number of properties, but you can't tell different elements to do their own different animations with Tweens. This is where timelines come in. With timelines you specify the tweens and then tie them together for use with a scene.
       
       ```
       sceneTimeline = new TimelineMax()
       .add([
         TweenMax.to('#element', 1, {y: -50})
-          TweenMax.to('#another', 1, {backgroundColor: '#000'})
+         TweenMax.to('#another', 1, {backgroundColor: '#000'})
       ])
       ```
       

@@ -6,7 +6,7 @@ content_builder:
   - 
     type: markdown
     md_content: |
-      ## Gulpfile for Statamic Themes
+      ## Gulpfile/package.json for Statamic Themes
       
       [On Github](https://gist.github.com/chrsgrffth/1a7c1aca6b82edbd88b7bb8a3b913002)
 title: Gulp.js

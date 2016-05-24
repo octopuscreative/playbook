@@ -12,6 +12,8 @@ content_builder:
       
       ### Required Dependencies
       
+      <script src="https://gist.github.com/chrsgrffth/f510fc06c7c89a7a7558.js"></script>
+      
       `jquery.min.js`
       
       `TweenMax.min.js`
@@ -38,7 +40,7 @@ content_builder:
       
       ## Tweens and Timelines
       
-      Tweens define a single group of animations for one or more elements. Meaning you can tell one or a group of elements to animate a number of properties, but you can't tell different elements to do their own different animations with Tweens. 
+      Tweens define a single group of animations for one or more elements. Meaning you can tell one or a group of elements to animate a number of properties, but you can't tell different elements to do their own different animations with Tweens.
       
       ```
       fadeOut = TweenMax.to('#element', 1, {opacity: 0})

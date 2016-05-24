@@ -1,8 +1,8 @@
 // Rem base.
-$rem-base: 16px;
+$rem-base: 14px;
 
 // Modular scale ration.
-$ratio: 1.2;
+$ratio: 1.1825;
 
 // Grid settings.
 $container-width: 90rem;
@@ -53,6 +53,7 @@ $caps-letter-spacing: 0.25em;
 $default-border-radius: 2px;
 $default-border-weight: 1px;
 $default-border-color: #eff1f5;
+$rounded-border-radius: 24px;
 
 // Shadow
 $default-box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);

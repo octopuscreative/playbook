@@ -7,7 +7,9 @@ content_builder:
   - 
     type: markdown
     md_content: |
-      ## Handing Browserify with Gulp 
+      Browserify allows us to break our javascript down into modules with node style requires for more manageable all-around javascripting. Even _simple_ marketing sites end up needing a modest amount of scripting to handle asynchronous form interactions, page transitions, API integrations, and so on. Fortunately, all we have to do to Browserify working is add the tasks to our Gulpfile.
+      
+      ## Handing Browserify with Gulp
       
       [http://www.uberbrady.com/2015/05/how-to-do-gulp-browserify-coffeescript.html](http://www.uberbrady.com/2015/05/how-to-do-gulp-browserify-coffeescript.html)
 title: Browserify

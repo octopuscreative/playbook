@@ -36,14 +36,14 @@
 
       <nav class="py-7" style="margin-left: -2px;">
         {{ nav from="/" include_home="true" }}
-          <a href="{{ url }}" class="d-block tn-1 tw-medium py-1 pl-5 pr-10 {{ if !is_current }}cg-5{{ else }}cg-black bl-thick-primary{{ /if }}">{{ title }}</a>
+          <a href="{{ url }}" class="d-block py-1 pl-5 pr-10 {{ if !is_current }}tw-light tn-1 cg-5 bl-thick-7{{ else }}tw-medium cg-black bl-thick-primary{{ /if }}">{{ title }}</a>
 
           {{ if is_current && segment_1 }}
-            <ul class="pl-1">
+            <ul class="pl-5 bl-thick-6">
               {{ pages }}
                 {{ if url != current_uri }}
-                <li>
-                  <a href="#{{ slug }}" class="cg-1 tn-1">{{ title }}</a>
+                <li {{ if last }}class="mb-2"{{ /if }}>
+                  <a href="#{{ slug }}" class="cg-3 tn-1">{{ title }}</a>
                 </li>
                 {{ /if }}
               {{ /pages }}
@@ -61,14 +61,13 @@
 
   <main class="pl-16">
     <div class="container pr-10 mb-10">
-
-      <header>
-        <form class="pl-5" action="/search-results" method="GET">
-          <input type="text" name="q" class="rounded b-7 p-1 tn-1" />
+      <header class="col-3 push-2 py-6 mb-10">
+        <form action="/search-results" method="GET">
+          <input type="text" name="q" placeholder="Search" class="w-100 rounded b-7 py-1 px-4 tn-1" />
           <button></button>
         </form>
-        {{ template_content }}
       </header>
+      {{ template_content }}
     </div>
   </main>
 

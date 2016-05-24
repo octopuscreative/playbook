@@ -12,8 +12,6 @@ content_builder:
       
       ### Required Dependencies
       
-      <script src="https://gist.github.com/chrsgrffth/f510fc06c7c89a7a7558.js"></script>
-      
       `jquery.min.js`
       
       `TweenMax.min.js`

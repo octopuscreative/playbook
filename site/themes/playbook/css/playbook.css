@@ -1,4 +1,3 @@
-@import url(https://fonts.googleapis.com/css?family=Roboto:300,300italic,400,400italic,700,700italic|Oswald:400,300,700);
 .c-primary {
   color: #2c3e50;
 }
@@ -3184,6 +3183,16 @@ table {
   border-spacing: 0;
 }
 
+input,
+button {
+  -moz-appearance: none;
+  appearance: none;
+  -webkit-appearance: none;
+  border: none;
+  box-shadow: none;
+  background: none;
+}
+
 .b {
   border: 1px solid #eff1f5;
 }
@@ -3689,7 +3698,7 @@ table {
 body,
 html {
   font-size: 16px;
-  font-family: "Roboto", "Arial", sans-serif;
+  font-family: "Gotham Narrow SSm", "Arial", sans-serif;
   font-weight: 200;
 }
 
@@ -4192,10 +4201,10 @@ code,
 }
 
 .display {
-  font-family: "Oswald", "Helvetica", sans-serif;
+  font-family: "soleil", "Helvetica", sans-serif;
   line-height: 1.5;
-  text-transform: uppercase;
-  letter-spacing: 0.075em;
+  text-transform: none;
+  letter-spacing: 0em;
 }
 
 .caps {

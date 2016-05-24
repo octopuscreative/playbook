@@ -1,50 +1,27 @@
-<article class="pr-10 mb-10">
-  <div class="container">
-    <header class="mb-12">
-      <div class="row">
-        <div class="col-8 push-2 px-4">
-          <h1 class="d-inline-block t-6 tw-medium mb-10">{{ title }}</h1>
-          <h2 class="t-2 mb-4 cg-4">{{ punch_line }}</h2>
-
-          <div class="col-2 bb-thick"></div>
-        </div>
-      </div>
-    </header>
-
-    <!-- Parent page content. -->
-    {{ partial:content-builder class="mb-10" }}
-
-  </div>
-</article>
-
-
-<!-- Table of Contents -->
-<!-- {{ nav url='{ url }' }}
-  {{ if index == 1}}
-  <section class="container pr-10 mb-10">
-    <div class="row mb-6">
-      <div class="push-2 px-4">
-        <h2 class="t-4 tw-medium">Table of Contents</h2>
-      </div>
-    </div>
+<article class="pr-10">
+  <header class="mb-8">
     <div class="row">
-        <nav class="col-8 push-2 px-4">
-    {{ /if }}
-          <h3 class="t-1 mb-1">{{ order }}. <a href="#{{ slug }}">{{ title }}</a></h3>
-    {{ if last }}
-        </nav>
+      <div class="col-8 push-2 px-4">
+        <h1 class="d-inline-block display t-7 tw-bold mb-5">{{ title }}</h1>
+        {{ if punch_line }}
+          <h2 class="t-2 mb-10 cg-4">{{ punch_line }}</h2>
+        {{ /if }}
+      </div>
     </div>
-  </section>
-  {{ /if }}
-{{ /nav }} -->
+  </header>
+
+  <!-- Parent page content. -->
+  {{ partial:content-builder class="mb-10" }}
+
+</article>
 
 {{ pages url='{ url }' }}
   {{ if url != current_uri && segment_1 }}
-  <article id="{{ slug }}" class="pr-10 mb-8">
+  <article id="{{ slug }}" class="pr-10 pt-8">
     <div class="container">
       <header class="row mb-4">
-        <div class="col-8 push-2">
-          <h3 class="t-4 px-4 tw-medium">{{ title }}</h3>
+        <div class="col-8 push-2 px-4">
+          <h3 class="t-4 tw-bold">{{ title }}</h3>
         </div>
       </header>
       {{ partial:content-builder }}
@@ -53,16 +30,16 @@
   {{ /if }}
 {{ /pages }}
 
-<footer class="container">
-  <div class="col-2 push-2 px-1">
-    <p class="display tn-3 cg-4 mb-1">Updated</p>
-    <p class="tn-1 cg-1">{{ last_modified format="F j, Y" }}</p>
+<footer class="container pt-14">
+  <div class="col-2 push-2 px-4">
+    <p class="tn-2 cg-4 mb-1">Updated</p>
+    <p class=" cg-1">{{ last_modified format="F j, Y" }}</p>
   </div>
   {{ if contributors }}
     <div class="col-4 px-1">
-      <p class="display tn-3 cg-4 mb-1">Contributers</p>
+      <p class="tn-2 cg-4 mb-1">Contributers</p>
       {{ relate:contributors }}
-        <p class="tn-1 cg-1">{{ first_name }} {{ last_name }}</p>
+        <p class=" cg-1">{{ first_name }} {{ last_name }}</p>
       {{ /relate:contributors }}
     </div>
   {{ /if }}

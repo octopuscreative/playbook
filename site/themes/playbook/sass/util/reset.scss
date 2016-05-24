@@ -134,3 +134,14 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
+
+// Reset inputs.
+
+input,
+button {
+  appearance: none;
+  -webkit-appearance: none;
+  border: none;
+  box-shadow: none;
+  background: none;
+}

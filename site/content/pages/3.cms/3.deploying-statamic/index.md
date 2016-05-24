@@ -21,7 +21,9 @@ content_builder:
       
       ## Configure Deploy Script
       
-      Edit the *Deployment Script* to specify the following.
+      Forge makes it especially easy to set up a webhook that will deploy when pushing the specified branch to Git. To do this, copy the Webhook Link from the site's page in Forge and add it to the project settings in Gitlab or Github. Then copy to the server's SSH key to the deployment keys in the project settings (or to your personal SSH key's if you need the server to be able to push code – ie Spock for automatically commiting and pushing content changes on the server).
+      
+      Then, edit the *Deployment Script* to specify the following.
       
       ```
       cd /home/forge/default

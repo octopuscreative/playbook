@@ -6,7 +6,10 @@ punch_line: Our guide to designing the best apps and writing the best code for t
 content_builder:
   - 
     type: markdown
-    md_content: '## Insights from Around the Web'
+    md_content: |
+      ## Insights from Around the Web
+      
+      - [Bugsnag Blog - Replacing the Rails asset pipeline with Gulp: Using Gulp to compile and cache our assets](http://blog.bugsnag.com/replacing-the-rails-asset-pipeline-with-gulp)
 title: The Playbook
 template: default
 list:

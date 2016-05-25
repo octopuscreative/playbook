@@ -10,6 +10,7 @@ content_builder:
       ## Insights from Around the Web
       
       - [Bugsnag Blog - Replacing the Rails asset pipeline with Gulp: Using Gulp to compile and cache our assets](http://blog.bugsnag.com/replacing-the-rails-asset-pipeline-with-gulp)
+      - [thoughtbot/guides](https://github.com/thoughtbot/guides/tree/master/code-review)
 title: The Playbook
 template: default
 list:

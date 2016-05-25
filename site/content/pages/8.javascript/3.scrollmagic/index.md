@@ -54,17 +54,21 @@ content_builder:
       sceneTimeline = new TimelineMax()
       .add([
         TweenMax.to('#element', 1, {y: -50})
-         TweenMax.to('#another', 1, {backgroundColor: '#000'})
+        TweenMax.to('#another', 1, {backgroundColor: '#000'})
       ])
       ```
       
       ## Scenes
       
+      Scenes are the bridge between the Tweens/Timelines and the controller. This is where we'll define the starting point and duration of the animation. With an element `#scene`, we want the animation to start as we scroll along that element. This is the `triggerElement`. We can adjust specifically where this starts with `triggerHook`. The default value is `0.50` meaning the animation will start at the trigger element when it is halfway up the viewport. To start an animation as soon as the trigger element comes into view, we can push the trigger hook down to `1.00`.
+      
+      Since the animation will typically be finished at the end of the trigger element, we set the duration to be the height of that div. Of course, this can be adjusted as needed.
+      
       ```
       introScene = new ScrollMagic.Scene({
         triggerElement: '#scene',
         triggerHook: 0.75,
-        duration: $('#scene').outerHeight()*2
+        duration: $('#scene').outerHeight()
       })
       .setTween(sceneTimeline)
       .addTo(controller)

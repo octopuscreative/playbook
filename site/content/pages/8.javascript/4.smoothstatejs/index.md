@@ -8,38 +8,38 @@ content_builder:
   - 
     type: markdown
     md_content: |
-      ```
+      SmoothState is a really nifty and simple way to bring our sites into the 21st century by elminating full page refreshes and loading only the content we specify within the SmoothState container.
       
+      ```
       # The the defined area that we want to AJAX-ify.
       $main = $('#main')
       
       
       (($) ->
-        module.init()
       
       
-        # Handle internal page transitions with smoothstate.
+        # Instantiate the smooth state.
         smoothState = $main.smoothState
           debug: true
-          loadingClass: 'is-loading' # Show loader when is loading.
+          loadingClass: 'is-loading' # Do things with CSS while the page is transitioning.
           # anchors: 'a'
           # blacklist: 'form'
       
       
           onBefore: ($currentTarget) ->
-            # $currentTarget is the link that was clicked.
-            #
-            # Clean up any event bindings here.
+            # We can clean up things like event bindings here if needed.
+            # $currentTarget is jQuery object of the link that was clicked.
       
           onStart:
-            duration: # Duration of the out animation.
+            duration: 1000 # Duration of the out animation.
       
             render: ->
               # Transition out the old content.
       
           onReady:
-            duration: # Duration of the in animation.
+            duration: 1000 # Duration of the in animation.
             render: ($main, $newContent) ->
+            
                 # Load the new content to the container.
                 $('#main').html($newContent)
       
@@ -47,7 +47,7 @@ content_builder:
       
       
           onAfter: ->
-            # Reinitialize plugins.
+            # Reinitialize any plugins or event bindings if needed.
       
       ) jQuery
       ```

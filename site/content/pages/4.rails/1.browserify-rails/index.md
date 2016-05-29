@@ -8,6 +8,11 @@ punch_line: >
 content_builder:
   - 
     type: markdown
-    md_content: '[Browserify-Rails](https://github.com/browserify-rails/browserify-rails)'
+    md_content: |
+      A quick solution to problems that the asset pipeline introduces, like JavaScript load order and excessive globals, is to use the [browserify-rails](https://github.com/browserify-rails/browserify-rails) gem. This gem doesn't replace the asset pipeline, but rather it builds upon it. With a couple of simple config udates you'll have the power of browserify and all of its transforms at your fingertips.
+      
+      ### Quick Links
+      
+      * [browserify-rails Getting Started](https://github.com/browserify-rails/browserify-rails#getting-started)
 title: Browserify + Rails
 id: d45ffcc6-01c0-4cad-8bfa-ed2ed76940c1

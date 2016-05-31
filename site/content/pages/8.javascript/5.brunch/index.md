@@ -13,6 +13,6 @@ content_builder:
       
       * [Brunch Concepts](http://brunch.io/docs/concepts) - Start here if you want a very succinct intro to Brunch
       * [Brunch Guides - What's Brunch?](https://github.com/brunch/brunch-guide/blob/master/content/en/chapter01-whats-brunch.md) - An in depth guide to Brunch and how it works
-      * [brunch-statamic - A brunch boilerplate for statamic themes](https://github.com/octopuscreative/brunch-statamic)
+      * [brunch-statamic - A brunch boilerplate for Statamic themes](https://github.com/octopuscreative/brunch-statamic)
 title: Brunch
 id: f910b478-a1ff-47e5-b729-007aa1f03062

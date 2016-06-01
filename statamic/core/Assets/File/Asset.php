@@ -180,14 +180,14 @@ class Asset extends Data implements AssetContract
     public function url()
     {
         if ($this->driver() === 'local') {
-            return Path::tidy($this->container()->url() . '/' . $this->getPath());
+            return URL::encode(Path::tidy($this->container()->url() . '/' . $this->getPath()));
 
         } elseif ($this->driver() === 's3') {
             $adapter = $this->disk()->filesystem()->getAdapter();
-            return URL::tidy($adapter->getClient()->getObjectUrl(
+            return URL::encode(URL::tidy($adapter->getClient()->getObjectUrl(
                 $adapter->getBucket(),
                 $this->container()->path() . '/' . $this->path()
-            ));
+            )));
         }
 
         throw new \RuntimeException('This driver does not support retrieving URLs.');

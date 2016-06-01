@@ -87,7 +87,7 @@ class Form
             $fields[] = [
                 'field' => $key,
                 'name' => $key, // alias
-                'old' => Req::old($key)
+                'old' => (Req::hasSession()) ? old($key) : ''
             ] + $field;
         }
 

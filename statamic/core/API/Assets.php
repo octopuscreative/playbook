@@ -13,6 +13,21 @@ class Assets
     }
 
     /**
+     * Get all assets
+     *
+     * @return \Statamic\Assets\AssetCollection
+     */
+    public static function all()
+    {
+        $containers = collect(self::getContainers());
+
+        return collect_assets($containers->flatMap(function ($container) {
+            return $container->assets();
+        }));
+    }
+
+
+    /**
      * Get all the asset containers
      *
      * @return \Statamic\Contracts\Assets\AssetContainer[]

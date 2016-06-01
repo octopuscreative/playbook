@@ -15,6 +15,14 @@ interface AssetContainer extends Editable
     public function uuid($uuid = null);
 
     /**
+     * Get or set the handle
+     *
+     * @param null|string $handle
+     * @return string
+     */
+    public function handle($handle = null);
+
+    /**
      * Get or set the driver
      *
      * @param  null|string $driver

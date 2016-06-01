@@ -10,12 +10,14 @@ module.exports = {
         },
         container: String,
         folder: String,
-        selected: Array
+        selected: Array,
+        viewMode: String
     },
 
     data: function() {
         return {
-            loading: true
+            loading: true,
+            showListing: true
         }
     },
 
@@ -36,6 +38,20 @@ module.exports = {
         this.$on('asset-listing.loading-complete', function() {
             this.loading = false;
         });
+    },
+
+    events: {
+        // A folder was selected to navigate to in the listing.
+        'path.updated': function (path) {
+            // We'll stop showing the listing, update the path, then re-show the listing.
+            // This will force the listing component to refresh with the new path.
+            // It's the simplest solution for now to allow folder navigation.
+            this.showListing = false;
+            this.folder = path;
+            this.$nextTick(function () {
+                this.showListing = true;
+            })
+        }
     }
 
 };

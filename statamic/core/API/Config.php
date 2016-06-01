@@ -97,11 +97,31 @@ class Config
     /**
      * Get the current locale's full code for date string translations
      *
+     * @param string|null $locale
      * @return string
      */
-    public static function getFullLocale()
+    public static function getFullLocale($locale = null)
     {
-        return self::get('system.locales.' . LOCALE . '.full', 'en_US');
+        if (is_null($locale)) {
+            $locale = LOCALE;
+        }
+
+        return self::get('system.locales.' . $locale . '.full', 'en_US');
+    }
+
+    /**
+     * Get the current locale's name
+     *
+     * @param string|null $locale
+     * @return string
+     */
+    public static function getLocaleName($locale = null)
+    {
+        if (is_null($locale)) {
+            $locale = LOCALE;
+        }
+
+        return self::get('system.locales.' . $locale . '.name', 'English');
     }
 
     /**

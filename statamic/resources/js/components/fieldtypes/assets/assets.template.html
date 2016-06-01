@@ -1,5 +1,5 @@
 <div class="assets-field-wrapper"
-    :class="{ 'being-dragging': draggingFile }"
+    :class="{ 'being-dragging': draggingFile && !selector }"
     @dragover="draggingFile = true"
     @dragleave="draggingFile = false"
     @drop="draggingFile = false">
@@ -8,7 +8,7 @@
         <span class="icon icon-circular-graph animation-spin"></span> {{ translate('cp.loading') }}
     </div>
 
-    <div class="drag-notification" v-if="draggingFile">
+    <div class="drag-notification" v-if="draggingFile && !selector">
         <i class="icon icon-download"></i>
         <h3>Drop to upload</h3>
     </div>
@@ -39,11 +39,12 @@
 
 
         <input type="file" multiple="multiple" class="system-file-upload hide">
-
-        <selector :container="container"
-                  :folder="folder"
-                  :selected="clone(assets)"
-                  :show.sync="selector">
-        </selector>
     </div>
+
+    <selector :container="container"
+              :folder="folder"
+              :selected="clone(assets)"
+              :show.sync="selector"
+              :view-mode="selectorViewMode">
+    </selector>
 </div>

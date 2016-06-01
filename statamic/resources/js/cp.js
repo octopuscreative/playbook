@@ -33,6 +33,8 @@ global.dd = function(args) {
     console.log(args);
 };
 
+global.Cookies = require('cookies-js');
+
 require('./l10n/l10n');
 require('./vendor/sticky');
 

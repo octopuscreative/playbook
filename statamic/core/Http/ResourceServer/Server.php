@@ -136,7 +136,7 @@ class Server
         if ($this->resource_type === self::RESOURCE_CP) {
             $parts = array_slice($parts, 3);
         } elseif ($this->resource_type === self::RESOURCE_ADDON) {
-            $parts = array_slice($parts, 5);
+            $parts = array_slice($parts, 4);
         }
 
         $this->resource_uri = join('/', $parts);

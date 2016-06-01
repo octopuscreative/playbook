@@ -17,7 +17,8 @@ module.exports = {
             expanded: false, // Fieldtype visual state
             plugin: null,    // Uploader plugin instance
             selector: false,  // Is the asset selector opened?
-            draggingFile: false
+            selectorViewMode: null,
+            draggingFile: false,
         };
     },
 
@@ -117,6 +118,12 @@ module.exports = {
                 },
 
                 onBeforeUpload: function(id) {
+                    // Don't allow uploading files when the selector is open.
+                    // The user should drag files in there instead.
+                    if (self.selector) {
+                        return false;
+                    }
+
                     // Check that the max files setting hasn't been reached.
                     if (self.maxFilesReached) {
                         // If it has, tug that file back out from the queue.
@@ -221,6 +228,8 @@ module.exports = {
     },
 
     ready: function() {
+        this.selectorViewMode = Cookies.get('statamic.assets.listing_view_mode') || 'grid';
+
         // We only have IDs in the field data, so we'll need to request the asset data from the server.
         this.getAssets();
 

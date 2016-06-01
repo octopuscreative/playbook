@@ -118,18 +118,18 @@ code.parent-url {
         color: $color_red;
     }
 
-    .actions {
-        display: none;
-        position: absolute;
-        z-index: 2;
-        top: 10px;
-        right: 15px;
-
-        span {
-            color: #ccc;
-            cursor: pointer;
-        }
-    }
+    //.actions {
+    //    display: none;
+    //    position: absolute;
+    //    z-index: 2;
+    //    top: 10px;
+    //    right: 15px;
+    //
+    //    span {
+    //        color: #ccc;
+    //        cursor: pointer;
+    //    }
+    //}
 
     // Being dragged
     .ui-sortable-helper {

@@ -402,6 +402,23 @@ class BaseModifiers extends Modifier
     }
 
     /**
+     * Get any variable from a relationship
+     *
+     * @param $value
+     * @return string
+     */
+    public function get($value, $params)
+    {
+        if (! $item = Asset::uuidRaw($value)) {
+            if (! $item = Content::uuidRaw($value)) {
+                return $value;
+            }
+        }
+
+        return $item->get($var, array_get($params, 0));
+    }
+
+    /**
      * Generate an HTML link.
      *
      * @param $value
@@ -429,7 +446,7 @@ class BaseModifiers extends Modifier
     }
 
     /**
-     * Returns the first $params[0] characters of a string.
+     * Returns the first $params[0] characters of a string, or the last element of an array.
      *
      * @param $value
      * @param $params
@@ -437,6 +454,10 @@ class BaseModifiers extends Modifier
      */
     public function first($value, $params)
     {
+        if (is_array($value)) {
+            return array_get($value, 0);
+        }
+
         return Stringy::first($value, array_get($params, 0));
     }
 
@@ -861,7 +882,7 @@ class BaseModifiers extends Modifier
     }
 
     /**
-     * Returns the last $params[0] characters of a string.
+     * Returns the last $params[0] characters of a string, or the last element of an array.
      *
      * @param $value
      * @param $params
@@ -869,6 +890,10 @@ class BaseModifiers extends Modifier
      */
     public function last($value, $params)
     {
+        if (is_array($value)) {
+            return array_pop($value);
+        }
+
         return Stringy::last($value, array_get($params, 0));
     }
 

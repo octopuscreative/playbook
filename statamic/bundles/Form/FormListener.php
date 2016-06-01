@@ -46,6 +46,7 @@ class FormListener extends Listener
 
         try {
             $submission->data($fields);
+            $submission->uploadFiles();
         } catch (PublishException $e) {
             return $error_redirect->withInput()->withErrors($e->getErrors(), 'form.'.$formset);
         } catch (HoneypotException $e) {

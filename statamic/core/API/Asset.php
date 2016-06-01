@@ -54,4 +54,17 @@ class Asset
     {
         return self::uuidRaw($uuid, $locale)->toArray();
     }
+
+    /**
+     * Get an asset by its path
+     *
+     * @param string      $path
+     * @return Asset
+     */
+    public static function path($path)
+    {
+        return Assets::all()->filter(function ($asset) use ($path) {
+            return $asset->resolvedPath() === $path;
+        })->first();
+    }
 }

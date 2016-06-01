@@ -45,15 +45,8 @@ module.exports = {
         },
         mode: {
             type: String,
-            default: function() {
-                return 'grid';
-            }
-        },
-        canNavigate: {
-            type: Boolean,
-            required: false,
-            default: function() {
-                return true;
+            default: function () {
+                return Cookies.get('statamic.assets.listing_view_mode') || 'table';
             }
         }
     },
@@ -66,6 +59,7 @@ module.exports = {
             showFolderEditor: false,
             folderModalPath: '',
             creatingFolder: false,
+            search: null,
             sortCol: 'title',
             sortOrders: {title: 1, basename: 1, size_b: 1, last_modified: 1},
             assetQueue: [],
@@ -306,11 +300,6 @@ module.exports = {
             asset.title = updated.title;
         });
 
-        // When an asset is uploaded, we'll add it to the listing
-        this.$on('asset_uploaded', function(uploaded) {
-            this.assets.unshift(uploaded);
-        });
-
         // When a folder is edited, we'll update the title in our listing.
         this.$on('folder.updated', function(updated) {
             var folder = _.findWhere(this.folders, { path: updated.path });
@@ -320,6 +309,11 @@ module.exports = {
         // When a folder is created, we'll add it to the listing
         this.$on('folder.created', function(created) {
             this.folders.push(created);
+        });
+
+        // When the view mode is changed, set the preference in a cookie
+        this.$watch('mode', function (mode) {
+            Cookies.set('statamic.assets.listing_view_mode', mode);
         });
     }
 

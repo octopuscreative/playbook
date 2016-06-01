@@ -5,3 +5,5 @@ fieldtype_fields:
     type: text
   label:
     type: text
+  taxonomy:
+    type: text

@@ -13,6 +13,18 @@ use Statamic\Assets\AssetContainer as BaseAssetContainer;
 class AssetContainer extends BaseAssetContainer
 {
     /**
+     * Get or set the handle
+     *
+     * @param null|string $handle
+     * @return string
+     */
+    public function handle($handle = null)
+    {
+        // For files, the id is also the handle.
+        return $this->id($handle);
+    }
+
+    /**
      * Save the container
      */
     public function save()

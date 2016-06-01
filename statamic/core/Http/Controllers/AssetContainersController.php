@@ -63,7 +63,18 @@ class AssetContainersController extends CpController
 
     public function store()
     {
+        $handle = $this->request->input('handle');
+
+        if (Assets::getContainer($handle)) {
+            return [
+                'success' => false,
+                'errors' => ['A container with this handle already exists.']
+            ];
+        }
+
         $container = Assets::createContainer();
+
+        $container->handle($handle);
 
         return $this->save($container);
     }

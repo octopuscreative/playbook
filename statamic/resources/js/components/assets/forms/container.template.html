@@ -1,3 +1,9 @@
+<div class="alert alert-danger" v-if="hasErrors">
+    <ul>
+        <li v-for="error in errors">{{ error }}</li>
+    </ul>
+</div>
+
 <div class="publish-form card">
     <div class="head">
         <h1 v-if="isNew">Creating a new asset container</h1>
@@ -16,6 +22,12 @@
             <label class="block">Title</label>
             <small class="help-block">The display name of the container.</small>
             <input type="text" class="form-control" v-model="config.title" />
+        </div>
+
+        <div class="form-group" v-if="isNew">
+            <label class="block">Handle</label>
+            <div class="help-block">A unique string that you can use to reference your container. <b>This cannot be changed after creation.</b></div>
+            <input type="text" class="form-control" v-model="config.handle" @keydown="isHandleModified = true" />
         </div>
 
         <div class="form-group">

@@ -386,13 +386,13 @@ class PublishController extends CpController
         if (! $taxonomy) {
             if ($taxonomy = TaxonomyTerm::getFromTaxonomy($group, $slug)) {
                 // If there is a non-localized version, we should redirect the user to the "create" page.
-                return redirect()->route('taxonomy.localize', [
+                return redirect()->route('term.localize', [
                     'uuid' => $taxonomy->id(),
                     'locale' => $locale
                 ]);
             } else {
                 // Otherwise, there's no such thing. Bail.
-                return redirect()->route('taxonomies.show', $group)->withErrors('No taxonomy found.');
+                return redirect()->route('term.show', $group)->withErrors('No taxonomy found.');
             }
         }
 
@@ -566,7 +566,7 @@ class PublishController extends CpController
 
             $locales[] = [
                 'name'        => $locale,
-                'label'       => trans('locales.'.$locale),
+                'label'       => Config::getLocaleName($locale),
                 'url'         => $url,
                 'is_active'   => $locale === $this->request->query('locale', Config::getDefaultLocale()),
                 'has_content' => $has_content

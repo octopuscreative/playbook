@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit5fe80d85f724435e2bf25569a9065a1e
+class ComposerStaticInitec4939e36bf8316fd7108a681b97505e
 {
     public static $files = array (
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
@@ -2162,6 +2162,9 @@ class ComposerStaticInit5fe80d85f724435e2bf25569a9065a1e
         'Statamic\\Config\\Config' => __DIR__ . '/../..' . '/core/Config/Config.php',
         'Statamic\\Config\\ConfigManager' => __DIR__ . '/../..' . '/core/Config/ConfigManager.php',
         'Statamic\\Config\\File\\Config' => __DIR__ . '/../..' . '/core/Config/File/Config.php',
+        'Statamic\\Console\\Commands\\Assets\\AssetsFindCommand' => __DIR__ . '/../..' . '/core/Console/Commands/Assets/AssetsFindCommand.php',
+        'Statamic\\Console\\Commands\\Assets\\AssetsListCommand' => __DIR__ . '/../..' . '/core/Console/Commands/Assets/AssetsListCommand.php',
+        'Statamic\\Console\\Commands\\Assets\\AssetsSyncCommand' => __DIR__ . '/../..' . '/core/Console/Commands/Assets/AssetsSyncCommand.php',
         'Statamic\\Console\\Commands\\Clear\\ClearCacheCommand' => __DIR__ . '/../..' . '/core/Console/Commands/Clear/ClearCacheCommand.php',
         'Statamic\\Console\\Commands\\Clear\\ClearGlideCommand' => __DIR__ . '/../..' . '/core/Console/Commands/Clear/ClearGlideCommand.php',
         'Statamic\\Console\\Commands\\Clear\\ClearSiteCommand' => __DIR__ . '/../..' . '/core/Console/Commands/Clear/ClearSiteCommand.php',
@@ -2179,6 +2182,7 @@ class ComposerStaticInit5fe80d85f724435e2bf25569a9065a1e
         'Statamic\\Console\\Commands\\Generators\\Addon\\ModifierMakeCommand' => __DIR__ . '/../..' . '/core/Console/Commands/Generators/Addon/ModifierMakeCommand.php',
         'Statamic\\Console\\Commands\\Generators\\Addon\\ProviderMakeCommand' => __DIR__ . '/../..' . '/core/Console/Commands/Generators/Addon/ProviderMakeCommand.php',
         'Statamic\\Console\\Commands\\Generators\\Addon\\TagsMakeCommand' => __DIR__ . '/../..' . '/core/Console/Commands/Generators/Addon/TagsMakeCommand.php',
+        'Statamic\\Console\\Commands\\Generators\\Addon\\TasksMakeCommand' => __DIR__ . '/../..' . '/core/Console/Commands/Generators/Addon/TasksMakeCommand.php',
         'Statamic\\Console\\Commands\\Generators\\Addon\\WidgetMakeCommand' => __DIR__ . '/../..' . '/core/Console/Commands/Generators/Addon/WidgetMakeCommand.php',
         'Statamic\\Console\\Commands\\Generators\\Theme\\ThemeMakeCommand' => __DIR__ . '/../..' . '/core/Console/Commands/Generators/Theme/ThemeMakeCommand.php',
         'Statamic\\Console\\Commands\\Generators\\UserMakeCommand' => __DIR__ . '/../..' . '/core/Console/Commands/Generators/UserMakeCommand.php',
@@ -2359,7 +2363,11 @@ class ComposerStaticInit5fe80d85f724435e2bf25569a9065a1e
         'Statamic\\Forms\\Metrics\\MinMetric' => __DIR__ . '/../..' . '/core/Forms/Metrics/MinMetric.php',
         'Statamic\\Forms\\Metrics\\SumMetric' => __DIR__ . '/../..' . '/core/Forms/Metrics/SumMetric.php',
         'Statamic\\Forms\\Metrics\\TotalMetric' => __DIR__ . '/../..' . '/core/Forms/Metrics/TotalMetric.php',
+        'Statamic\\Forms\\Presenters\\UploadedFilePresenter' => __DIR__ . '/../..' . '/core/Forms/Presenters/UploadedFilePresenter.php',
         'Statamic\\Forms\\Submission' => __DIR__ . '/../..' . '/core/Forms/Submission.php',
+        'Statamic\\Forms\\Uploaders\\AssetUploader' => __DIR__ . '/../..' . '/core/Forms/Uploaders/AssetUploader.php',
+        'Statamic\\Forms\\Uploaders\\FileUploader' => __DIR__ . '/../..' . '/core/Forms/Uploaders/FileUploader.php',
+        'Statamic\\Forms\\Uploaders\\Uploader' => __DIR__ . '/../..' . '/core/Forms/Uploaders/Uploader.php',
         'Statamic\\Http\\Controllers\\AddonsController' => __DIR__ . '/../..' . '/core/Http/Controllers/AddonsController.php',
         'Statamic\\Http\\Controllers\\AssetContainersController' => __DIR__ . '/../..' . '/core/Http/Controllers/AssetContainersController.php',
         'Statamic\\Http\\Controllers\\AssetFoldersController' => __DIR__ . '/../..' . '/core/Http/Controllers/AssetFoldersController.php',
@@ -3262,10 +3270,10 @@ class ComposerStaticInit5fe80d85f724435e2bf25569a9065a1e
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit5fe80d85f724435e2bf25569a9065a1e::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit5fe80d85f724435e2bf25569a9065a1e::$prefixDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInit5fe80d85f724435e2bf25569a9065a1e::$prefixesPsr0;
-            $loader->classMap = ComposerStaticInit5fe80d85f724435e2bf25569a9065a1e::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInitec4939e36bf8316fd7108a681b97505e::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInitec4939e36bf8316fd7108a681b97505e::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInitec4939e36bf8316fd7108a681b97505e::$prefixesPsr0;
+            $loader->classMap = ComposerStaticInitec4939e36bf8316fd7108a681b97505e::$classMap;
 
         }, null, ClassLoader::class);
     }

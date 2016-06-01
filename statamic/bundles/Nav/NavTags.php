@@ -75,7 +75,7 @@ class NavTags extends Tags
     {
         return [
             'from'         => Str::ensureLeft($this->get('from', URL::getCurrent()), '/'),
-            'depth'        => $this->getInt('max_depth', 1),
+            'depth'        => $this->getInt('max_depth', 2),
             'unpublished'  => $this->getBool('show_unpublished', false),
             'entries'      => $this->getBool('include_entries', false),
             'sort'         => $this->get('sort'),

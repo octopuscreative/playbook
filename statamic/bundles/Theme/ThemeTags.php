@@ -71,8 +71,10 @@ class ThemeTags extends Tags
 
         $url = $this->themeUrl($path);
 
+        $alt = $this->get('alt');
+
         if ($this->getBool('tag')) {
-            return '<img src="' . $url . '" alt="" />';
+            return "<img src=\"$url\" alt=\"$alt\" />";
         }
 
         return $url;

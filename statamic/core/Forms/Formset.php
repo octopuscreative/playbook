@@ -169,4 +169,17 @@ class Formset implements FormsetContract
             'edit_url' => $this->editUrl()
         ];
     }
+
+    /**
+     * Is a field an uploadable type?
+     *
+     * @param string $field
+     * @return mixed
+     */
+    public function isUploadableField($field)
+    {
+        $field = collect($this->fields())->get($field);
+
+        return in_array(array_get($field, 'type'), ['file', 'files', 'asset', 'assets']);
+    }
 }

@@ -33,7 +33,7 @@ class AssetServiceProvider extends ServiceProvider
 
         $this->app->singleton('League\Glide\Server', function() {
             return ServerFactory::create([
-                'source'   => path(STATAMIC_ROOT), // this gets overriden in GlideController
+                'source'   => path(STATAMIC_ROOT), // this gets overriden in GlideController when using assets
                 'cache'    => cache_path('glide'),
                 'base_url' => Config::get('assets.image_manipulation_route', 'img'),
                 'response' => new LaravelResponseFactory(app('request')),

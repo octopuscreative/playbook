@@ -8,5 +8,7 @@ return [
     'sort_instruct' => 'Sort the terms with fieldname:order. You can add additional rules separated by pipes. Eg: `count:desc|name:asc`',
     'label' => 'Label',
     'label_instruct' => 'How the values should appear. You may use variables within the string, eg. `{{ title }} ({{ count }})`',
+    'taxonomy' => 'Taxonomy',
+    'taxonomy_instruct' => 'The name of the taxonomy from which to show terms.'
 
 ];

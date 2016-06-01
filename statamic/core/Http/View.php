@@ -3,6 +3,7 @@
 namespace Statamic\Http;
 
 use Statamic\API\Arr;
+use Statamic\API\File;
 use Statamic\API\Path;
 use Statamic\DataStore;
 use Statamic\API\Parse;
@@ -139,6 +140,16 @@ class View
         if (is_object($this->data)) {
             if ($layout = $this->data->layout()) {
                 return $layout;
+            }
+        }
+
+
+        // If it's an error, we want to try to use an error layout first
+        if ($template = $this->template) {
+            if (Path::directory($template) == Config::get('theming.error_template_folder')) {
+                if (File::disk('theme')->exists('layouts/error.html')) {
+                    return 'error';
+                }
             }
         }
 

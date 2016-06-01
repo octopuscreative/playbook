@@ -56,12 +56,16 @@
                         <td><a href="{{ route('form.submission.show', [$form->name(), $submission->id()]) }}">{{ $submission->formattedDate() }}</a></td>
                         @foreach($submission->columns() as $name => $label)
                             <td>
-                                @if(! is_array($submission->get($name)))
-                                    {{ $submission->get($name) }}
+                                @if ($submission->formset()->isUploadableField($name))
+                                    {!! \Statamic\Forms\Presenters\UploadedFilePresenter::render($submission, $name) !!}
                                 @else
-                                    @foreach($submission->get($name) as $key => $value)
-                                        {{ $value }}<br>
-                                    @endforeach
+                                    @if(! is_array($submission->get($name)))
+                                        {{ $submission->get($name) }}
+                                    @else
+                                        @foreach($submission->get($name) as $key => $value)
+                                            {{ $value }}<br>
+                                        @endforeach
+                                    @endif
                                 @endif
                             </td>
                         @endforeach

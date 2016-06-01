@@ -169,6 +169,11 @@
 
 .asset-listing .actions {
     margin-bottom: 15px;
+
+    .search {
+        margin-right: 20px;
+        max-width: 200px;
+    }
 }
 
 .asset-listing.grid {

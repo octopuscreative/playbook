@@ -3,7 +3,9 @@
 namespace Statamic\Forms;
 
 use Carbon\Carbon;
+use Statamic\API\Helper;
 use Statamic\API\Storage;
+use Statamic\Forms\Uploaders\Uploader;
 use Statamic\Exceptions\PublishException;
 use Statamic\Exceptions\HoneypotException;
 use Statamic\Contracts\Forms\Submission as SubmissionContract;
@@ -154,6 +156,45 @@ class Submission implements SubmissionContract
         }
 
         $this->data = $data;
+    }
+
+    /**
+     * Upload files
+     */
+    public function uploadFiles()
+    {
+        $request = request();
+
+        collect($this->fields())->filter(function ($field) {
+            // Only deal with uploadable fields
+            return in_array(array_get($field, 'type'), ['file', 'files', 'asset', 'assets']);
+
+        })->map(function ($config, $field) {
+            // Map into a nicer data schema to work with
+            return compact('field', 'config');
+
+        })->reject(function ($arr) use ($request) {
+            // Remove if no file was uploaded
+            return !$request->hasFile($arr['field']);
+
+        })->map(function ($arr, $field) use ($request) {
+            // Add the uploaded files to our data array
+            $files = collect(array_filter(Helper::ensureArray($request->file($field))));
+            $arr['files'] = $files;
+            return $arr;
+
+        })->each(function ($arr) {
+            // A plural type uses the singular version. assets => asset, etc.
+            $type = rtrim(array_get($arr, 'config.type'), 's');
+
+            // Upload the files
+            $class = 'Statamic\Forms\Uploaders\\'.ucfirst($type).'Uploader';
+            $uploader = new $class(array_get($arr, 'config'), array_get($arr, 'files'));
+            $data = $uploader->upload();
+
+            // Add the resulting paths to our submission
+            array_set($this->data, $arr['field'], $data);
+        });
     }
 
     /**

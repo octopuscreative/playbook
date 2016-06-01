@@ -63,6 +63,10 @@ trait Permissible
      */
     public function hasPermission($permission)
     {
+        if ($this->get('super') === true) {
+            return true;
+        }
+
         foreach ($this->roles() as $role) {
             if ($role->hasPermission($permission)) {
                 return true;
@@ -105,7 +109,7 @@ trait Permissible
      */
     public function isSuper()
     {
-        return $this->get('super') === true || $this->hasPermission('super');
+        return $this->hasPermission('super');
     }
 
     /**

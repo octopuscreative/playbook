@@ -11,6 +11,7 @@ module.exports = {
         return {
             config: {
                 title: null,
+                handle: null,
                 driver: 'local',
                 fieldset: null,
                 local: {},
@@ -19,7 +20,9 @@ module.exports = {
             drivers: [
                 { value: 'local', text: 'Local' },
                 { value: 's3', text: 'Amazon S3' }
-            ]
+            ],
+            isHandleModified: false,
+            errors: []
         };
     },
 
@@ -40,6 +43,9 @@ module.exports = {
                 { value: 'ap-northeast-2', text: 'Asia Pacific (Seoul) / ap-northeast-2' },
                 { value: 'sa-east-1', text: 'South America (Sao Paulo) / sa-east-1)' }
             ]
+        },
+        hasErrors: function() {
+            return _.size(this.errors) !== 0;
         }
     },
 
@@ -48,6 +54,7 @@ module.exports = {
             var driver = this.container.driver || 'local';
             this.config.driver = driver;
             this.config.title = this.container.title;
+            this.config.handle = this.container.handle;
             this.config.fieldset = this.container.fieldset;
             this.config[driver] = this.container;
 
@@ -55,18 +62,34 @@ module.exports = {
             // For new containers, set the region dropdown to the first option
             this.config.s3.region = _.first(this.s3Regions).value;
         }
+
+        if (this.isNew) {
+            this.syncTitleAndHandleFields();
+        }
     },
 
     methods: {
+
         save: function () {
             var url = (this.isNew) ? cp_url('configure/content/assets') : cp_url('configure/content/assets/'+this.container.id);
 
             this.$http.post(url, this.config).success(function (response) {
                 if (response.success) {
                     window.location = response.redirect;
+                } else {
+                    this.errors = response.errors;
                 }
             });
+        },
+
+        syncTitleAndHandleFields: function() {
+            this.$watch('config.title', function(title) {
+                if (this.isHandleModified) return;
+
+                this.config.handle = this.$slugify(title);
+            });
         }
+
     }
 
 };

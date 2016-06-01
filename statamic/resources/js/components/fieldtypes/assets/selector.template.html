@@ -3,10 +3,11 @@
         <template slot="header">Asset Manager</template>
 
         <template slot="body">
-            <asset-listing :container="container"
+            <asset-listing v-if="showListing"
+                           :container="container"
                            :path="folder"
                            :selected-assets.sync="selected"
-                           :can-navigate="false">
+                           :mode="viewMode">
             </asset-listing>
         </template>
 

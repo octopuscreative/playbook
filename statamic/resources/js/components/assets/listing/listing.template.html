@@ -62,6 +62,8 @@
             </button>
         </div>
 
+        <input type="text" :placeholder="translate('cp.search')" @keydown.esc="search = null" v-model="search" class="search" />
+
         <div class="btn-group">
             <button type="button" class="btn btn-icon" @click="mode = 'grid'" :class="{'depressed': mode == 'grid'}">
                 <span class="icon icon-grid"></span>
@@ -114,7 +116,7 @@
                         <td colspan="3">..</td>
                         <td></td>
                     </tr>
-                    <tr v-for="folder in folders" v-if="canNavigate">
+                    <tr v-for="folder in folders | filterBy search">
                         <td></td>
                         <td>
                             <a href="" @click.prevent="goToFolder(folder.path)">
@@ -138,7 +140,7 @@
                         </td>
                     </tr>
 
-                    <tr v-for="asset in assets | orderBy sortCol sortOrders[sortCol]">
+                    <tr v-for="asset in assets | orderBy sortCol sortOrders[sortCol] | filterBy search">
                         <td>
                             <div class="faux-checkbox" :class="{ 'checked': isSelected(asset) }" @click="selectAsset(asset)"></div>
                         </td>
@@ -174,7 +176,7 @@
 
     <div class="asset-listing grid" v-if="mode == 'grid'">
 
-        <template v-if="canNavigate">
+        <!--<template>-->
             <div v-if="hasParent" class="asset-thumbnail" @click.prevent.stop="goToFolder(folder.parent_path)">
                 <div class="asset-thumb">
                     <a href="" @click.prevent.stop="goToFolder(folder.parent_path)">
@@ -184,7 +186,7 @@
                 <div class="asset-filename">({{ translate('cp.parent_folder') }})</div>
             </div>
 
-            <div v-for="folder in folders"
+            <div v-for="folder in folders | filterBy search"
                  class="asset-thumbnail"
                  @click.prevent="goToFolder(folder.path)"
             >
@@ -195,11 +197,11 @@
                 </div>
                 <div class="asset-filename">{{ folder.title }}</div>
             </div>
-        </template>
+        <!--</template>-->
 
         <div class="asset-thumbnail selectable"
              :class="{ 'selected': isSelected(asset), 'is-image': asset.is_image, 'is-file': !asset.is_image }"
-             v-for="asset in assets"
+             v-for="asset in assets | filterBy search"
              @click="selectAsset(asset)"
         >
             <a href="" @click.prevent.stop="editAsset(asset.uuid)" class="edit"><button class="btn btn-icon icon icon-pencil" alt="Edit"></button></a>

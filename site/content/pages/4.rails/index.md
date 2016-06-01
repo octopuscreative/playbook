@@ -3,6 +3,7 @@ discipline:
 contributors:
   - bbc7581c-fb25-441e-bbd9-c6cc2ece6fcf
   - fcf94a4c-04ad-4243-b455-59dda1f2d016
+  - d4bc4529-83ce-43a4-861c-d5d60247445e
 punch_line: Convention over confusion
 content_builder:
   - 
@@ -40,5 +41,11 @@ content_builder:
       *Pundit* - ELABS
       
       By far the best authorization gem out there.
+      
+      ## Helpful Snippets
+      
+      ### Use VirtualHostX with Rails for Local .dev Domains and Subdomains
+      
+      <script src="https://gist.github.com/crtvhd/85e2673a77c1836aa9c5.js"></script>
 title: Rails
 id: a5120204-551d-42fe-a869-dba1dd8798e1

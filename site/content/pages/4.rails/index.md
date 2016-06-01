@@ -31,6 +31,12 @@ content_builder:
       ```
       This is better because it will still require the token on all of the non-api controller actions.
       
+      
+      ### Allow-Access-Control-Origin
+      
+      <script src="https://gist.github.com/chrsgrffth/34ddbff061e134aec7e0b0393bddc0cc.js"></script>
+      
+      
       ## Recomended Tooling
       ### Authentication
       *Devise* - Platformatic

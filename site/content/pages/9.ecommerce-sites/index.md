@@ -8,11 +8,14 @@ content_builder:
   - 
     type: markdown
     md_content: |
-      ### Baseline requirements for a usable store
+      ## "Baseline" requirements for a usable store
       
-       * Quick quantity adjustments from the cart drawer/popover
-       * A one off cart page with a list of products, and the ability to update quantities / remove products from the cart. Should also include the ability to add coupons (shopify requires this)
+      We say baseline here because they're certainly not needed for a store to work well, but certainly almost every client will ask for these features:
+      
+       * Quick quantity adjustments from the cart drawer/popover & the ability to quick remove products from the cart
+       * Cart page with a list of products, and the ability to update quantities / remove products from the cart. Should also include the ability to add coupons
        * Out of stock messaging for product cards/display pages for producsts that are out of stock
        * Sale messaging for product cards/display pages for products that are on sale
+       * Empty cart messaging
 title: Ecommerce Sites
 id: c7840d4e-c5ee-4277-8304-3aacbd004ed5

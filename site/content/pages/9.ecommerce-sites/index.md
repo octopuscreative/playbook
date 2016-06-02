@@ -12,5 +12,7 @@ content_builder:
       
        * Quick quantity adjustments from the cart drawer/popover
        * A one off cart page with a list of products, and the ability to update quantities / remove products from the cart. Should also include the ability to add coupons (shopify requires this)
+       * Out of stock messaging for product cards/display pages for producsts that are out of stock
+       * Sale messaging for product cards/display pages for products that are on sale
 title: Ecommerce Sites
 id: c7840d4e-c5ee-4277-8304-3aacbd004ed5

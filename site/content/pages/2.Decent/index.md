@@ -1,4 +1,6 @@
 ---
+discipline:
+  - 0fe33bd8-37c3-4b45-aa98-aedde0556ca4
 contributors:
   - d4bc4529-83ce-43a4-861c-d5d60247445e
   - fcf94a4c-04ad-4243-b455-59dda1f2d016

@@ -46,7 +46,7 @@ content_builder:
       ### Vanilla CSS
       
       To get started using the classes without dealing with any task automation, you can download and include a compiled version of the Swell stylesheet. Copy `styles.css` from the `dist` folder to a logical place in your project and include it in your HTML.
-title: Swell
+title: Decent.css
 id: 43ce1d49-0a58-4437-a32c-7b6236d43639
 ---
 Don't miss another swell because of CSS inheritance issues and start pushing out websites like a hen on Easter.

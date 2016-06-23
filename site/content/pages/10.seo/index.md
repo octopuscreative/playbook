@@ -7,7 +7,7 @@ content_builder:
   - 
     type: markdown
     md_content: |
-      SEO is perhaps one of the most mis-understood area for clients. For years blogs have been writing articles with SEO "advice" where they'll advertise tips or tricks to magically get your site to the first page in a Google search. The reality is that there is no shortcut to higher rankings, and people often spend time focussing on everything but what actually matters - their content and their connections.
+      SEO is perhaps one of the most mis-understood area for clients. For years blogs have been writing articles with SEO "advice" where they'll advertise tips or tricks to magically get your site to the first page in a Google search. In fact, search engines such as Google will actually penalize sites that employ sneaky tactics to boost their ranking. The reality is that there is no shortcut to higher rankings, and people often spend time focussing on everything but what actually matters - their content and their connections. Search engines look for quality, easy to read content along with well structured HTML.
       
       ## Useful Links
       

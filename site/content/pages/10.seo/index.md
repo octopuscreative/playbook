@@ -9,6 +9,8 @@ content_builder:
     md_content: |
       ## Useful Links
       
-      * [Essential Social Media Tags](https://css-tricks.com/essential-meta-tags-social-media/?utm_campaign=Front%2BEnd%2BDev%2BWeekly&utm_medium=email&utm_source=Front_End_Dev_Weekly_101)
+      * [Steps To A Google Friendly Site](https://support.google.com/webmasters/answer/40349?hl=en)
+      * [Google SEO Starter Guide](https://static.googleusercontent.com/media/www.google.com/en//webmasters/docs/search-engine-optimization-starter-guide.pdf)
+      * [Google Search Console](https://www.google.com/webmasters/tools/home?hl=en)
 title: SEO
 id: 6c228924-64e7-46dc-b125-b0c745c530ef

@@ -47,7 +47,7 @@ content_builder:
       - Download a directory of images with wget `$ wget -r -nH -nd -np -R index.html* http://site.com/images/`  This could be useful if you have to pull down image assets for a site in progress
       - If you see `$_SERVER['SERVER_NAME']` , that’s coming from the `ServerName` setting in vhosts. Typically used for a multi env setup/config.
       
-       ## Differences from Statamic
+      ## Differences from Statamic
       * Instead of making separate fieldsets for each collection, taxnonomy, etc, in Craft you make all the different FIELDS by themselves and then you can drag and drop those fields to and field set on any channel, structure, or single.
       * Channel = Collection sorted by date
       * Structure = Collection sorted by number

@@ -56,6 +56,18 @@ class User
     }
 
     /**
+     * Get a user by their oauth provider's id
+     *
+     * @param string $provider
+     * @param string $id
+     * @return \Statamic\Contracts\Data\User
+     */
+    public static function oauth($provider, $id)
+    {
+        return self::users()->getByOAuthId($provider, $id);
+    }
+
+    /**
      * Create a user
      *
      * @return \Statamic\Contracts\Data\Users\UserFactory

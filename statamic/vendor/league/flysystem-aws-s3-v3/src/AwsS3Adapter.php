@@ -411,7 +411,6 @@ class AwsS3Adapter extends AbstractAdapter
 
         if ($response !== false) {
             $response['stream'] = $response['contents']->detach();
-            rewind($response['stream']);
             unset($response['contents']);
         }
 
@@ -432,6 +431,9 @@ class AwsS3Adapter extends AbstractAdapter
             [
                 'Bucket' => $this->bucket,
                 'Key' => $this->applyPathPrefix($path),
+                '@http' => [
+                    'stream' => true,
+                ],
             ]
         );
 
@@ -649,8 +651,16 @@ class AwsS3Adapter extends AbstractAdapter
             ]
         );
 
-        $result = $this->s3Client->execute($command);
+        try {
+            $result = $this->s3Client->execute($command);
 
-        return $result['Contents'] || $result['CommonPrefixes'];
+            return $result['Contents'] || $result['CommonPrefixes'];
+        } catch (S3Exception $e) {
+            if ($e->getStatusCode() === 403) {
+                return false;
+            }
+
+            throw $e;
+        }
     }
 }

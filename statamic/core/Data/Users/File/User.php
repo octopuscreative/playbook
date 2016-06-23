@@ -377,14 +377,14 @@ class User extends Data implements UserContract, Authenticatable, PermissibleCon
 
     /**
      * Get the path to the remember me tokens file
-     * 
+     *
      * @return string
      */
     private function rememberPath()
     {
         return cache_path('remember_me.yaml');
     }
-    
+
     /**
      * Set the reset token/code for a password reset
      *
@@ -394,14 +394,14 @@ class User extends Data implements UserContract, Authenticatable, PermissibleCon
     public function setPasswordResetToken($token)
     {
         $yaml = YAML::parse(File::get($this->passwordResetPath(), ''));
-        
+
         $yaml[$this->id()] = $token;
-        
+
         $yaml = array_filter($yaml);
 
         File::put($this->passwordResetPath(), YAML::dump($yaml));
     }
-    
+
     /**
      * Get the reset token/code for a password reset
      *
@@ -413,7 +413,7 @@ class User extends Data implements UserContract, Authenticatable, PermissibleCon
 
         return array_get($yaml, $this->id());
     }
-    
+
     /**
      * Get the path to the password reset file
      */
@@ -421,6 +421,45 @@ class User extends Data implements UserContract, Authenticatable, PermissibleCon
     {
         return cache_path('password_resets.yaml');
     }
+
+    /**
+     * Get the user's OAuth ID for the requested provider
+     *
+     * @return string
+     */
+    public function getOAuthId($provider)
+    {
+        $yaml = YAML::parse(File::get($this->oAuthIdsPath(), ''));
+
+        return array_get($yaml, $provider.'.'.$this->id());
+    }
+
+    /**
+     * Set a user's oauth ID
+     *
+     * @param string $provider
+     * @param string $id
+     * @return void
+     */
+    public function setOAuthId($provider, $id)
+    {
+        $yaml = YAML::parse(File::get($this->oAuthIdsPath(), ''));
+
+        $yaml[$provider][$this->id()] = $id;
+
+        File::put($this->oAuthIdsPath(), YAML::dump($yaml));
+    }
+
+    /**
+     * Get the path to the oauth IDs file
+     *
+     * @return string
+     */
+    private function oAuthIdsPath()
+    {
+        return cache_path('oauth_ids.yaml');
+    }
+
 
     /**
      * Rename the file

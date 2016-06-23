@@ -9,6 +9,7 @@ use Statamic\API\YAML;
 use Statamic\API\Folder;
 use Statamic\API\Metrics;
 use Statamic\Exceptions\FatalException;
+use Statamic\Forms\Presenters\UploadedFilePresenter;
 
 class FormsController extends CpController
 {
@@ -42,6 +43,39 @@ class FormsController extends CpController
         }
 
         return view('forms.show', compact('form'));
+    }
+
+    public function getFormSubmissions($form)
+    {
+        $this->access('forms');
+
+        $form = Form::get($form);
+
+        $columns = collect($form->columns())->map(function ($val, $column) {
+            return ['label' => $column, 'field' => $column, 'translation' => $val];
+        })->values()->reverse()->push([
+            'label' => 'datestring',
+            'field' => 'datestamp'
+        ])->reverse();
+
+        $items = collect($form->submissions()->each(function ($submission) {
+            $this->replaceFileUploadFields($submission);
+        })->toArray())->map(function ($submission) {
+            $submission['datestring'] = (string) $submission['date'];
+            $submission['datestamp'] = $submission['date']->timestamp;
+            return $submission;
+        });
+
+        return compact('columns', 'items');
+    }
+
+    private function replaceFileUploadFields($submission)
+    {
+        collect($submission->data())->each(function ($value, $field) use ($submission) {
+            if ($submission->formset()->isUploadableField($field)) {
+                $submission->set($field, UploadedFilePresenter::render($submission, $field));
+            }
+        });
     }
 
     public function getForm($form)

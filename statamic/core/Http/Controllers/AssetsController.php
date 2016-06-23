@@ -88,7 +88,9 @@ class AssetsController extends CpController
         $assets = new AssetCollection;
 
         foreach ($this->request->input('uuids') as $uuid) {
-            $asset = Asset::uuidRaw($uuid);
+            if (! $asset = Asset::uuidRaw($uuid)) {
+                continue;
+            }
 
             if ($asset->isImage()) {
                 $asset->set('thumbnail', $asset->manipulate()->square(200)->fit('crop_focal')->build());
@@ -117,7 +119,7 @@ class AssetsController extends CpController
     public function store()
     {
         if (! $this->request->hasFile('file')) {
-            return response()->json('No file specified.', 400);
+            return response()->json($this->request->file('file')->getErrorMessage(), 400);
         }
 
         $asset = Asset::create()
@@ -128,8 +130,7 @@ class AssetsController extends CpController
         try {
             $asset->upload($this->request->file('file'));
         } catch (FileException $e) {
-            $error = 'There was a problem uploading the file: ' . $e->getMessage();
-            return response()->json($error, 400);
+            return response()->json($e->getMessage(), 400);
         }
 
         $asset->save();

@@ -15,7 +15,9 @@ class RetryMiddleware
 {
     private static $retryStatusCodes = [
         500 => true,
-        503 => true
+        502 => true,
+        503 => true,
+        504 => true
     ];
 
     private static $retryCodes = [
@@ -95,7 +97,7 @@ class RetryMiddleware
      */
     public static function exponentialDelay($retries)
     {
-        return mt_rand(0, min(20000, (int) pow(2, $retries - 1) * 100));
+        return mt_rand(0, (int) min(20000, (int) pow(2, $retries - 1) * 100));
     }
 
     /**

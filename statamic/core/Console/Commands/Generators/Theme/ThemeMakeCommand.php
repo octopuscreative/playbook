@@ -4,6 +4,7 @@ namespace Statamic\Console\Commands\Generators\Theme;
 
 use Statamic\API\File;
 use Statamic\API\Folder;
+use Statamic\API\Config;
 use Illuminate\Console\Command;
 use Stringy\StaticStringy as Stringy;
 use Symfony\Component\Console\Input\InputOption;
@@ -17,6 +18,13 @@ class ThemeMakeCommand extends Command
      * @var string
      */
     protected $name = 'make:theme';
+
+    /**
+     * The title of the theme
+     *
+     * @var string
+     */
+    protected $title;
 
     /**
      * The name of the theme
@@ -39,16 +47,16 @@ class ThemeMakeCommand extends Command
      */
     public function fire()
     {
-        $title = $this->argument('title');
+        $this->title = $this->argument('title');
 
-        $this->theme_name = Stringy::slugify($title);
+        $this->theme_name = Stringy::slugify($this->title);
 
         if ( ! $this->folder()->exists($this->theme_name)) {
             // Make theme folder
             $this->folder()->make($this->theme_name);
         } else {
             // ask them to enter it again.
-            if ($this->confirm("A theme named {$title} already exists. Do you want to overwrite it? [yes|no]", true))  {
+            if ($this->confirm("A theme named {$this->title} already exists. Do you want to overwrite it?", true))  {
                 $this->folder()->delete($this->theme_name);
             } else {
                 return $this->comment("Probably a good idea. I guess we're done here!");
@@ -64,7 +72,9 @@ class ThemeMakeCommand extends Command
             $this->file()->put($this->makeFilename($file), $stub);
         }
 
-        $this->comment($title . ' is ready and waiting for you.');
+        $this->comment($this->title . ' is ready and waiting for you.');
+
+        $this->applyThemeSetting();
     }
 
     protected function makeFilename($file)
@@ -119,6 +129,7 @@ class ThemeMakeCommand extends Command
             '/package.json'           => $this->getStub('package.json'),
             '/gulpfile.js'            => $this->getStub('gulpfile.js', ['ThemeName', $this->theme_name]),
             '/.gitignore'             => $this->getStub('gitignore'),
+            '/meta.yaml'              => $this->getStub('meta', ['ThemeName', $this->title]),
             '/settings/theme.yaml'    => null,
             '/settings/macros.yaml'   => null,
             '/css/{name}.css'         => null,
@@ -136,6 +147,17 @@ class ThemeMakeCommand extends Command
         }
 
         return $stub;
+    }
+
+    protected function applyThemeSetting()
+    {
+        if ($this->confirm('Would you like to set this as the active theme?', true)) {
+            Config::set('theming.theme', $this->theme_name);
+            Config::save();
+            $this->comment('Theme configured!');
+        } else {
+            $this->comment("Okay, we won't adjust anything.");
+        }
     }
 
     private function file()

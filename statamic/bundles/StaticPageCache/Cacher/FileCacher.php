@@ -19,7 +19,7 @@ class FileCacher extends Cacher
 
         $content = $this->normalizeContent($content);
 
-        $path = 'static/' . $request->path() . '/index.html';
+        $path = '/static/' . $request->path() . '/index.html';
 
         File::put($path, $content);
     }

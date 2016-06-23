@@ -67,6 +67,15 @@ interface Submission extends Arrayable
     public function get($field);
 
     /**
+     * Set a value of a field
+     *
+     * @param string $field
+     * @param mixed $value
+     * @return void
+     */
+    public function set($field, $value);
+
+    /**
      * Delete sybmission
      *
      * @param  string $key

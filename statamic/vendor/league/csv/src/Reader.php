@@ -4,7 +4,7 @@
 *
 * @license http://opensource.org/licenses/MIT
 * @link https://github.com/thephpleague/csv/
-* @version 8.0.0
+* @version 8.1.0
 * @package League.csv
 *
 * For the full copyright and license information, please view the LICENSE
@@ -130,25 +130,25 @@ class Reader extends AbstractCsv
      *
      * By default if no column index is provided the first column of the CSV is selected
      *
-     * @param int           $columnIndex CSV column index
-     * @param callable|null $callable    A callable to be applied to each of the value to be returned.
+     * @param int           $column_index CSV column index
+     * @param callable|null $callable     A callable to be applied to each of the value to be returned.
      *
      * @return Iterator
      */
-    public function fetchColumn($columnIndex = 0, callable $callable = null)
+    public function fetchColumn($column_index = 0, callable $callable = null)
     {
-        $columnIndex = $this->validateInteger($columnIndex, 0, 'the column index must be a positive integer or 0');
+        $column_index = $this->validateInteger($column_index, 0, 'the column index must be a positive integer or 0');
 
-        $filterColumn = function ($row) use ($columnIndex) {
-            return isset($row[$columnIndex]);
+        $filter_column = function ($row) use ($column_index) {
+            return isset($row[$column_index]);
         };
 
-        $selectColumn = function ($row) use ($columnIndex) {
-            return $row[$columnIndex];
+        $select_column = function ($row) use ($column_index) {
+            return $row[$column_index];
         };
 
-        $this->addFilter($filterColumn);
-        $iterator = $this->fetch($selectColumn);
+        $this->addFilter($filter_column);
+        $iterator = $this->fetch($select_column);
         $iterator = $this->applyCallable($iterator, $callable);
 
         return $iterator;
@@ -167,15 +167,15 @@ class Reader extends AbstractCsv
      * If the value from the column key index is duplicated its corresponding value will
      * be overwritten
      *
-     * @param int           $offsetIndex The column index to serve as offset
-     * @param int           $valueIndex  The column index to serve as value
-     * @param callable|null $callable    A callable to be applied to each of the rows to be returned.
+     * @param int           $offset_index The column index to serve as offset
+     * @param int           $value_index  The column index to serve as value
+     * @param callable|null $callable     A callable to be applied to each of the rows to be returned.
      *
      * @return array
      */
-    public function fetchPairsWithoutDuplicates($offsetIndex = 0, $valueIndex = 1, callable $callable = null)
+    public function fetchPairsWithoutDuplicates($offset_index = 0, $value_index = 1, callable $callable = null)
     {
-        return iterator_to_array($this->fetchPairs($offsetIndex, $valueIndex, $callable), true);
+        return iterator_to_array($this->fetchPairs($offset_index, $value_index, $callable), true);
     }
 
     /**
@@ -186,28 +186,28 @@ class Reader extends AbstractCsv
      * - the first CSV column is used to provide the keys
      * - the second CSV column is used to provide the value
      *
-     * @param int           $offsetIndex The column index to serve as offset
-     * @param int           $valueIndex  The column index to serve as value
-     * @param callable|null $callable    A callable to be applied to each of the rows to be returned.
+     * @param int           $offset_index The column index to serve as offset
+     * @param int           $value_index  The column index to serve as value
+     * @param callable|null $callable     A callable to be applied to each of the rows to be returned.
      *
      * @return Generator
      */
-    public function fetchPairs($offsetIndex = 0, $valueIndex = 1, callable $callable = null)
+    public function fetchPairs($offset_index = 0, $value_index = 1, callable $callable = null)
     {
-        $offsetIndex = $this->validateInteger($offsetIndex, 0, 'the offset column index must be a positive integer or 0');
-        $valueIndex = $this->validateInteger($valueIndex, 0, 'the value column index must be a positive integer or 0');
-        $filterPairs = function ($row) use ($offsetIndex) {
-            return isset($row[$offsetIndex]);
+        $offset_index = $this->validateInteger($offset_index, 0, 'the offset column index must be a positive integer or 0');
+        $value_index = $this->validateInteger($value_index, 0, 'the value column index must be a positive integer or 0');
+        $filter_pairs = function ($row) use ($offset_index) {
+            return isset($row[$offset_index]);
         };
-        $selectPairs = function ($row) use ($offsetIndex, $valueIndex) {
+        $select_pairs = function ($row) use ($offset_index, $value_index) {
             return [
-                $row[$offsetIndex],
-                isset($row[$valueIndex]) ? $row[$valueIndex] : null,
+                $row[$offset_index],
+                isset($row[$value_index]) ? $row[$value_index] : null,
             ];
         };
 
-        $this->addFilter($filterPairs);
-        $iterator = $this->fetch($selectPairs);
+        $this->addFilter($filter_pairs);
+        $iterator = $this->fetch($select_pairs);
         $iterator = $this->applyCallable($iterator, $callable);
 
         return $this->generatePairs($iterator);
@@ -246,7 +246,7 @@ class Reader extends AbstractCsv
     {
         $keys = $this->getAssocKeys($offset_or_keys);
         $keys_count = count($keys);
-        $combineArray = function (array $row) use ($keys, $keys_count) {
+        $combine_array = function (array $row) use ($keys, $keys_count) {
             if ($keys_count != count($row)) {
                 $row = array_slice(array_pad($row, $keys_count, null), 0, $keys_count);
             }
@@ -254,7 +254,7 @@ class Reader extends AbstractCsv
             return array_combine($keys, $row);
         };
 
-        $iterator = $this->fetch($combineArray);
+        $iterator = $this->fetch($combine_array);
         $iterator = $this->applyCallable($iterator, $callable);
 
         return $iterator;

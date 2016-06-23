@@ -4,7 +4,7 @@
 *
 * @license http://opensource.org/licenses/MIT
 * @link https://github.com/thephpleague/csv/
-* @version 8.0.0
+* @version 8.1.0
 * @package League.csv
 *
 * For the full copyright and license information, please view the LICENSE
@@ -109,7 +109,7 @@ trait Controls
     public function fetchDelimitersOccurrence(array $delimiters, $nb_rows = 1)
     {
         $nb_rows = $this->validateInteger($nb_rows, 1, 'The number of rows to consider must be a valid positive integer');
-        $filterRow = function ($row) {
+        $filter_row = function ($row) {
             return is_array($row) && count($row) > 1;
         };
         $delimiters = array_unique(array_filter($delimiters, [$this, 'isValidCsvControls']));
@@ -117,7 +117,7 @@ trait Controls
         $res = [];
         foreach ($delimiters as $delim) {
             $csv->setCsvControl($delim, $this->enclosure, $this->escape);
-            $iterator = new CallbackFilterIterator(new LimitIterator($csv, 0, $nb_rows), $filterRow);
+            $iterator = new CallbackFilterIterator(new LimitIterator($csv, 0, $nb_rows), $filter_row);
             $res[$delim] = count(iterator_to_array($iterator, false), COUNT_RECURSIVE);
         }
         arsort($res, SORT_NUMERIC);

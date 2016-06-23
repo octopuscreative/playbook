@@ -55,7 +55,7 @@ class GridFieldtype extends Fieldtype
             $processed[$field] = $this->processField($value, $field_config);
         }
 
-        return $processed;
+        return array_filter($processed);
     }
 
     private function processField($field_data, $field_config)

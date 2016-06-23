@@ -157,6 +157,8 @@ class ConfigManager
             'app.url' => Config::getSiteUrl(),
             'app.debug' => env('APP_DEBUG', Config::get('debug.debug')),
 
+            'services' => Config::get('services'),
+
             'mail.driver' => Config::get('email.driver'),
             'mail.host' => Config::get('email.host'),
             'mail.port' => Config::get('email.port'),

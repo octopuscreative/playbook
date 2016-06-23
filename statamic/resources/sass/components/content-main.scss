@@ -129,7 +129,6 @@
         display: flex;
         flex-wrap: wrap;
 
-
 		input[type="checkbox"] + label {
 			margin: 7px 5px 5px 5px;
 		}
@@ -149,6 +148,11 @@
 			width: 100%;
 		}
     }
+
+	.actions.no-checkboxes {
+		flex-direction: row;
+		justify-content: flex-end;
+	}
 
     .search {
         flex-basis: 400px;

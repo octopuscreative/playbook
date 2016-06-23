@@ -10,7 +10,7 @@
                     @if ($entry->orderType() === 'date')
                         <td>{{ $entry->date()->diffForHumans() }}</td>
                     @endif
-                    <td class="text-center">
+                    <td class="text-right">
                         <a href="{{ $entry->url() }}">
                             <span class="icon icon-eye"></span>
                         </a>

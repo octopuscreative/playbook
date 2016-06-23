@@ -34,4 +34,13 @@ interface UserService
      * @return \Statamic\Contracts\Data\User
      */
     public static function getByEmail($email);
+
+    /**
+     * Get a user by their OAuth provider's ID
+     *
+     * @param string $provider
+     * @param mixed $id
+     * @return \Statamic\Contracts\Data\User
+     */
+    public function getByOAuthId($provider, $id);
 }

@@ -1,5 +1,5 @@
 <div>
-    <div class="actions" v-if="hasItems">
+    <div v-if="hasItems" :class="{ 'actions': true, 'no-checkboxes': !hasCheckboxes }">
         <div class="actions-controls" v-if="hasCheckboxes">
             <template v-if="!reordering">
                 <input type="checkbox" id="checkbox-all" :checked="allItemsChecked" @click="checkAllItems" />
@@ -36,7 +36,8 @@
                     @click="sortBy(column)"
                     class="column-sortable column-{{ column.label }}"
                 >
-                    {{ translate('cp.'+column.label) }}
+                    <template v-if="column.translation">{{ column.translation }}</template>
+                    <template v-else>{{ translate('cp.'+column.label) }}</template>
                     <i v-if="sortCol === column.field"
                        class="icon icon-chevron-{{ (sortOrders[column.field] > 0) ? 'up' : 'down' }}"></i>
                 </th>

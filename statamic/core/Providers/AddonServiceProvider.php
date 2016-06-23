@@ -24,6 +24,12 @@ class AddonServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->loadTranslations();
+
+        foreach ($this->getAddonProviders() as $provider) {
+            if (method_exists($provider, 'boot')) {
+                $this->app->call([$this->app->resolveProviderClass($provider), 'boot']);
+            }
+        }
     }
 
     /**
@@ -45,7 +51,22 @@ class AddonServiceProvider extends ServiceProvider
             return new ComposerManager;
         });
 
+        $this->registerAddonServiceProviders();
+    }
+
+    private function registerAddonServiceProviders()
+    {
         foreach ($this->getAddonProviders() as $provider) {
+            $provider = $this->app->resolveProviderClass($provider);
+
+            if (! empty($provider->providers)) {
+                call_user_func([$provider, 'registerAdditionalProviders']);
+            }
+
+            if (! empty($provider->aliases)) {
+                call_user_func([$provider, 'registerAdditionalAliases']);
+            }
+
             $this->app->register($provider);
         }
     }

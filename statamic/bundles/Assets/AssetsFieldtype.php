@@ -24,6 +24,10 @@ class AssetsFieldtype extends Fieldtype
 
     public function preProcess($data)
     {
+        if ($this->getFieldConfig('max_files') === 1 && empty($data)) {
+            return $data;
+        }
+
         return Helper::ensureArray($data);
     }
 

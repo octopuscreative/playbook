@@ -483,11 +483,13 @@ function textile($content)
 /**
  * Shorthand for translate()
  *
- * @param type var
- **/
-function t($var)
+ * @param string $var
+ * @param array  $params
+ * @return string
+ */
+function t($var, $params = [])
 {
-    return translate('cp.'.$var);
+    return translate('cp.'.$var, $params);
 }
 
 /**

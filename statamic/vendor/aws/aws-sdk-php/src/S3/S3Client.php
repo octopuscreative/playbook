@@ -97,6 +97,8 @@ use Psr\Http\Message\RequestInterface;
  * @method \GuzzleHttp\Promise\Promise listObjectVersionsAsync(array $args = [])
  * @method \Aws\Result listObjects(array $args = [])
  * @method \GuzzleHttp\Promise\Promise listObjectsAsync(array $args = [])
+ * @method \Aws\Result listObjectsV2(array $args = [])
+ * @method \GuzzleHttp\Promise\Promise listObjectsV2Async(array $args = [])
  * @method \Aws\Result listParts(array $args = [])
  * @method \GuzzleHttp\Promise\Promise listPartsAsync(array $args = [])
  * @method \Aws\Result putBucketAccelerateConfiguration(array $args = [])
@@ -251,8 +253,8 @@ class S3Client extends AwsClient implements S3ClientInterface
         $signer = call_user_func(
             $this->getSignatureProvider(),
             $this->getConfig('signature_version'),
-            $this->getApi()->getSigningName(),
-            $this->getRegion()
+            $this->getConfig('signing_name'),
+            $this->getConfig('signing_region')
         );
 
         return $signer->presign(

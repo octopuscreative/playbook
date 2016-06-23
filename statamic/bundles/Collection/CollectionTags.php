@@ -5,6 +5,7 @@ namespace Statamic\Addons\Collection;
 use Statamic\API\URL;
 use Statamic\API\Str;
 use Statamic\API\Content;
+use Statamic\API\Helper;
 use Statamic\API\Request;
 use Statamic\Extend\Tags;
 use Statamic\API\TaxonomyTerm;
@@ -75,11 +76,15 @@ class CollectionTags extends Tags
      */
     private function collect($collection)
     {
-        if (! Content::collectionExists($collection)) {
-            throw new \Exception("Collection [$collection] doesn't exist.");
+        $collections = Helper::ensureArray($collection);
+
+        foreach ($collections as $collection) {
+            if (! Content::collectionExists($collection)) {
+                throw new \Exception("Collection [$collection] doesn't exist.");
+            }
         }
 
-        $this->collection = Content::entries($collection, null, true);
+        $this->collection = Content::entries($collections, null, true);
 
         $this->filter();
 

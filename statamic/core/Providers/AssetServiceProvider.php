@@ -4,12 +4,12 @@ namespace Statamic\Providers;
 
 use Statamic\API\Config;
 use League\Glide\ServerFactory;
+use Statamic\Imaging\GlideUrlBuilder;
 use Statamic\Assets\File\AssetService;
 use Illuminate\Support\ServiceProvider;
 use Statamic\Assets\File\AssetContainer;
 use Statamic\Assets\AssetContainerFactory;
 use League\Glide\Responses\LaravelResponseFactory;
-use Statamic\Assets\Manipulation\Image\GlideUrlBuilder;
 
 class AssetServiceProvider extends ServiceProvider
 {
@@ -27,7 +27,7 @@ class AssetServiceProvider extends ServiceProvider
             return new AssetContainerFactory;
         });
 
-        $this->app->bind('Statamic\Contracts\Assets\Manipulation\UrlBuilder', function() {
+        $this->app->bind('Statamic\Contracts\Imaging\UrlBuilder', function() {
             return new GlideUrlBuilder;
         });
 

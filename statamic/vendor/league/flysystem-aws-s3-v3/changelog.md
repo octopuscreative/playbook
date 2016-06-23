@@ -1,5 +1,17 @@
 # Changelog
 
+## 1.0.12 - 2016-06-06
+
+### Improved
+
+* Responses are now streamed instead of downloaded fully.
+
+## 1.0.11 - 2016-05-03
+
+### Fixed
+
+* [::has] A regression introduced in 1.0.10 is addressed.
+
 ## 1.0.10 - 2016-04-19
 
 ### Fixed

@@ -70,7 +70,7 @@ class UploadedFilePresenter
     {
         $url = Asset::uuidRaw($id)->url();
 
-        $file = pathinfo($url)['basename'];
+        $file = urldecode(pathinfo($url)['basename']);
 
         return "<a href='$url'>$file</a>";
     }

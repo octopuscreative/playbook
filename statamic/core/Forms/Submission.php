@@ -239,6 +239,18 @@ class Submission implements SubmissionContract
     }
 
     /**
+     * Set a value of a field
+     *
+     * @param string $field
+     * @param mixed  $value
+     * @return void
+     */
+    public function set($field, $value)
+    {
+        array_set($this->data, $field, $value);
+    }
+
+    /**
      * Save the submission
      */
     public function save()

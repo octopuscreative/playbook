@@ -9,12 +9,12 @@ class Image
      *
      * @param null|string $item
      * @param null|array  $params
-     * @return string|\Statamic\Assets\Manipulation\Image\GlideUrlBuilder
+     * @return string|\Statamic\Imaging\GlideUrlBuilder
      */
     public static function manipulate($item = null, $params = null)
     {
-        /** @var \Statamic\Assets\Manipulation\Image\GlideUrlBuilder $builder */
-        $builder = app('Statamic\Contracts\Assets\Manipulation\UrlBuilder');
+        /** @var \Statamic\Imaging\GlideUrlBuilder $builder */
+        $builder = app('Statamic\Contracts\Imaging\UrlBuilder');
 
         if (Str::isUrl($item)) {
             $builder->path($item);

@@ -4,7 +4,7 @@
 *
 * @license http://opensource.org/licenses/MIT
 * @link https://github.com/thephpleague/csv/
-* @version 8.0.0
+* @version 8.1.0
 * @package League.csv
 *
 * For the full copyright and license information, please view the LICENSE
@@ -76,7 +76,7 @@ trait QueryFilter
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     abstract public function getInputBom();
 
@@ -142,7 +142,7 @@ trait QueryFilter
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     abstract public function getEnclosure();
 
@@ -167,7 +167,7 @@ trait QueryFilter
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     abstract public function getIterator();
 
@@ -214,14 +214,14 @@ trait QueryFilter
      */
     protected function getStripBomIterator(Iterator $iterator)
     {
-        $bomLength = mb_strlen($this->getInputBom());
+        $bom_length = mb_strlen($this->getInputBom());
         $enclosure = $this->getEnclosure();
-        $stripBom = function ($row, $index) use ($bomLength, $enclosure) {
+        $strip_bom = function ($row, $index) use ($bom_length, $enclosure) {
             if (0 != $index) {
                 return $row;
             }
 
-            $row[0] = mb_substr($row[0], $bomLength);
+            $row[0] = mb_substr($row[0], $bom_length);
             if ($row[0][0] === $enclosure && mb_substr($row[0], -1, 1) === $enclosure) {
                 $row[0] = mb_substr($row[0], 1, -1);
             }
@@ -229,7 +229,7 @@ trait QueryFilter
             return $row;
         };
 
-        return new MapIterator($iterator, $stripBom);
+        return new MapIterator($iterator, $strip_bom);
     }
 
     /**
@@ -264,10 +264,10 @@ trait QueryFilter
         }
 
         $obj = new ArrayObject(iterator_to_array($iterator));
-        $obj->uasort(function ($rowA, $rowB) {
+        $obj->uasort(function ($row_a, $row_b) {
             $res = 0;
-            foreach ($this->iterator_sort_by as $compareRows) {
-                if (0 !== ($res = call_user_func($compareRows, $rowA, $rowB))) {
+            foreach ($this->iterator_sort_by as $compare) {
+                if (0 !== ($res = call_user_func($compare, $row_a, $row_b))) {
                     break;
                 }
             }

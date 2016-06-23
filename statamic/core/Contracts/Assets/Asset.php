@@ -49,7 +49,7 @@ interface Asset extends Data
      * Get either a image URL builder instance, or a URL if passed params.
      *
      * @param null|array $params Optional manipulation parameters to return a string right away
-     * @return \Statamic\Contracts\Assets\Manipulation\UrlBuilder|string
+     * @return \Statamic\Contracts\Imaging\UrlBuilder|string
      */
     public function manipulate($params = null);
 

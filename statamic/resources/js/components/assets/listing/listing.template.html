@@ -28,17 +28,19 @@
             <tbody>
                 <tr v-for="asset in assetQueue">
                     <td class="column-checkbox">
-                        <span class="icon icon-circular-graph animation-spin"></span>
+                        <span class="icon icon-circular-graph animation-spin" v-if="asset.status !== 'error'"></span>
+                        <span class="icon icon-warning error" v-else></span>
                     </td>
                     <td class="column-filename">
                         <img :src="fileIcon(asset.extension)" />
                         {{ asset.basename }}
                     </td>
-                    <td class="column-progress">
+                    <td class="column-progress" v-if="asset.status !== 'error'">
                         <div class="progress">
                             <div class="progress-bar" :style="{ width: asset.uploadPercent+'%' }"></div>
                         </div>
                     </td>
+                    <td class="column-error" v-else>{{ asset.errorMessage }}</td>
                 </tr>
             </tbody>
         </table>

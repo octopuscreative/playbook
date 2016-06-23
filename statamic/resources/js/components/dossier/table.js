@@ -151,7 +151,7 @@ module.exports = {
             var columns = [];
             _.each(this.columns, function (column) {
                 if (typeof column === 'object') {
-                    columns.push({ label: column.label, field: column.field });
+                    columns.push({ label: column.label, field: column.field, translation: column.translation });
                 } else {
                     columns.push({ label: column, field: column });
                 }

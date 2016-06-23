@@ -43,8 +43,10 @@ var vm = new Vue({
         'user-group-listing': require('./components/listings/user-groups'),
         'user-role-listing': require('./components/listings/user-roles'),
         'fieldset-listing': require('./components/listings/fieldsets'),
+        'form-submission-listing': require('./components/listings/form-submissions'),
         'asset-container-form': require('./components/assets/forms/container'),
-        'roles': require('./components/roles/roles')
+        'roles': require('./components/roles/roles'),
+        'login': require('./components/login/login')
     },
 
     computed: {

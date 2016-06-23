@@ -37,6 +37,12 @@ abstract class Tags extends Addon
     public $tag;
 
     /**
+     * If is a tag pair
+     * @var bool
+     */
+    public $isPair;
+
+    /**
      * Whether to trim the whitespace from the content before parsing
      * @var  bool
      */
@@ -53,6 +59,7 @@ abstract class Tags extends Addon
         $this->parameters  = $properties['parameters'];
         $this->content     = $properties['content'];
         $this->context     = $properties['context'];
+        $this->isPair      = $this->content !== '';
         $this->tag         = array_get($properties, 'tag');
 
         parent::__construct();
@@ -68,8 +75,8 @@ abstract class Tags extends Addon
     protected function get($keys, $default = null)
     {
         return Helper::pick(
-            $this->getParam($keys, $default),
-            $this->getConfig($keys, $default),
+            $this->getParam($keys),
+            $this->getConfig($keys),
             $default
         );
     }

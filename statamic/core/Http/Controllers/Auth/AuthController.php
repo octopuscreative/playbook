@@ -2,8 +2,7 @@
 
 namespace Statamic\Http\Controllers\Auth;
 
-use Statamic\API\User;
-use Statamic\API\Helper;
+use Statamic\API\OAuth;
 use Illuminate\Auth\Guard;
 use Illuminate\Http\Request;
 use Statamic\Http\Controllers\CpController;
@@ -42,7 +41,8 @@ class AuthController extends CpController
     public function getLogin()
     {
         $data = [
-            'title' => translate('cp.login')
+            'title' => translate('cp.login'),
+            'oauth' => OAuth::enabled() && !empty(OAuth::providers())
         ];
 
         return view('auth.login', $data);

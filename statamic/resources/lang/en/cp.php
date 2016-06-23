@@ -291,6 +291,7 @@ return [
     'add_date' => 'Add date',
     'add_time' => 'Add time',
     'login' => 'Login',
+    'login_with' => 'Login with :provider',
     'new' => 'New',
     'or' => 'or',
     'order' => 'Order',

@@ -16,7 +16,7 @@
         "mustangostang/spyc": "0.5.*",
         "laravelcollective/html": "~5.0",
         "michelf/php-markdown": "1.5.0",
-        "michelf/php-smartypants": "1.6.0-beta1",
+        "michelf/php-smartypants": "dev-lib#c0465c6d4c5ab853c2fa45df6c10bce7e35cc137",
         "netcarver/textile": "3.6.*@dev",
         "webpatser/laravel-uuid": "1.*",
         "barryvdh/laravel-debugbar": "^2.0@dev",
@@ -25,7 +25,8 @@
         "zendframework/zendsearch": "dev-master",
         "algolia/algoliasearch-client-php": "^1.6",
         "league/glide-laravel": "^1.0.0",
-        "league/csv": "^8.0"
+        "league/csv": "^8.0",
+        "socialiteproviders/manager": "^2.1"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

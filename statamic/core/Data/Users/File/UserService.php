@@ -54,6 +54,20 @@ class UserService extends DataService implements UserServiceContract
     }
 
     /**
+     * Get a user by their OAuth provider's ID
+     *
+     * @param string $provider
+     * @param mixed $id
+     * @return \Statamic\Contracts\Data\User
+     */
+    public function getByOAuthId($provider, $id)
+    {
+        return $this->getAll()->filter(function ($user) use ($provider, $id) {
+            return $user->getOAuthId($provider) === $id;
+        })->first();
+    }
+
+    /**
      * Get data by its UUID
      *
      * @param string      $uuid

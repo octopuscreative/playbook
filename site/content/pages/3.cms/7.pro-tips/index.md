@@ -5,6 +5,6 @@ contributors:
 content_builder:
   - 
     type: markdown
-    md_content: 'Statamic logging can be very useful: https://docs.statamic.com/knowledge-base/logging'
-title: pro-tips
+    md_content: 'Statamic logging can be very useful: [https://docs.statamic.com/knowledge-base/logging](https://docs.statamic.com/knowledge-base/logging)'
+title: Pro Tips
 id: f89f911e-52a9-4536-9a76-2806cbad21a3

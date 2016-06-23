@@ -32,11 +32,11 @@ content_builder:
       
       ## Assets
       https://craftcms.com/docs/assets
-      * When setting up a new asset source, the file system path input should point to a folder you create in `public`  (not in the craft folder), using a relative path. This folder also needs to be writable.
+      When setting up a new asset source, the file system path input should point to a folder you create in `public`  (not in the craft folder), using a relative path. This folder also needs to be writable.
       
       ## Deploy
-      - https://github.com/mattstauffer/syncCraft
-      - https://gumroad.com/l/craft-setup
+      * https://github.com/mattstauffer/syncCraft
+      * https://gumroad.com/l/craft-setup
       
       ## Using mailcatcher with php
       

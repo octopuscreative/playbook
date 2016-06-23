@@ -44,8 +44,8 @@ content_builder:
       Or what actually worked for me: Adding `sendmail_path = "/Users/seanwash/.rvm/gems/ruby-2.3.1/wrappers/catchmail"`  to the current php version’s php.ini file. If you used homebrew to install php, run `brew info php55` or `brew info php70` to see where the ini file is located.
       
       ## Random
-      - Download a directory of images with wget `$ wget -r -nH -nd -np -R index.html* http://site.com/images/`  This could be useful if you have to pull down image assets for a site in progress
-      - If you see `$_SERVER['SERVER_NAME']` , that’s coming from the `ServerName` setting in vhosts. Typically used for a multi env setup/config.
+      * Download a directory of images with wget `$ wget -r -nH -nd -np -R index.html* http://site.com/images/`  This could be useful if you have to pull down image assets for a site in progress
+      * If you see `$_SERVER['SERVER_NAME']` , that’s coming from the `ServerName` setting in vhosts. Typically used for a multi env setup/config.
       
       ## Differences from Statamic
       * Instead of making separate fieldsets for each collection, taxnonomy, etc, in Craft you make all the different FIELDS by themselves and then you can drag and drop those fields to and field set on any channel, structure, or single.
@@ -61,19 +61,19 @@ content_builder:
       
       If you haven’t already seen this: https://straightupcraft.com/craft-plugins
       
-      -  Craft Kint (helpful debugger): https://github.com/mildlygeeky/craft_kint
-      -  SEOmatic: https://github.com/nystudio107/seomatic
-      -  SuperTable (craft doesn't super nested Matrix fields, this is essentially that): https://github.com/engram-design/SuperTable
-      - Link It (way more helpful than I initially thought): https://github.com/fruitstudios/LinkIt
-      - CP Field Links: https://github.com/mmikkel/CpFieldLinks-Craft
-      - Pimp my Matrix (super helpful if you have huge matrix fields with a lot of block types): http://plugins.supercooldesign.co.uk/plugin/pimp-my-matrix
-      - Code Block: https://github.com/lindseydiloreto/craft-codeblock
-      - Field Manager: https://github.com/engram-design/FieldManager
-      - Sprout Forms (paid, but awesome): http://sprout.barrelstrengthdesign.com/craft-plugins/forms
-      - FeedMe: https://github.com/engram-design/FeedMe
-      - Google Analytics https://dukt.net/craft/analytics
-      - Sitemap Generator https://github.com/xodigital/SimpleSitemap
+      *  Craft Kint (helpful debugger): https://github.com/mildlygeeky/craft_kint
+      *  SEOmatic: https://github.com/nystudio107/seomatic
+      *  SuperTable (craft doesn't super nested Matrix fields, this is essentially that): https://github.com/engram-design/SuperTable
+      * Link It (way more helpful than I initially thought): https://github.com/fruitstudios/LinkIt
+      * CP Field Links: https://github.com/mmikkel/CpFieldLinks-Craft
+      * Pimp my Matrix (super helpful if you have huge matrix fields with a lot of block types): http://plugins.supercooldesign.co.uk/plugin/pimp-my-matrix
+      * Code Block: https://github.com/lindseydiloreto/craft-codeblock
+      * Field Manager: https://github.com/engram-design/FieldManager
+      * Sprout Forms (paid, but awesome): http://sprout.barrelstrengthdesign.com/craft-plugins/forms
+      * FeedMe: https://github.com/engram-design/FeedMe
+      * Google Analytics https://dukt.net/craft/analytics
+      * Sitemap Generator https://github.com/xodigital/SimpleSitemap
       
-      -  Most of them by Pixel & Tonic, the company that develops Craft, are great. https://github.com/pixelandtonic
+      Most of them by Pixel & Tonic, the company that develops Craft, are great. https://github.com/pixelandtonic
 title: Craft
 id: 214bef57-beb5-41d5-a098-19e7d1afd918

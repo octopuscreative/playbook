@@ -7,6 +7,10 @@ content_builder:
   - 
     type: markdown
     md_content: |
+      ## Learning Resources
+      
+      * http://elixir-lang.org/learning.html
+      
       ## Useful Links
       
       ### Elixir + Ecto

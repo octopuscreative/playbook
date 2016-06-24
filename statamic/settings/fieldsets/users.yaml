@@ -4,3 +4,6 @@ fields:
     options:
       username: Username
       email: Email Address
+
+  new_user_roles:
+    type: user_roles

@@ -28,3 +28,6 @@ fields:
         width: 30
       settings:
         type: yaml
+
+#  protect:
+#    type: yaml

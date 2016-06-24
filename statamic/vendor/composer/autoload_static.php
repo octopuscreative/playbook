@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit21381de6fdd70857628830772a7d617f
+class ComposerStaticInit307c26d01f65eea9f18d79dd87c5febc
 {
     public static $files = array (
         'a0edc8309cc5e1d60e3047b5df6b7052' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/functions_include.php',
@@ -2590,6 +2590,15 @@ class ComposerStaticInit21381de6fdd70857628830772a7d617f
         'Statamic\\Addons\\Partial\\PartialFieldtype' => __DIR__ . '/../..' . '/bundles/Partial/PartialFieldtype.php',
         'Statamic\\Addons\\Partial\\PartialTags' => __DIR__ . '/../..' . '/bundles/Partial/PartialTags.php',
         'Statamic\\Addons\\Path\\PathTags' => __DIR__ . '/../..' . '/bundles/Path/PathTags.php',
+        'Statamic\\Addons\\Protect\\ProtectAPI' => __DIR__ . '/../..' . '/bundles/Protect/ProtectAPI.php',
+        'Statamic\\Addons\\Protect\\ProtectListener' => __DIR__ . '/../..' . '/bundles/Protect/ProtectListener.php',
+        'Statamic\\Addons\\Protect\\ProtectTags' => __DIR__ . '/../..' . '/bundles/Protect/ProtectTags.php',
+        'Statamic\\Addons\\Protect\\ProtectorManager' => __DIR__ . '/../..' . '/bundles/Protect/ProtectorManager.php',
+        'Statamic\\Addons\\Protect\\Protectors\\AbstractProtector' => __DIR__ . '/../..' . '/bundles/Protect/Protectors/AbstractProtector.php',
+        'Statamic\\Addons\\Protect\\Protectors\\IpProtector' => __DIR__ . '/../..' . '/bundles/Protect/Protectors/IpProtector.php',
+        'Statamic\\Addons\\Protect\\Protectors\\NullProtector' => __DIR__ . '/../..' . '/bundles/Protect/Protectors/NullProtector.php',
+        'Statamic\\Addons\\Protect\\Protectors\\PasswordProtector' => __DIR__ . '/../..' . '/bundles/Protect/Protectors/PasswordProtector.php',
+        'Statamic\\Addons\\Protect\\Protectors\\Protector' => __DIR__ . '/../..' . '/bundles/Protect/Protectors/Protector.php',
         'Statamic\\Addons\\Radio\\RadioFieldtype' => __DIR__ . '/../..' . '/bundles/Radio/RadioFieldtype.php',
         'Statamic\\Addons\\RedactorSettings\\RedactorSettingsFieldtype' => __DIR__ . '/../..' . '/bundles/RedactorSettings/RedactorSettingsFieldtype.php',
         'Statamic\\Addons\\Redactor\\RedactorFieldtype' => __DIR__ . '/../..' . '/bundles/Redactor/RedactorFieldtype.php',
@@ -2636,6 +2645,7 @@ class ComposerStaticInit21381de6fdd70857628830772a7d617f
         'Statamic\\Addons\\UserRoles\\UserRolesFieldtype' => __DIR__ . '/../..' . '/bundles/UserRoles/UserRolesFieldtype.php',
         'Statamic\\Addons\\User\\PasswordReset' => __DIR__ . '/../..' . '/bundles/User/PasswordReset.php',
         'Statamic\\Addons\\User\\UserListener' => __DIR__ . '/../..' . '/bundles/User/UserListener.php',
+        'Statamic\\Addons\\User\\UserRegistrar' => __DIR__ . '/../..' . '/bundles/User/UserRegistrar.php',
         'Statamic\\Addons\\User\\UserTags' => __DIR__ . '/../..' . '/bundles/User/UserTags.php',
         'Statamic\\Addons\\Users\\UsersFieldtype' => __DIR__ . '/../..' . '/bundles/Users/UsersFieldtype.php',
         'Statamic\\Addons\\Users\\UsersTags' => __DIR__ . '/../..' . '/bundles/Users/UsersTags.php',
@@ -2816,6 +2826,7 @@ class ComposerStaticInit21381de6fdd70857628830772a7d617f
         'Statamic\\Exceptions\\HoneypotException' => __DIR__ . '/../..' . '/core/Exceptions/HoneypotException.php',
         'Statamic\\Exceptions\\InvalidEntryTypeException' => __DIR__ . '/../..' . '/core/Exceptions/InvalidEntryTypeException.php',
         'Statamic\\Exceptions\\MethodNotFoundException' => __DIR__ . '/../..' . '/core/Exceptions/MethodNotFoundException.php',
+        'Statamic\\Exceptions\\ModifierException' => __DIR__ . '/../..' . '/core/Exceptions/ModifierException.php',
         'Statamic\\Exceptions\\ParsingException' => __DIR__ . '/../..' . '/core/Exceptions/ParsingException.php',
         'Statamic\\Exceptions\\PublishException' => __DIR__ . '/../..' . '/core/Exceptions/PublishException.php',
         'Statamic\\Exceptions\\RedirectException' => __DIR__ . '/../..' . '/core/Exceptions/RedirectException.php',
@@ -2843,6 +2854,7 @@ class ComposerStaticInit21381de6fdd70857628830772a7d617f
         'Statamic\\Extend\\FieldtypeInterface' => __DIR__ . '/../..' . '/core/Extend/FieldtypeInterface.php',
         'Statamic\\Extend\\Filter' => __DIR__ . '/../..' . '/core/Extend/Filter.php',
         'Statamic\\Extend\\FilterInterface' => __DIR__ . '/../..' . '/core/Extend/FilterInterface.php',
+        'Statamic\\Extend\\HasParameters' => __DIR__ . '/../..' . '/core/Extend/HasParameters.php',
         'Statamic\\Extend\\Installer\\Installer' => __DIR__ . '/../..' . '/core/Extend/Installer/Installer.php',
         'Statamic\\Extend\\Listener' => __DIR__ . '/../..' . '/core/Extend/Listener.php',
         'Statamic\\Extend\\Management\\AddonManager' => __DIR__ . '/../..' . '/core/Extend/Management/AddonManager.php',
@@ -2988,7 +3000,7 @@ class ComposerStaticInit21381de6fdd70857628830772a7d617f
         'Statamic\\View\\Antlers\\Parser' => __DIR__ . '/../..' . '/core/View/Antlers/Parser.php',
         'Statamic\\View\\Antlers\\Template' => __DIR__ . '/../..' . '/core/View/Antlers/Template.php',
         'Statamic\\View\\BaseModifiers' => __DIR__ . '/../..' . '/core/View/BaseModifiers.php',
-        'Statamic\\View\\Blade\\Modifier' => __DIR__ . '/../..' . '/core/View/Blade/Modifier.php',
+        'Statamic\\View\\Modify' => __DIR__ . '/../..' . '/core/View/Modify.php',
         'Stringy\\StaticStringy' => __DIR__ . '/..' . '/danielstjules/stringy/src/StaticStringy.php',
         'Stringy\\Stringy' => __DIR__ . '/..' . '/danielstjules/stringy/src/Stringy.php',
         'SuperClosure\\Analyzer\\AstAnalyzer' => __DIR__ . '/..' . '/jeremeamia/SuperClosure/src/Analyzer/AstAnalyzer.php',
@@ -3782,10 +3794,10 @@ class ComposerStaticInit21381de6fdd70857628830772a7d617f
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit21381de6fdd70857628830772a7d617f::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit21381de6fdd70857628830772a7d617f::$prefixDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInit21381de6fdd70857628830772a7d617f::$prefixesPsr0;
-            $loader->classMap = ComposerStaticInit21381de6fdd70857628830772a7d617f::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit307c26d01f65eea9f18d79dd87c5febc::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit307c26d01f65eea9f18d79dd87c5febc::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInit307c26d01f65eea9f18d79dd87c5febc::$prefixesPsr0;
+            $loader->classMap = ComposerStaticInit307c26d01f65eea9f18d79dd87c5febc::$classMap;
 
         }, null, ClassLoader::class);
     }

@@ -959,22 +959,18 @@ class BaseModifiers extends Modifier
      *
      * @param $value
      * @param $params
+     * @param $context
      * @return mixed
      */
-    public function macro($value, $params)
+    public function macro($value, $params, $context)
     {
         $macro = array_get($params, 0);
 
-        $modifiers = Theme::getMacro($macro);
-
-        foreach ($modifiers as $modifier => $params) {
-
-            $modifier = Stringy::camelize($modifier);
-            $modifier_method = $this->resolveAlias($modifier);
-            $value = $this->$modifier_method($value, (array) $params);
-        }
-
-        return $value;
+        return collect(Theme::getMacro($macro))->map(function ($params, $name) {
+            return compact('name', 'params');
+        })->reduce(function ($value, $modifier) use ($context) {
+            return (string) Modify::value($value)->context($context)->modify($modifier['name'], $modifier['params']);
+        }, $value);
     }
 
     /**
@@ -1538,10 +1534,16 @@ class BaseModifiers extends Modifier
      */
     public function stripTags($value, $params, $context)
     {
-        // Check for a contextual list of tags
         $tag_var = array_get($params, 0);
 
-        $tags = ($tag_var) ? array_get($context, $tag_var, $params) : $params;
+        // When used in a macro without specifying any tags, the tag list will just be the boolean
+        // value `true`. In that case, we'll use an empty to indicate "all the tags". Otherwise,
+        // we'll get the tag list from the context, and then finally just an array of tags.
+        if ($tag_var === true) {
+            $tags = [];
+        } else {
+            $tags = ($tag_var) ? array_get($context, $tag_var, $params) : $params;
+        }
 
         return Helper::stripTags($value, (array) $tags);
     }
@@ -1912,67 +1914,6 @@ class BaseModifiers extends Modifier
     }
 
     // ------------------------------------
-
-    public function resolveAlias($modifier)
-    {
-        switch ($modifier) {
-            case "+":
-                return "add";
-
-            case "-":
-                return "subtract";
-
-            case "*":
-                return "multiply";
-
-            case "/":
-                return "divide";
-
-            case "%":
-                return "mod";
-
-            case "^":
-                return "exponent";
-
-            case "dd":
-                return "dump";
-
-            case "ago":
-            case "until":
-            case "since":
-                return "relative";
-
-            case "specialchars":
-            case "htmlspecialchars":
-                return "sanitize";
-
-            case "striptags":
-                return "stripTags";
-
-            case "join":
-            case "implode":
-            case "list":
-                return "joinplode";
-
-            case "json":
-                return "toJson";
-
-            case "email":
-                return "obfuscateEmail";
-
-            case "l10n":
-                return "formatLocalized";
-
-            case "85":
-                return "slackEasterEgg";
-
-            case "tz":
-                return "timezone";
-
-            default:
-                return $modifier;
-        }
-    }
 
     /**
      * Takes a modifier array, split on ":", and formats it for HTML attribute key:value pairs

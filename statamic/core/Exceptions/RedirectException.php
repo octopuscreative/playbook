@@ -7,9 +7,9 @@ namespace Statamic\Exceptions;
  */
 class RedirectException extends \Exception
 {
-    private $url;
+    protected $url;
 
-    private $status_code;
+    protected $code = 302;
 
     public function getUrl()
     {
@@ -21,13 +21,26 @@ class RedirectException extends \Exception
         $this->url = $url;
     }
 
+    /**
+     * @return mixed
+     * @deprecated Use getCode
+     */
     public function getStatusCode()
     {
-        return $this->status_code;
+        return $this->code;
     }
 
-    public function setStatusCode($status_code)
+    /**
+     * @param int $code
+     * @deprecated Use setCode
+     */
+    public function setStatusCode($code)
     {
-        $this->status_code = $status_code;
+        $this->code = $code;
+    }
+
+    public function setCode($code)
+    {
+        $this->code = $code;
     }
 }

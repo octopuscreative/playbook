@@ -25,4 +25,7 @@ return [
                             objects](https://imperavi.com/assets/pdf/redactor-documentation-10.pdf).  
                             Each item will be available to select when creating a Redactor field.',
 
+    'protect' => 'System-wide Protection',
+    'protect_instruct' => 'Entering a protection scheme here will apply it to your entire site\'s front-end.',
+
 ];

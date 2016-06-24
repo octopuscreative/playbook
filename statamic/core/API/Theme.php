@@ -2,8 +2,6 @@
 
 namespace Statamic\API;
 
-use Statamic\API\YAML;
-
 /**
  * Interacting with the theme
  */

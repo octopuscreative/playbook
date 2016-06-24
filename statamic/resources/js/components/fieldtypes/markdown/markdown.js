@@ -17,6 +17,7 @@ module.exports = {
             selections: null,      // CodeMirror text selections
             assetSelector: false,  // Is the asset selector opened?
             selectedAssets: [],    // Assets selected in the selector
+            selectorViewMode: null,
             draggingFile: false,
             showCheatsheet: false,
             codemirror: null       // The CodeMirror instance
@@ -336,6 +337,7 @@ module.exports = {
 
     ready: function() {
         if (this.assetsEnabled) {
+            this.selectorViewMode = Cookies.get('statamic.assets.listing_view_mode') || 'grid';
             this.bindUploader();
         }
 

@@ -148,8 +148,9 @@ class TaxonomyTags extends Tags
     private function filterSince()
     {
         if ($since = $this->get('since')) {
-            $this->terms = $this->terms->filterContent(function($content) use ($since) {
-                return $content->removeBefore($since);
+            $date = array_get($this->context, $since, $since);
+            $this->terms = $this->terms->filterContent(function($content) use ($date) {
+                return $content->removeBefore($date);
             });
         }
     }
@@ -157,8 +158,9 @@ class TaxonomyTags extends Tags
     private function filterUntil()
     {
         if ($until = $this->get('until')) {
-            $this->terms = $this->terms->filterContent(function($content) use ($until) {
-                return $content->removeAfter($until);
+            $date = array_get($this->context, $until, $until);
+            $this->terms = $this->terms->filterContent(function($content) use ($date) {
+                return $content->removeAfter($date);
             });
         }
     }

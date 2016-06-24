@@ -12,7 +12,8 @@ module.exports = {
         return {
             mode: 'write',
             assetSelector: false,
-            selectedAssets: []
+            selectedAssets: [],
+            selectorViewMode: null
         }
     },
 
@@ -115,6 +116,8 @@ module.exports = {
     },
 
     ready: function() {
+        this.selectorViewMode = Cookies.get('statamic.assets.listing_view_mode') || 'grid';
+
         var womp = this;
 
         var defaults = {

@@ -158,29 +158,15 @@ class UserListener extends Listener
 
     public function register()
     {
-        $validator = \Validator::make(Request::all(), [
-            'username' => 'required',
-            'email' => 'required|email',
-            'password' => 'required|confirmed'
-        ], [], [
-            'username' => 'username field',
-            'email' => 'email field',
-            'password' => 'password field'
-        ]);
+        $registrar = new UserRegistrar(request());
+
+        $validator = $registrar->validator();
 
         if ($validator->fails()) {
             return back()->withInput()->withErrors($validator);
         }
 
-        $user = User::create()
-                    ->username(Request::input('username'))
-                    ->with([
-                        'email' => Request::input('email'),
-                        'password' => Request::input('password')
-                    ])
-                    ->get();
-
-        $user->save();
+        $user = $registrar->create();
 
         event('user.registered', $user);
 

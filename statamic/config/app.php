@@ -146,8 +146,8 @@ return [
          * Application Service Providers...
          */
 
-        'Barryvdh\Debugbar\ServiceProvider',
         'Statamic\Providers\AppServiceProvider',
+        'Barryvdh\Debugbar\ServiceProvider',
         'Statamic\Providers\DataServiceProvider',
         'Statamic\Providers\FilesystemServiceProvider',
         'Statamic\Providers\EventServiceProvider',
@@ -164,8 +164,8 @@ return [
         'Statamic\Providers\SearchServiceProvider',
         'Statamic\Providers\EmailServiceProvider',
         'Intervention\Image\ImageServiceProvider',
-        Collective\Html\HtmlServiceProvider::class,
-        SocialiteProviders\Manager\ServiceProvider::class,
+        'Collective\Html\HtmlServiceProvider',
+        'SocialiteProviders\Manager\ServiceProvider',
 
     ],
 

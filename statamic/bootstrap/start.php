@@ -5,7 +5,7 @@ use Statamic\API\URL;
 use Statamic\API\YAML;
 use Statamic\Http\ResourceServer\Server;
 
-define('STATAMIC_VERSION', '2.0.9');
+define('STATAMIC_VERSION', '2.0.10');
 
 /*
 |--------------------------------------------------------------------------

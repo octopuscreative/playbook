@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "ec68213a9f65b3b9013a55fd2cda36f6",
-    "content-hash": "acb29e711b5605f6f615036f11f6efa2",
+    "hash": "b2f8347adf338405b1f175be51ffce63",
+    "content-hash": "57f2ed07ab46771f6a710c9b3cdb53af",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -5204,7 +5204,6 @@
         "league/flysystem-ziparchive": 20,
         "michelf/php-smartypants": 20,
         "netcarver/textile": 20,
-        "barryvdh/laravel-debugbar": 20,
         "intervention/imagecache": 20,
         "mmanos/laravel-search": 20,
         "zendframework/zendsearch": 20

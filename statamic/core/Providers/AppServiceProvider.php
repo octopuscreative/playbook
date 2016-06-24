@@ -64,11 +64,7 @@ class AppServiceProvider extends ServiceProvider
 
         // Enable the Debugbar, if necessary
         if (Config::get('debug.debug') && Config::get('debug.debug_bar')) {
-            debugbar()->enable();
-
-            app('events')->listen('kernel.handled', function ($request, $response) {
-                debugbar()->modifyResponse($request, $response);
-            });
+            config(['debugbar.enabled' => true]);
         }
 
         // View composers

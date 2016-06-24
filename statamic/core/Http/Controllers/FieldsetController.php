@@ -153,21 +153,16 @@ class FieldsetController extends CpController
      */
     private function getAllFieldtypes()
     {
-        $fieldtypes = [];
-
-        foreach ([bundles_path(), addons_path()] as $folder) {
-            foreach (Folder::getFilesRecursively($folder) as $path) {
-                if (! Pattern::endsWith($path, 'Fieldtype.php')) {
-                    continue;
-                }
-
-                $name = str_replace('Fieldtype', '', basename($path, '.php'));
-
-                $fieldtypes[] = resource_loader()->loadFieldtype($name);
-            }
-        }
-
-        return new Collection($fieldtypes);
+        return collect([bundles_path(), addons_path()])->flatMap(function ($path) {
+            return Folder::getFilesRecursively($path);
+        })->filter(function ($path) {
+            return Pattern::endsWith($path, 'Fieldtype.php');
+        })->map(function ($path) {
+            $name = str_replace('Fieldtype', '', basename($path, '.php'));
+            return resource_loader()->loadFieldtype($name);
+        })->sortBy(function ($fieldtype) {
+            return $fieldtype->getAddonName();
+        });
     }
 
     public function update($name)

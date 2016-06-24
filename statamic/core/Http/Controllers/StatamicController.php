@@ -137,6 +137,9 @@ class StatamicController extends Controller
             return $redirect;
         }
 
+        // Check for any page protection
+        $this->protect();
+
         // Unpublished content can only be viewed on the front-end if the user has appropriate permission
         if (is_object($this->data) && ! $this->data->published()) {
             $user = User::getCurrent();
@@ -306,6 +309,24 @@ class StatamicController extends Controller
         if (array_key_exists($url, $routes)) {
             return redirect($routes[$url]);
         }
+    }
+
+    private function protect()
+    {
+        // First try to get a protection scheme from the system
+        // settings then fall back to a scheme inside the data.
+        if (! $scheme = Config::get('system.protect')) {
+            $scheme = (is_object($this->data))
+                ? $this->data->get('protect')
+                : array_get($this->data, 'protect');
+        }
+
+        // If there's no protection scheme then we can move along.
+        if (! $scheme) {
+            return;
+        }
+
+        addon('Protect')->protect(URL::getCurrent(), $scheme);
     }
 
     private function ensureTheme()

@@ -4,9 +4,9 @@ namespace Statamic\View\Antlers;
 
 use Statamic\API\Config;
 use Statamic\API\Helper;
-use Statamic\API\Str;
-use Statamic\Extend\Management\Loader;
+use Statamic\View\Modify;
 use Statamic\Exceptions\ParsingException;
+use Statamic\Exceptions\ModifierException;
 
 /**
  * The Statamic template parser. Here be dragons.
@@ -49,18 +49,6 @@ class Parser
     protected static $data = null;
     protected static $original_text = null;
     protected static $callbackData = [];
-
-    // <statamic>
-    /**
-     * @var \Statamic\Extend\Management\Loader
-     */
-    private $loader;
-
-    public function __construct(Loader $loader)
-    {
-        $this->loader = $loader;
-    }
-    // </statamic>
 
     /**
      * The main Lex parser method.  Essentially acts as dispatcher to
@@ -1423,36 +1411,18 @@ class Parser
      * @param $modifier
      * @param $data
      * @param $parameters
+     * @param $context
      * @return mixed
      */
     protected function runModifier($modifier, $data, $parameters, $context = [])
     {
-        $modifier = Str::camel($modifier); // Map to correct PSR-2 modifier method name
-
         try {
-            $modifier_method = app('Statamic\View\BaseModifiers')->resolveAlias($modifier);
+           return Modify::value($data)->context($context)->$modifier($parameters);
 
-            if (method_exists(app('Statamic\View\BaseModifiers'), $modifier_method)) {
-
-                // Use the Big List 'O Modifiers
-                return app('Statamic\View\BaseModifiers')->$modifier_method($data, $parameters, $context);
-
-            } else {
-
-                // load traditional modifier
-                $modifier_obj = $this->loader->loadModifier($modifier);
-
-                // ensure method exists
-                if (!method_exists($modifier_obj, "index")) {
-                    throw new \Exception("Improperly formatted modifier object.");
-                }
-
-                // call method
-                return $modifier_obj->index($data, $parameters, $context);
-            }
-
-        } catch (\Exception $e) {
-            \Log::notice($e->getMessage());
+        } catch (ModifierException $e) {
+            \Log::notice(
+                sprintf('Error in [%s] modifier: %s', $e->getModifier(), $e->getMessage())
+            );
 
             return $data;
         }

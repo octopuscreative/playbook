@@ -212,7 +212,7 @@ class EntryPublisher extends Publisher
             return Carbon::now()->format('Y-m-d');
         }
 
-        if ($order == 'numeric') {
+        if ($order == 'number') {
             return Entries::getFromCollection($this->collection)->count() + 1;
         }
 

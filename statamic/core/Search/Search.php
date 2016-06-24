@@ -2,9 +2,9 @@
 
 namespace Statamic\Search;
 
-use Statamic\API\YAML;
 use Statamic\API\Config;
 use Statamic\API\Content;
+use Mmanos\Search\Index\Zend;
 use Mmanos\Search\Search as SearchPackage;
 use Statamic\Contracts\Search\Search as SearchContract;
 
@@ -65,7 +65,16 @@ class Search implements SearchContract
         $index->deleteIndex();
 
         foreach (Content::all() as $id => $content) {
-            $index->insert($id, $content->toArray());
+            $content = $content->toArray();
+
+            // Nested arrays aren't supported by Zend so we'll convert them to dot notation.
+            // For example, ['foo' => ['bar' => ['baz' => 'qux']]] will be converted to
+            // ['foo.bar.baz' => 'qux']. Other drivers will continue to use arrays.
+            if ($index instanceof Zend) {
+                $content = array_dot($content);
+            }
+
+            $index->insert($id, $content);
         }
     }
 

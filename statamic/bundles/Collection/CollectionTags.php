@@ -199,14 +199,16 @@ class CollectionTags extends Tags
     private function filterSince()
     {
         if ($since = $this->get('since')) {
-            $this->collection = $this->collection->removeBefore($since);
+            $date = array_get($this->context, $since, $since);
+            $this->collection = $this->collection->removeBefore($date);
         }
     }
 
     private function filterUntil()
     {
         if ($until = $this->get('until')) {
-            $this->collection = $this->collection->removeAfter($until);
+            $date = array_get($this->context, $until, $until);
+            $this->collection = $this->collection->removeAfter($date);
         }
     }
 
@@ -306,7 +308,7 @@ class CollectionTags extends Tags
     {
         if ($filter = $this->get('filter')) {
             // If a "filter" parameter has been specified, we want to use a custom filter class.
-            $this->collection = collection_filter($filter, $this->collection)->filter();
+            $this->collection = collection_filter($filter, $this->collection, $this->context, $this->parameters)->filter();
         } else {
             // No filter parameter has been specified, so we should filter by condition parameters
             $conditions = array_filter_key($this->parameters, function ($key) {

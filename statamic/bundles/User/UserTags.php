@@ -347,29 +347,6 @@ class UserTags extends Tags
     }
 
     /**
-     * Open a form tag
-     *
-     * @param  string $action
-     * @return string
-     */
-    protected function formOpen($action)
-    {
-        $attr_str = '';
-        if ($attrs = $this->getList('attr')) {
-            foreach ($attrs as $attr) {
-                list($param, $value) = explode(':', $attr);
-                $attr_str .= $param . '="' . $value . '" ';
-            }
-        }
-
-        $action = $this->eventUrl($action);
-
-        $html = '<form method="POST" action="'.$action.'" '.$attr_str.'>';
-
-        return $html;
-    }
-
-    /**
      * Generate an event url but ensures its from the User namespace
      * since this might be called from a Member tag.
      *

@@ -380,15 +380,17 @@ function nav()
  *
  * @param string                        $plugin_name
  * @param \Statamic\Data\DataCollection $collection
+ * @param array                         $context
+ * @param array                         $params
  * @return \Statamic\Extend\FilterInterface
  */
-function collection_filter($plugin_name, DataCollection $collection)
+function collection_filter($plugin_name, DataCollection $collection, $context = [], $params = [])
 {
     $class = Str::studly($plugin_name);
 
     $class = "Statamic\\Addons\\{$class}\\{$class}Filter";
 
-    return new $class($collection);
+    return new $class($collection, $context, $params);
 }
 
 /**
@@ -589,5 +591,5 @@ function format_update($string)
  */
 function modify($value)
 {
-    return new BladeModifier($value);
+    return \Statamic\View\Modify::value($value);
 }

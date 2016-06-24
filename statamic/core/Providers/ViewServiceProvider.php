@@ -2,6 +2,7 @@
 
 namespace Statamic\Providers;
 
+use Statamic\View\Modify;
 use Statamic\View\Antlers\Parser;
 use Statamic\Extensions\View\Factory;
 use Illuminate\View\Engines\EngineResolver;
@@ -46,8 +47,12 @@ class ViewServiceProvider extends LaravelViewServiceProvider
             return new AntlersEngine(app('Statamic\DataStore'));
         });
 
+        $this->app->bind('Statamic\View\Modify', function () {
+            return new Modify($this->app->make('Statamic\Extend\Management\Loader'));
+        });
+
         $this->app->singleton('Statamic\View\Antlers\Parser', function () {
-            return new Parser($this->app->make('Statamic\Extend\Management\Loader'));
+            return new Parser;
         });
     }
 

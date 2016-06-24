@@ -55,7 +55,7 @@ class CollectionFolder extends DataFolder implements CollectionFolderContract
         }
 
         switch ($this->order()) {
-            case 'numeric':
+            case 'number':
                 $entries = $entries->multisort('order:asc');
                 break;
             case 'date':
@@ -130,7 +130,17 @@ class CollectionFolder extends DataFolder implements CollectionFolderContract
      */
     public function order()
     {
-        return $this->get('order', 'alphabetical');
+        $order = $this->get('order', 'alphabetical');
+
+        if (in_array($order, ['numeric', 'numerical', 'numbers', 'numbered'])) {
+            $order = 'number';
+        }
+
+        if ($order === 'alpha') {
+            $order = 'alphabetical';
+        }
+
+        return $order;
     }
 
     /**

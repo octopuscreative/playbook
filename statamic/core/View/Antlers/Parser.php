@@ -1417,7 +1417,7 @@ class Parser
     protected function runModifier($modifier, $data, $parameters, $context = [])
     {
         try {
-           return Modify::value($data)->context($context)->$modifier($parameters);
+           return Modify::value($data)->context($context)->$modifier($parameters)->get();
 
         } catch (ModifierException $e) {
             \Log::notice(

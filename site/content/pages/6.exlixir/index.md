@@ -12,5 +12,9 @@ content_builder:
       ### Elixir + Ecto
       
       * http://geoffreylessel.com/2016/from-zero-to-ecto-in-10-minutes/
+      
+      ### Linters
+      * https://github.com/rrrene/credo
+      * https://github.com/lpil/dogma
 title: Elixir
 id: ae8e540b-c2c1-421f-95eb-db490cf6ce94

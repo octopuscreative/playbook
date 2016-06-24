@@ -2428,6 +2428,7 @@ return array(
     'Statamic\\Exceptions\\InvalidEntryTypeException' => $baseDir . '/core/Exceptions/InvalidEntryTypeException.php',
     'Statamic\\Exceptions\\MethodNotFoundException' => $baseDir . '/core/Exceptions/MethodNotFoundException.php',
     'Statamic\\Exceptions\\ModifierException' => $baseDir . '/core/Exceptions/ModifierException.php',
+    'Statamic\\Exceptions\\NativeModifierNotFoundException' => $baseDir . '/core/Exceptions/NativeModifierNotFoundException.php',
     'Statamic\\Exceptions\\ParsingException' => $baseDir . '/core/Exceptions/ParsingException.php',
     'Statamic\\Exceptions\\PublishException' => $baseDir . '/core/Exceptions/PublishException.php',
     'Statamic\\Exceptions\\RedirectException' => $baseDir . '/core/Exceptions/RedirectException.php',

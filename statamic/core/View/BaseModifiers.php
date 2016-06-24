@@ -969,7 +969,7 @@ class BaseModifiers extends Modifier
         return collect(Theme::getMacro($macro))->map(function ($params, $name) {
             return compact('name', 'params');
         })->reduce(function ($value, $modifier) use ($context) {
-            return (string) Modify::value($value)->context($context)->modify($modifier['name'], $modifier['params']);
+            return Modify::value($value)->context($context)->modify($modifier['name'], $modifier['params']);
         }, $value);
     }
 

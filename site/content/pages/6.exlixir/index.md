@@ -9,6 +9,8 @@ content_builder:
     md_content: |
       ## Useful Links
       
+      ### Elixir + Ecto
+      
       * http://geoffreylessel.com/2016/from-zero-to-ecto-in-10-minutes/
 title: Elixir
 id: ae8e540b-c2c1-421f-95eb-db490cf6ce94

@@ -9,6 +9,7 @@ content_builder:
     md_content: |
       ## Learning Resources
       
+      * [What is Erlang/Elixir?](https://www.learnelixir.tv/episodes/01-introduction)
       * http://elixir-lang.org/learning.html
       
       ## Useful Links

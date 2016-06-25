@@ -11,6 +11,8 @@ content_builder:
       
       * [What is Erlang/Elixir?](https://www.learnelixir.tv/episodes/01-introduction)
       * http://elixir-lang.org/learning.html
+      * [Elixir Koans](http://elixirkoans.io/)
+      * [Elixir on Exercism.io](http://exercism.io/languages/elixir)
       
       ## Useful Links
       

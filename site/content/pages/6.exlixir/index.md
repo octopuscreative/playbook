@@ -14,6 +14,8 @@ content_builder:
       
       ## Useful Links
       
+      * [An Elixir regular expression editor & tester](http://www.elixre.uk/)
+      
       ### Elixir + Ecto
       
       * http://geoffreylessel.com/2016/from-zero-to-ecto-in-10-minutes/

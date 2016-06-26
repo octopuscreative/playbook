@@ -18,6 +18,7 @@ content_builder:
       
       * [An Elixir regular expression editor & tester](http://www.elixre.uk/)
       * [Elixir Forum](https://elixirforum.com)
+      * [Elixir Status](http://elixirstatus.com/)
       
       ### Elixir + Ecto
       

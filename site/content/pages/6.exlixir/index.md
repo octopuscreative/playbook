@@ -9,6 +9,10 @@ content_builder:
     md_content: |
       ## Learning Resources
       
+      * [ThoughtBot](https://robots.thoughtbot.com/tags/elixir)
+      * [Platformatic](http://blog.plataformatec.com.br/tag/elixir/)
+      * [Cheat Sheet](https://media.pragprog.com/titles/elixir/ElixirCheat.pdf)
+      * [Elixir Sips](http://elixirsips.com/)
       * [What is Erlang/Elixir?](https://www.learnelixir.tv/episodes/01-introduction)
       * http://elixir-lang.org/learning.html
       * [Elixir Koans](http://elixirkoans.io/)

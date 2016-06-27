@@ -7,6 +7,22 @@ content_builder:
   - 
     type: markdown
     md_content: |
+      ## Launch List
+      
+      Before we can use this in production these are the cases that we need to have plays for:
+      
+      * Auth
+      * Image Uploads
+      * Stripe / Payment
+      * Heroku 
+      * CORS
+      * Bugsnag
+      * Roles 
+      * API Templates
+      * Testing 
+      * CI
+      
+      
       ## Useful Links
       
       ### Building APIs

@@ -27,7 +27,7 @@ content_builder:
       * Create a config file `my.cnf` in the location of your choosing (`/etc/my.cnf`), paste/save the snippet below, then restart mysql.
       
       ```
-      [mysqld]    
+      [mysqld]
       sql_mode=STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION
       ```
       

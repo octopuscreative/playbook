@@ -24,8 +24,12 @@ content_builder:
       
       ### MySql > 5.7 (fixed in craft 3)
       * To find your config location, run `mysql --help`
-      * http://craftcms.stackexchange.com/questions/12084/getting-this-sql-error-group-by-incompatible-with-sql-mode-only-full-group-by/12106
-      * http://stackoverflow.com/questions/23921117/disable-only-full-group-by
+      * Create a config file `my.cnf` in the location of your choosing (`/etc/my.cnf`), paste/save the snippet below, then restart mysql.
+      
+      ```
+      [mysqld]    
+      sql_mode=STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION
+      ```
       
       ### API/JSON
       * https://github.com/pixelandtonic/ElementAPI

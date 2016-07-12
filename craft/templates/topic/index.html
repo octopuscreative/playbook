@@ -2,21 +2,45 @@
 
 {% block content %}
   
-  <nav class='container mt-3 mb-4 bb-6'>
-    {% nav child in category.parent.children %}    
-      {% if craft.request.url != child.url %}
-        <a href='{{ child.url }}' class='t-1 cg-3 tw-light px-2 py-2'>{{ child.title }}</a>
-      {% else %}
-        <a class='t-1 c-black tw-light px-2 py-2 bb-thick-black'>{{ child.title }}</a>
-      {% endif %}
-    {% endnav %}
-  </nav> 
+
+  <nav class="mb-3 cbgg-7">
+    <div class="container">
+      {% nav child in category.parent.children %}    
+        {% if craft.request.url != child.url %}
+          <a href="{{ child.url }}" class="t-1 cg-3 px-1 py-2">{{ child.title }}</a>
+        {% else %}
+          <a class="t-1 c-black px-2 py-2">{{ child.title }}</a>
+        {% endif %}
+      {% endnav %}
+    </div>
+  </nav>
 
 
-  <section class="container">
-    {% for entry in craft.entries.relatedTo(category) %}
-      <a href="{{ entry.url }}" class="d-block px-2">
-        <h1 class="t-3 tw-light py-2">{{ entry.title }}</h1>
+  <nav class="container bb-6 mb-4">
+    {{ entry.type }}
+    {% set section = entry.getSection() %}
+    {{ craft.sections.handle('topics').name }}
+    {% for type in craft.sections.handle('documentation').getEntryTypes()  %}
+      {{ type.name }}
+    {% endfor %}
+
+    {# <a class="d-inline-block py-2 px-2">Articles</a> #}
+  </nav>
+
+  <section class="container mb-4 px-2">
+
+    <h2 class="tn-1 cg-4">Articles</h2>
+    {% for entry in craft.entries.relatedTo(category).type('article') %}
+      <a href="{{ entry.url }}" class="d-block">
+        <h1 class="t-3 py-2">{{ entry.title }}</h1>
+      </a>
+    {% endfor %}
+  </section>
+  <section class="container px-2">
+    <h2 class="tn-1 cg-4">Tips</h2>
+    {% for entry in craft.entries.relatedTo(category).type('tip') %}
+      <a href="{{ entry.url }}" class="d-block">
+        <h1 class="t-3 py-2">{{ entry.title }}</h1>
       </a>
     {% endfor %}
   </section>

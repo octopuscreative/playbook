@@ -1,0 +1,49 @@
+{% extends "_layouts/default" %}
+
+{% block content %}
+
+  <nav class="mb-3 cbgg-7">
+    <div class="container px-1">
+      {% nav child in category.parent.children %}    
+        {% if craft.request.url != child.url %}
+          <a href="{{ child.url }}" class="t-1 cg-3 px-1 py-2">{{ child.title }}</a>
+        {% else %}
+          <a class="t-1 c-black px-1 py-2">{{ child.title }}</a>
+        {% endif %}
+      {% endnav %}
+    </div>
+  </nav>
+
+  <nav class="container mb-4 px-2">
+    <div class="bb-6">
+      <a href="" class="d-inline-block py-1 px-1">All</a>
+      {% for type in craft.sections.getSectionByHandle('docs').getEntryTypes()  %}
+        {% if craft.entries.relatedTo(category).type(type).total() > 0 %}
+          <a href="?type={{ type.handle }}" class="d-inline-block py-1 px-1">{{ type.name }}</a>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </nav>
+
+  <section class="container mb-4 px-2">
+
+    {% for type in craft.sections.getSectionByHandle('docs').getEntryTypes()  %}
+      {% if loop.first %}
+
+        {% for entry in craft.entries.relatedTo(category).type(craft.request.getQuery('type')) %}
+          
+          <article class="d-block py-2 px-1">
+            <a href="{{ entry.url }}">
+              <h1 class="t-2 c-black t-md-3 mb-1">{{ entry.title }}</h1>
+            </a>
+            <p class="tn-1 cg-3"><a style="padding-left: 0.15rem;">{{ entry.author.fullName }}</a><span class="cg-5 px-1">/</span><span>{{ entry.dateUpdated|date("M d, Y") }}</span></p>
+          </article>
+          
+        {% endfor %}
+
+      {% endif %}
+
+    {% endfor %}
+
+
+{% endblock %}

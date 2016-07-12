@@ -9969,7 +9969,12 @@ return jQuery;
   })();
 });
 require.register("source/coffee/initialize.coffee", function(exports, require, module) {
-(function($) {})(jQuery);
+(function($) {
+  return $(document).on('click', '#newPost', function(e) {
+    e.preventDefault();
+    return window.open($(this).attr('href'), 'Add an Entry', 'height=1000, width=1000, left=400, top=100');
+  });
+})(jQuery);
 });
 
 ;require.alias("jquery/dist/jquery.js", "jquery");require.register("___globals___", function(exports, require, module) {

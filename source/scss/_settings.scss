@@ -37,6 +37,9 @@ $tw-semibold: 700;
 $tw-bold: 700;
 
 // Defaults.
+// 
+
+$default-brand-height: 1.5rem;
 
 $spacing-increments: 0.6 1.2 2.6 4.2 6.8 11 18 29 46 75;
 
@@ -48,7 +51,7 @@ $default-line-height: 1.625;
 $display-type-family: 'Gotham', 'Proxima Nova', 'Helvetica', sans-serif;
 
 // Borders.
-$default-border-radius: 1px;
+$default-border-radius: 2em;
 $default-border-weight: 1px;
 $default-border-color: #e8e9eb;
 

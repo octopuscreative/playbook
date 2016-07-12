@@ -1,30 +1,39 @@
 <!DOCTYPE html>
-<html xmlns='http://www.w3.org/1999/xhtml' lang='en-US'>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
 <head>
-  <meta charset='utf-8' />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
   <title>{% if title is defined %}{{ title }} - {% endif %}{{ siteName }}</title>
-  <link rel='home' href='{{ siteUrl }}' />
+  <link rel="home" href="{{ siteUrl }}" />
 
   {# Styles. #}
   {% includeCssFile '/css/main.css' %}
 
 </head>
 
-<body class='cbgg-8'>
+<body class="cbgg-8">
 
-  <header class='cbg-white'>
+  <header class="cbg-white">
     
     <nav>
-      <div class='container py-2'>
-        <h1 class='px-2'><a href='{{ siteUrl }}' class='c-black'>Playbook</a> <span class='tn-1 tw-light cg-4'>&nbsp;by <a href='http://octop.us' class='cg-4 tw-light'>Octopus</a></span></h1>
+      <div class="container py-2 px-2">
+        <div class="brand pt-1">
+          <img src="/assets/octopus-brand.svg" />
+        </div>
+        {# <h1 class="px-2"><a href="{{ siteUrl }}" class="c-black">Playbook</a> <span class="tn-1 tw-light cg-4">&nbsp;by <a href="http://octop.us" class="cg-4 tw-light">Octopus</a></span></h1> #}
       </div>
     </nav>
 
-    <nav class='bb-7'>
-      <div class='container'>
+    <nav class="bb-7" style="white-space: nowrap; overflow: auto;">
+      <div class="container py-1 px-1">
         {% nav category in craft.categories.group('topics').level(1) %}
           {% if category.descendants.first %}
-            <a href='{{ category.descendants.first.url }}' class='d-inline-block px-2 py-2 c-black'>{{ category.title }}</a>
+            {% if craft.request.url != category.descendants.first.url %}
+              <a href="{{ category.descendants.first.url }}" class="d-inline-block px-1 py-2 cg-4">{{ category.title }}</a>
+            {% else %}
+              <a href="{{ category.descendants.first.url }}" class="d-inline-block px-1 py-2 c-black">{{ category.title }}</a>
+            {% endif %}
           {% endif %}
         {% endnav %}
       </div>
@@ -36,11 +45,19 @@
 
     {% block content %}
       <p>If you see me, you haven’t set your <code>{% verbatim %}{% block content %}…{% endblock %}{% endverbatim %}</code> yet.</p>
-      <p>See Twig’s <a href='http://twig.sensiolabs.org/doc/templates.html#template-inheritance'>Template Inheritance</a> documentation for an explanation.</p>
+      <p>See Twig’s <a href="http://twig.sensiolabs.org/doc/templates.html#template-inheritance">Template Inheritance</a> documentation for an explanation.</p>
     {% endblock %}
   </main>
 
-  {% includeJsFile '/js/main.js' %}
+  <footer class="fixed-bottom-right px-3 py-3">
+    <a href="/admin/entries/docs/new" id="newPost" class="py-1 px-3 cbgg-6 rounded">New Entry</a>
+    {# {% for section in craft.sections.getAllSections()  %}
+      <a href="/admin/entries/{{ section.handle }}/new" id="newPost" class="py-1 px-3 cbgg-6 rounded">New {{ section.name }}</a>
+    {% endfor %} #}
+  </footer>
+
+  {% includeJsFile "/js/main.js" %}
+  {% includeJs "require('source/coffee/initialize');" %}
 
 </body>
 </html>

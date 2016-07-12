@@ -15,11 +15,14 @@ module.exports =
       $: 'jquery'
 
   plugins:
+
     postcss:
       processors: [
         require('autoprefixer')(['last 8 versions'])
       ]
+
     sass:
       mode: ''
+
     coffeescript:
       bare: true

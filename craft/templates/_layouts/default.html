@@ -14,8 +14,8 @@
 
 <body class="cbgg-8">
 
-  <header class="cbg-white">
-    
+  <header class="cbg-black">
+
     <nav>
       <div class="container py-2 px-2">
         <div class="brand pt-1">
@@ -32,7 +32,7 @@
             {% if craft.request.url != category.descendants.first.url %}
               <a href="{{ category.descendants.first.url }}" class="d-inline-block px-1 py-2 cg-4">{{ category.title }}</a>
             {% else %}
-              <a href="{{ category.descendants.first.url }}" class="d-inline-block px-1 py-2 c-black">{{ category.title }}</a>
+              <a href="{{ category.descendants.first.url }}" class="d-inline-block px-1 py-2 c-white">{{ category.title }}</a>
             {% endif %}
           {% endif %}
         {% endnav %}
@@ -50,7 +50,9 @@
   </main>
 
   <footer class="fixed-bottom-right px-3 py-3">
-    <a href="/admin/entries/docs/new" id="newPost" class="py-1 px-3 cbgg-6 rounded">New Entry</a>
+    <nav>
+      <a href="/admin/entries/docs/new" id="newPost" class="py-1 px-3 cbg-black c-white rounded">New Entry</a>
+    </nav>
     {# {% for section in craft.sections.getAllSections()  %}
       <a href="/admin/entries/{{ section.handle }}/new" id="newPost" class="py-1 px-3 cbgg-6 rounded">New {{ section.name }}</a>
     {% endfor %} #}

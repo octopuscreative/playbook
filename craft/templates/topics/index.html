@@ -1,27 +1,41 @@
 {% extends "_layouts/default" %}
 
+{% set selectedEntryType = craft.request.getQuery('type') %}
+
 {% block content %}
 
-  <nav class="mb-3 cbgg-7">
+  <nav class="mb-5 cbgg-7">
     <div class="container px-1">
+      {% set linkClasses = 'px-1 py-2' %}
       {% nav child in category.parent.children %}    
         {% if craft.request.url != child.url %}
-          <a href="{{ child.url }}" class="t-1 cg-3 px-1 py-2">{{ child.title }}</a>
+          <a href="{{ child.url }}" class="cg-3 {{ linkClasses }}">{{ child.title }}</a>
         {% else %}
-          <a class="t-1 c-black px-1 py-2">{{ child.title }}</a>
+          <a class="c-black {{ linkClasses }}">{{ child.title }}</a>
         {% endif %}
       {% endnav %}
     </div>
   </nav>
 
   <nav class="container mb-4 px-2">
-    <div class="bb-6">
-      <a href="" class="d-inline-block py-1 px-1">All</a>
+    <div class="d-inline-block bb-6 pr-4">
+      {% set typeLinkClasses = 'd-inline-block px-1 py-1' %}
+
+
+      <a href="{{ craft.request.url }}" class="{% if selectedEntryType %}cg-3 {% else %}c-black {% endif %}{{ typeLinkClasses }}">All</a>
+
       {% for type in craft.sections.getSectionByHandle('docs').getEntryTypes()  %}
         {% if craft.entries.relatedTo(category).type(type).total() > 0 %}
-          <a href="?type={{ type.handle }}" class="d-inline-block py-1 px-1">{{ type.name }}</a>
+
+          {% if selectedEntryType != type %}
+            <a href="?type={{ type.handle }}" class="cg-3 {{ typeLinkClasses }}">{{ type.name }}</a>
+          {% else %}
+            <a href="?type={{ type.handle }}" class="c-black {{ typeLinkClasses }}">{{ type.name }}</a>
+          {% endif %}
+
         {% endif %}
       {% endfor %}
+
     </div>
   </nav>
 
@@ -30,13 +44,20 @@
     {% for type in craft.sections.getSectionByHandle('docs').getEntryTypes()  %}
       {% if loop.first %}
 
-        {% for entry in craft.entries.relatedTo(category).type(craft.request.getQuery('type')) %}
+        {% for entry in craft.entries.relatedTo(category).type(selectedEntryType) %}
           
           <article class="d-block py-2 px-1">
             <a href="{{ entry.url }}">
               <h1 class="t-2 c-black t-md-3 mb-1">{{ entry.title }}</h1>
             </a>
-            <p class="tn-1 cg-3"><a style="padding-left: 0.15rem;">{{ entry.author.fullName }}</a><span class="cg-5 px-1">/</span><span>{{ entry.dateUpdated|date("M d, Y") }}</span></p>
+            <p class="tn-1 cg-3">
+              {% if not selectedEntryType %}
+                <span class="cbgg-7" style="padding: 0.25em 0.5em;">{{ entry.type.name }}</span>
+              {% endif %}
+              <a style="padding-left: 0.15rem;">{{ entry.author.fullName }}</a>
+              <span class="cg-5 px-1">/</span>
+              <span>{{ entry.dateUpdated|date("M d, Y") }}</span>
+            </p>
           </article>
           
         {% endfor %}

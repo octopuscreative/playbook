@@ -1,5 +1,0 @@
-fieldtype_fields:
-  max_items:
-    type: text
-  label:
-    type: text

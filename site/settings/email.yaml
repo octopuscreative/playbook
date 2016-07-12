@@ -1,9 +1,0 @@
-driver: mailgun
-from_email: playbook@octopuscreative.com
-from_name: Octopus Playbook
-port: 587
-encryption: tls
-username:
-password:
-mailgun_secret: key-1d7cf624f8262149474901757f60a170
-mailgun_domain: mg.octopuscreative.com

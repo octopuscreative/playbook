@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns='http://www.w3.org/1999/xhtml' lang='en-US'>
+<head>
+  <meta charset='utf-8' />
+  <title>{% if title is defined %}{{ title }} - {% endif %}{{ siteName }}</title>
+  <link rel='home' href='{{ siteUrl }}' />
+
+  {# Styles. #}
+  {% includeCssFile '/css/main.css' %}
+
+</head>
+
+<body class='cbgg-8'>
+
+  <header class='cbg-white'>
+    
+    <nav>
+      <div class='container py-2'>
+        <h1 class='px-2'><a href='{{ siteUrl }}' class='c-black'>Playbook</a> <span class='tn-1 tw-light cg-4'>&nbsp;by <a href='http://octop.us' class='cg-4 tw-light'>Octopus</a></span></h1>
+      </div>
+    </nav>
+
+    <nav class='bb-7'>
+      <div class='container'>
+        {% nav category in craft.categories.group('topics').level(1) %}
+          {% if category.descendants.first %}
+            <a href='{{ category.descendants.first.url }}' class='d-inline-block px-2 py-2 c-black'>{{ category.title }}</a>
+          {% endif %}
+        {% endnav %}
+      </div>
+    </nav>
+
+  </header>
+
+  <main>
+
+    {% block content %}
+      <p>If you see me, you haven’t set your <code>{% verbatim %}{% block content %}…{% endblock %}{% endverbatim %}</code> yet.</p>
+      <p>See Twig’s <a href='http://twig.sensiolabs.org/doc/templates.html#template-inheritance'>Template Inheritance</a> documentation for an explanation.</p>
+    {% endblock %}
+  </main>
+
+  {% includeJsFile '/js/main.js' %}
+
+</body>
+</html>

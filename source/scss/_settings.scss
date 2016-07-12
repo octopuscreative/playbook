@@ -1,0 +1,56 @@
+// Rem base.
+$rem-base: 14px;
+
+// Modular scale ratio.
+$ratio: 1.15;
+
+// Grid settings.
+$container-width: 84rem;
+$columns: 12;
+
+// Breakpoints.
+$breakpoint-sm: '(min-width: 600px)'; // 600
+$breakpoint-md: '(min-width: 768px)'; // 768
+$breakpoint-lg: '(min-width: 1280px)'; // 1280
+$breakpoint-xl: '(min-width: 1440px)'; // 1440
+
+// Colors.
+$color-primary: #f8c814;
+$color-secondary: #f00;
+$color-success: #60aa53;
+$color-error: #f00;
+$color-warning: #e89414;
+
+// Greyscale.
+$black: #010101;
+$greys: #313233 #595a5c #72787d #87888a #bec0c2 #d7d8da lighten(#ebeef1, 1.5%) lighten(#ebeef1, 4%);
+$white: #fefefe;
+
+// Debug Settings.
+$debug-color-primary: rgba(255, 9, 206, 0.5);
+
+// Font weights.
+$tw-light: 200; 
+$tw-book: 300;
+$tw-medium: 500;
+$tw-semibold: 700;
+$tw-bold: 700;
+
+// Defaults.
+
+$spacing-increments: 0.6 1.2 2.6 4.2 6.8 11 18 29 46 75;
+
+
+// Tyopgraphy.
+$default-type-family: 'Gotham Narrow SSm', 'Proxima Nova', 'Helvetica', sans-serif;
+$default-type-color: #313233;
+$default-line-height: 1.625;
+$display-type-family: 'Gotham', 'Proxima Nova', 'Helvetica', sans-serif;
+
+// Borders.
+$default-border-radius: 1px;
+$default-border-weight: 1px;
+$default-border-color: #e8e9eb;
+
+// Shadow
+$default-box-shadow: 0 8px 54px -14px rgba(0, 0, 0, 0.16);

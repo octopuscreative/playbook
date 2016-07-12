@@ -1,8 +1,0 @@
-routes:
-  /search-results: search-results
-collections: [ ]
-taxonomies:
-  languages: '/languages/{{ slug }}'
-  frameworks: frameworks
-  disciplines: 'disciplines/{slug}'
-routes: [ ]

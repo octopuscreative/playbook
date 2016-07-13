@@ -1,8 +1,20 @@
-# Brunch app
+# Playbook by Octopus
 
-This is an HTML5 application, built with [Brunch](http://brunch.io).
+This is our internal resource for all things development.
 
-## Getting started
+
+
+## Built with Craft and Brunch
+
+To get started:
+
+### Contact [Chris](mailto:chris@octop.us) for the Craft config files.
+
+This includes the database configuration. The database is configured on a remote server. When the repository is pulled and virtualhost is set up, the site will _just work&trade;_. To work on the source files (coffee, scss, etc.),
+
+
+### Use Brunch for Task Automation
+
 * Install (if you don't have them):
     * [Node.js](http://nodejs.org): `brew install node` on OS X
     * [Brunch](http://brunch.io): `npm install -g brunch`
@@ -10,7 +22,3 @@ This is an HTML5 application, built with [Brunch](http://brunch.io).
 * Run:
     * `brunch watch --server` — watches the project with continuous rebuild. This will also launch HTTP server with [pushState](https://developer.mozilla.org/en-US/docs/Web/Guide/API/DOM/Manipulating_the_browser_history).
     * `brunch build --production` — builds minified project for production
-* Learn:
-    * `public/` dir is fully auto-generated and served by HTTP server.  Write your code in `app/` dir.
-    * Place static files you want to be copied from `app/assets/` to `public/`.
-    * [Brunch site](http://brunch.io), [Getting started guide](https://github.com/brunch/brunch-guide#readme)

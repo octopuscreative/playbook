@@ -1,5 +1,5 @@
 .DS_Store
 node_modules/
 
-
-craft/config/
+craft/config/db.php
+craft/config/license.key

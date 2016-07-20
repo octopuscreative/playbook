@@ -1,0 +1,16 @@
+{% extends "_layouts/default" %}
+
+{% block content %}
+
+  {% if craft.request.urlReferrer %}
+    <nav class="container mt-5 px-2">
+      <a href="{{ craft.request.urlReferrer }}">Back</a>
+    </nav>
+  {% endif %}
+
+  <section class="container py-4 px-2">
+    <h1 class="t-2 c-black t-md-3 mb-1">{{ entry.title }}</h1>
+
+    {{ entry.body }}
+  </section>
+{% endblock %}

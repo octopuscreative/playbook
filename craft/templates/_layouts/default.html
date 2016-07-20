@@ -29,10 +29,10 @@
       <div class="container py-1 px-1">
         {% nav category in craft.categories.group('topics').level(1) %}
           {% if category.descendants.first %}
-            {% if craft.request.url != category.descendants.first.url %}
-              <a href="{{ category.descendants.first.url }}" class="d-inline-block px-1 py-2 cg-4">{{ category.title }}</a>
+            {% if craft.request.firstSegment != category.slug %}
+              <a href="{{ category.descendants.first.url }}" class="tw-book d-inline-block px-1 py-2 cg-4">{{ category.title }}</a>
             {% else %}
-              <a href="{{ category.descendants.first.url }}" class="d-inline-block px-1 py-2 c-white">{{ category.title }}</a>
+              <a href="{{ category.descendants.first.url }}" class="tw-book d-inline-block px-1 py-2 c-white">{{ category.title }}</a>
             {% endif %}
           {% endif %}
         {% endnav %}
@@ -40,6 +40,22 @@
     </nav>
 
   </header>
+
+  {% if craft.request.firstSegment %}
+    <nav class="mb-5 cbgg-7">
+      <div class="container px-1">
+        {% set linkClasses = 'px-1 py-2' %}
+        {% nav child in craft.categories.slug(craft.request.firstSegment)[0].children %}
+          {% if craft.request.url != child.url %}
+            <a href="{{ child.url }}" class="cg-3 {{ linkClasses }}">{{ child.title }}</a>
+          {% else %}
+            <a class="c-black {{ linkClasses }}">{{ child.title }}</a>
+          {% endif %}
+        {% endnav %}
+      </div>
+    </nav>
+  {% endif %}
+
 
   <main>
 

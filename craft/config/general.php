@@ -14,11 +14,11 @@ return array(
   ),
 
   '.dev' => array(
-    'siteUrl' => 'playbook.octopus.dev',
+    'siteUrl' => 'http://playbook.octopus.dev',
   ),
 
   '.us' => array(
-    'siteUrl' => 'playbook.octop.us',
+    'siteUrl' => 'http://playbook.octop.us',
   ),
 
 );

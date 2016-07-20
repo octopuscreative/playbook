@@ -1,5 +1,6 @@
 * {
   box-sizing: border-box;
+  @extend .tw-book;
 }
 
 h1,
@@ -8,5 +9,12 @@ h3,
 h4,
 p,
 nav a {
+  @extend .tw-book;
+}
+
+
+// Use font-smoothing when we have light type on 
+// a dark background.
+.cbg-black {
   @extend .antialiased;
 }

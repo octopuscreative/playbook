@@ -4,19 +4,6 @@
 
 {% block content %}
 
-  <nav class="mb-5 cbgg-7">
-    <div class="container px-1">
-      {% set linkClasses = 'px-1 py-2' %}
-      {% nav child in category.parent.children %}    
-        {% if craft.request.url != child.url %}
-          <a href="{{ child.url }}" class="cg-3 {{ linkClasses }}">{{ child.title }}</a>
-        {% else %}
-          <a class="c-black {{ linkClasses }}">{{ child.title }}</a>
-        {% endif %}
-      {% endnav %}
-    </div>
-  </nav>
-
   <nav class="container mb-4 px-2">
     <div class="d-inline-block bb-6 pr-4">
       {% set typeLinkClasses = 'd-inline-block px-1 py-1' %}

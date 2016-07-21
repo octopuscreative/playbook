@@ -17,19 +17,25 @@
   <header class="cbg-black">
 
     <nav>
-      <div class="container py-2 px-2">
-        <a href="{{ siteUrl }}">
-          <div class="brand pt-1">
-            <img src="/assets/octopus-brand.svg" />
+      <div class="container py-1 px-2">
+        <div class="flex items-center">
+          <a href="{{ siteUrl }}">
+            <div class="brand pt-1">
+              <img src="/assets/octopus-brand.svg" />
+            </div>
+          </a>
+
+          <div class="item-right">
+            <a href="#" class="relative cg-3 pl-1 pr-3 py-2 ml-2 mr-3">Search <span class="t-1 c-white absolute-right-middle ion-ios-search-strong"></span></a>
+            <a class="tn-1 pl-2 pr-3 py-1 b-1 rounded c-white relative">Development <span class="absolute-right-middle cg-3 ion-android-arrow-dropdown mr-2" style="margin-top: 0.075em;"></span></a>
           </div>
-        </a>
-        {# <h1 class="px-2"><a href="{{ siteUrl }}" class="c-black">Playbook</a> <span class="tn-1 tw-light cg-4">&nbsp;by <a href="http://octop.us" class="cg-4 tw-light">Octopus</a></span></h1> #}
+        </div>
       </div>
     </nav>
 
     <nav class="bb-7" style="white-space: nowrap; overflow: auto;">
-      <div class="container py-1 px-1">
-        <div class="flex items-center">
+      <div class="container py-1 px-2">
+        <div class="flex items-center mln-1">
           {% nav category in craft.categories.group('topics').level(1) %}
             {% if category.descendants.first %}
               {% if craft.request.firstSegment == category.slug or not craft.request.firstSegment %}
@@ -39,9 +45,6 @@
               {% endif %}
             {% endif %}
           {% endnav %}
-          <div class="item-right">
-            <a href="#" class="relative cg-3 pl-1 pr-2 py-2 ml-2">Search <span class="t-1 c-white absolute-right-middle ion-ios-search-strong mrn-1"></span></a>
-          </div>
         </div>
       </div>
     </nav>
@@ -71,8 +74,9 @@
     {% endblock %}
   </main>
 
-  <footer class="absolute-bottom-left wp-100 py-3">
+  <footer class="absolute-bottom-left wp-100 px-2 py-3">
     <div class="container">
+      {# <p class="tn-2 mb-1">Built by <a href="//octop.us" class="cg-2">Octopus</a></p> #}
       <p class="tn-2 cg-4">Version 0.x <span class="mx-1">|</span> <a href="//github.com/octopuscreative/playbook" class="cg-3">Source on Github</a></p>
     </footer>
   </footer>

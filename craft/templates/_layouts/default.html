@@ -29,7 +29,7 @@
 
     <nav class="bb-7" style="white-space: nowrap; overflow: auto;">
       <div class="container py-1 px-1">
-        <div class="flex">
+        <div class="flex items-center">
           {% nav category in craft.categories.group('topics').level(1) %}
             {% if category.descendants.first %}
               {% if craft.request.firstSegment == category.slug or not craft.request.firstSegment %}
@@ -40,7 +40,7 @@
             {% endif %}
           {% endnav %}
           <div class="item-right">
-          <a href="#" class="relative c-white pl-3 pr-1 py-2 ml-2"><span class="t-1 absolute-left-middle ion-ios-search-strong"></span>Search</a>
+            <a href="#" class="relative cg-3 pl-1 pr-2 py-2 ml-2">Search <span class="t-1 c-white absolute-right-middle ion-ios-search-strong mrn-1"></span></a>
           </div>
         </div>
       </div>

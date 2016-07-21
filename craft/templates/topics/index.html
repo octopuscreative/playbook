@@ -3,11 +3,24 @@
 {% set selectedEntryType = craft.request.getQuery('type') %}
 
 {% block content %}
+  
+  <section class="container mb-4 px-2">
+    {% for entry in craft.entries.relatedTo(category).pinned(true) %}
+      <article class="col-md-3 pt-2 mb-4 pb-1">
+        <a href="{{ entry.url }}">
+          <span class="d-inline-block cbgg-7 mr-1 tw-book cg-3 tn-1 mb-2" style="padding: 0.25em 0.5em;">{{ entry.type.name }}</span>
+          <h1 class="t-2 c-black t-md-3 mb-2">{{ entry.title }}</h1>
+          <p class="cg-3 mb-4">{{ entry.body | striptags }}</p>
+          <a class="tw-book">{{ entry.author.fullName }}</a>
+        </a>
+      </article>
+    {% endfor %}
+  </section>
+
 
   <nav class="container mb-4 px-2">
     <div class="d-inline-block bb-6 pr-4">
       {% set typeLinkClasses = 'd-inline-block px-1 py-1' %}
-
 
       <a href="{{ craft.request.url }}" class="{% if selectedEntryType %}cg-3 {% else %}c-black {% endif %}{{ typeLinkClasses }}">All</a>
 
@@ -39,18 +52,17 @@
             </a>
             <p class="tn-1 cg-3">
               {% if not selectedEntryType %}
-                <span class="cbgg-7" style="padding: 0.25em 0.5em;">{{ entry.type.name }}</span>
+                <span class="cbgg-7 mr-1 tw-book " style="padding: 0.25em 0.5em;">{{ entry.type.name }}</span>
               {% endif %}
-              <a style="padding-left: 0.15rem;">{{ entry.author.fullName }}</a>
-              <span class="cg-5 px-1">/</span>
-              <span>{{ entry.dateUpdated|date("M d, Y") }}</span>
+              <a class="tw-book" style="padding-left: 0.15rem;">{{ entry.author.fullName }}</a>
+              <span class="tw-book cg-5 px-1">/</span>
+              <span class="tw-book">{{ entry.dateUpdated|date("M d, Y") }}</span>
             </p>
           </article>
           
         {% endfor %}
 
       {% endif %}
-
     {% endfor %}
 
 

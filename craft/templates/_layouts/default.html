@@ -18,24 +18,31 @@
 
     <nav>
       <div class="container py-2 px-2">
-        <div class="brand pt-1">
-          <img src="/assets/octopus-brand.svg" />
-        </div>
+        <a href="{{ siteUrl }}">
+          <div class="brand pt-1">
+            <img src="/assets/octopus-brand.svg" />
+          </div>
+        </a>
         {# <h1 class="px-2"><a href="{{ siteUrl }}" class="c-black">Playbook</a> <span class="tn-1 tw-light cg-4">&nbsp;by <a href="http://octop.us" class="cg-4 tw-light">Octopus</a></span></h1> #}
       </div>
     </nav>
 
     <nav class="bb-7" style="white-space: nowrap; overflow: auto;">
       <div class="container py-1 px-1">
-        {% nav category in craft.categories.group('topics').level(1) %}
-          {% if category.descendants.first %}
-            {% if craft.request.firstSegment != category.slug %}
-              <a href="{{ category.descendants.first.url }}" class="tw-book d-inline-block px-1 py-2 cg-4">{{ category.title }}</a>
-            {% else %}
-              <a href="{{ category.descendants.first.url }}" class="tw-book d-inline-block px-1 py-2 c-white">{{ category.title }}</a>
+        <div class="flex">
+          {% nav category in craft.categories.group('topics').level(1) %}
+            {% if category.descendants.first %}
+              {% if craft.request.firstSegment == category.slug or not craft.request.firstSegment %}
+                <a href="{{ category.descendants.first.url }}" class="tw-book d-inline-block px-1 py-2 c-white">{{ category.title }}</a>
+              {% else %}
+                <a href="{{ category.descendants.first.url }}" class="tw-book d-inline-block px-1 py-2 cg-4">{{ category.title }}</a>
+              {% endif %}
             {% endif %}
-          {% endif %}
-        {% endnav %}
+          {% endnav %}
+          <div class="item-right">
+          <a href="#" class="relative c-white pl-3 pr-1 py-2 ml-2"><span class="t-1 absolute-left-middle ion-ios-search-strong"></span>Search</a>
+          </div>
+        </div>
       </div>
     </nav>
 
@@ -46,7 +53,7 @@
       <div class="container px-1">
         {% set linkClasses = 'px-1 py-2' %}
         {% nav child in craft.categories.slug(craft.request.firstSegment)[0].children %}
-          {% if craft.request.url != child.url %}
+          {% if craft.request.segments[1] != child.slug %}
             <a href="{{ child.url }}" class="cg-3 {{ linkClasses }}">{{ child.title }}</a>
           {% else %}
             <a class="c-black {{ linkClasses }}">{{ child.title }}</a>
@@ -58,21 +65,22 @@
 
 
   <main>
-
     {% block content %}
       <p>If you see me, you haven’t set your <code>{% verbatim %}{% block content %}…{% endblock %}{% endverbatim %}</code> yet.</p>
       <p>See Twig’s <a href="http://twig.sensiolabs.org/doc/templates.html#template-inheritance">Template Inheritance</a> documentation for an explanation.</p>
     {% endblock %}
   </main>
 
-  <footer class="fixed-bottom-right px-3 py-3">
-    <nav>
-      <a href="/admin/entries/docs/new" id="newPost" class="py-1 px-3 cbg-black c-white rounded">New Entry</a>
-    </nav>
-    {# {% for section in craft.sections.getAllSections()  %}
-      <a href="/admin/entries/{{ section.handle }}/new" id="newPost" class="py-1 px-3 cbgg-6 rounded">New {{ section.name }}</a>
-    {% endfor %} #}
-  </footer>
+  {% if currentUser %}
+    <footer class="fixed-bottom-right px-3 py-3">
+      <nav>
+        <a href="/admin/entries/docs/new" id="newPost" class="c-black hover-scale-target shadow"><span class="t-5 ion-plus-circled"></span></a>
+      </nav>
+      {# {% for section in craft.sections.getAllSections()  %}
+        <a href="/admin/entries/{{ section.handle }}/new" id="newPost" class="py-1 px-3 cbgg-6 rounded">New {{ section.name }}</a>
+      {% endfor %} #}
+    </footer>
+  {% endif %}
 
   {% includeJsFile "/js/main.js" %}
   {% includeJs "require('source/coffee/initialize');" %}

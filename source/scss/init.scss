@@ -15,3 +15,12 @@
 
 @import 'global/base';
 @import 'global/font';
+@import 'global/markdown';
+
+@import 'ionicons/ionicons';
+
+
+// Positon ionicons vertically in the middle.
+[class*="#{$ionicons-prefix}"] {
+  line-height: 0;
+}

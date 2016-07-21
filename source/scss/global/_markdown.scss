@@ -1,0 +1,23 @@
+.markdown {
+
+  p {
+    @extend .mb-3;
+  }
+
+  pre {
+    @extend .wp-100;
+    @extend .p-2;
+    @extend .cbgg-7;
+    @extend .t-0;
+  }
+
+  blockquote {
+    @extend .py-2;
+    @extend .px-2;
+    @extend .mb-2;
+    @extend .bl-thick-6;
+    @extend .t-2;
+    @extend .cg-3;
+  }
+
+}

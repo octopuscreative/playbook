@@ -2,15 +2,25 @@
 
 {% block content %}
 
-  {% if craft.request.urlReferrer %}
-    <nav class="container mt-5 px-2">
-      <a href="{{ craft.request.urlReferrer }}">Back</a>
-    </nav>
-  {% endif %}
+  <nav class="container mt-5 px-2">
+    <a href="{{ entry.category.last.url }}" class="relative"><span class="absolute-left-middle ion-ios-arrow-back mln-2"></span> Back</a>
+  </nav>
 
   <section class="container py-4 px-2">
-    <h1 class="t-2 c-black t-md-3 mb-1">{{ entry.title }}</h1>
+    <div class="col-10">
+      <h1 class="t-2 c-black t-md-3 mb-4">{{ entry.title }}</h1>
 
-    {{ entry.body }}
+      <div class="markdown">
+        {{ entry.body }}
+      </div>
+    </div>
   </section>
+
+  {% for source in entry.source %}
+    <section class="container mt-4 py-4 px-2">
+      <p class="caps tn-3 cg-3 mb-1">Source</p>
+      <a href="{{ source.sourceUrl }}" class="t-0">{{ source.source.first.title }}</a>
+    </section>
+  {% endfor %}
+
 {% endblock %}
